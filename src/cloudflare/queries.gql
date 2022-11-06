@@ -1,0 +1,246 @@
+query fetchZoneAnalytics($zoneTag: string = "", $datetime: Time = "") {
+  viewer {
+    zones(filter: { zoneTag: $zoneTag }) {
+      httpRequests1mGroups(
+        filter: { datetime_geq: $datetime }
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          datetime
+        }
+        sum {
+          browserMap {
+            pageViews
+            uaBrowserFamily
+          }
+          bytes
+          cachedBytes
+          cachedRequests
+          clientHTTPVersionMap {
+            clientHTTPProtocol
+            requests
+          }
+          clientSSLMap {
+            clientSSLProtocol
+            requests
+          }
+          contentTypeMap {
+            bytes
+            edgeResponseContentTypeName
+            requests
+          }
+          countryMap {
+            bytes
+            clientCountryName
+            requests
+            threats
+          }
+          encryptedBytes
+          encryptedRequests
+          ipClassMap {
+            ipType
+            requests
+          }
+          pageViews
+          requests
+          responseStatusMap {
+            edgeResponseStatus
+            requests
+          }
+          threatPathingMap {
+            requests
+            threatPathingName
+          }
+          threats
+        }
+        uniq {
+          uniques
+        }
+      }
+      httpRequestsAdaptiveGroups(
+        filter: { datetime_geq: $datetime }
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        sum {
+          edgeResponseBytes
+          visits
+        }
+        dimensions {
+          datetime
+          clientRequestHTTPHost
+          clientCountryName
+          cacheStatus
+          edgeResponseStatus
+          edgeResponseContentTypeName
+        }
+        count
+      }
+      healthCheckEventsAdaptiveGroups(
+        filter: { datetime_geq: $datetime }
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        sum {
+          healthStatus
+        }
+        dimensions {
+          healthStatus
+          region
+          fqdn
+          datetime
+          rttMs
+        }
+        count
+      }
+      firewallEventsAdaptiveGroups(
+        filter: { datetime_geq: $datetime }
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          source
+          datetime
+          action
+          clientRequestHTTPHost
+          clientCountryName
+        }
+        count
+      }
+    }
+  }
+}
+
+query fetchAccountAnalytics($accountTag: string = "", $datetime: Time = "") {
+  viewer {
+    accounts(filter: { accountTag: $accountTag }) {
+      workersInvocationsAdaptive(
+        filter: { datetime_geq: $datetime }
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          datetime
+          scriptName
+          status
+        }
+        sum {
+          duration
+          errors
+          requests
+        }
+      }
+      r2OperationsAdaptiveGroups(
+        filter: { datetime_geq: $datetime }
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          actionType
+          bucketName
+          datetime
+        }
+        sum {
+          requests
+          responseObjectSize
+        }
+      }
+      r2StorageAdaptiveGroups(
+        filter: { datetime_geq: $datetime }
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          bucketName
+          datetime
+        }
+        max {
+          metadataSize
+          objectCount
+          payloadSize
+          uploadCount
+        }
+      }
+      rumPageloadEventsAdaptiveGroups(
+        filter: { datetime_geq: $datetime }
+        limit: 9999
+      ) {
+        sum {
+          visits
+        }
+        dimensions {
+          countryName
+          date
+          deviceType
+          userAgentOS
+          userAgentBrowser
+          requestHost
+        }
+        count
+      }
+      rumPerformanceEventsAdaptiveGroups(
+        filter: { datetime_geq: $datetime }
+        limit: 9999
+      ) {
+        sum {
+          visits
+        }
+        dimensions {
+          countryName
+          date
+          deviceType
+          requestHost
+        }
+        count
+        avg {
+          connectionTime
+          dnsTime
+          firstContentfulPaint
+          firstPaint
+          loadEventTime
+          pageLoadTime
+          pageRenderTime
+          requestTime
+          responseTime
+          sampleInterval
+        }
+      }
+      rumWebVitalsEventsAdaptiveGroups(
+        filter: { datetime_geq: $datetime }
+        limit: 9999
+      ) {
+        sum {
+          clsGood
+          clsNeedsImprovement
+          clsPoor
+          clsTotal
+          fidGood
+          fidNeedsImprovement
+          fidPoor
+          fidTotal
+          lcpGood
+          lcpNeedsImprovement
+          lcpPoor
+          lcpTotal
+          visits
+        }
+        dimensions {
+          countryName
+          date
+          userAgentBrowser
+          requestHost
+          largestContentfulPaintElement
+          largestContentfulPaintObjectPath
+          largestContentfulPaintObjectHost
+          largestContentfulPaintPath
+          firstInputDelayElement
+          firstInputDelayName
+          firstInputDelayPath
+          deviceType
+          userAgentOS
+        }
+      }
+    }
+  }
+}

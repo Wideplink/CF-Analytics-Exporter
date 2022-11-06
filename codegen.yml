@@ -1,0 +1,46 @@
+overwrite: true
+schema: 
+    - https://api.cloudflare.com/client/v4/graphql:
+        headers:
+            Authorization: Bearer ${CLOUDFLARE_API_TOKEN}
+documents: src/cloudflare/queries.gql
+generates:
+    src/cloudflare/queries.ts:
+        config:
+            defaultScalarType: unknown
+            scalars: 
+                bool: boolean
+                bytes: number
+                float32: number
+                float64: number
+                int64: number
+                string: string
+                uint8: number
+                uint16: number
+                uint32: number
+                uint64: number
+                Time: string
+            
+            avoidOptionals: true
+            enumsAsTypes: true
+            immutableTypes: true
+            noExport: true
+            dedupeOperationSuffix: true
+            mergeFragmentTypes: true
+            onlyOperationTypes: true
+            skipTypename: true
+            skipTypeNameForRoot: true
+            useTypeImports: true
+            dedupeFragments: true
+        plugins:
+            - typescript
+            - typescript-operations
+            - typescript-graphql-request
+            - add:
+                content: /* eslint-disable @typescript-eslint/no-unused-vars */
+        hooks:
+            afterOneFileWrite:
+                - yarn eslint --fix
+    ./graphql_schema.json:
+        plugins:
+            - introspection
