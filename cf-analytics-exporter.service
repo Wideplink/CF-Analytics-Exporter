@@ -1,0 +1,16 @@
+[Unit]
+Description=Cloudflare Analytics Exporter
+Documentation=https://github.com/Wideplink/CF-Analytics-Exporter
+AssertFileIsExecutable=/usr/bin/yarn
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/yarn start
+WorkingDirectory=/home/ubuntu/CF-Analytics-Exporter
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

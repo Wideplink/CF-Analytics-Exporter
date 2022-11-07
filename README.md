@@ -19,3 +19,12 @@ The token should have permissions below:
 3. Copy `.env.example` to `.env` and edit it.
 4. Run `yarn install --immutable` to install dependencies.
 5. Run `yarn start` to start the exporter.
+
+### Run as a service
+
+You can run this exporter as a service.
+
+1. Copy `cf-analytics-exporter.service` to `/etc/systemd/system/`.
+    - Make sure to check `WorkingDirectory`
+2. Run `systemctl daemon-reload`.
+3. Run `systemctl enable cf-analytics-exporter --now`.
