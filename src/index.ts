@@ -299,7 +299,8 @@ async function doTask() {
                     .tag('action', `${event.dimensions?.action}`)
                     .tag('source', `${event.dimensions?.source}`)
                     .tag('country', `${event.dimensions?.clientCountryName}`)
-                    .tag('host', `${event.dimensions?.clientRequestHTTPHost}`),
+                    .tag('host', `${event.dimensions?.clientRequestHTTPHost}`)
+                    .tag('method', `${event.dimensions?.clientRequestHTTPMethodName}`),
             ),
 
             ...healthCheckEventsAdaptiveGroups.map(request =>
