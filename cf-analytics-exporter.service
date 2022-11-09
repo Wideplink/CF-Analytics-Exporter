@@ -6,7 +6,7 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-Type=notify
+Type=simple
 ExecStart=/usr/bin/yarn start
 WorkingDirectory=/home/ubuntu/CF-Analytics-Exporter
 Restart=always
