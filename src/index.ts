@@ -253,11 +253,11 @@ async function doTask() {
                 ) ?? [],
                 newPoint()
                     .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-                    .intField('threats_pageviews_total', request.sum?.pageViews)
+                    .intField('pageviews_total', request.sum?.pageViews)
                     .tag('zone', zoneName),
                 newPoint()
                     .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-                    .intField('threats_uniques_total', request.uniq?.uniques)
+                    .intField('uniques_total', request.uniq?.uniques)
                     .tag('zone', zoneName),
             ]),
 
