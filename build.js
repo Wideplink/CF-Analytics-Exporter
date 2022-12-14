@@ -3,7 +3,6 @@
 import { join } from 'path';
 import { cwd } from 'process';
 import { build } from 'esbuild';
-import { nodeExternalsPlugin } from 'esbuild-node-externals';
 
 build({
     entryPoints: [join(cwd(), 'src', 'index.ts')],
@@ -16,5 +15,5 @@ build({
     platform: 'node',
     sourcemap: 'inline',
     tsconfig: join(cwd(), 'tsconfig.json'),
-    plugins: [nodeExternalsPlugin()],
+    packages: 'external',
 });
