@@ -9,36 +9,36 @@
         "lint": "eslint --fix .",
         "sdk": "yarn dlx @yarnpkg/sdks"
     },
-    "packageManager": "yarn@3.2.4",
+    "packageManager": "yarn@3.3.0",
     "dependencies": {
-        "@influxdata/influxdb-client": "^1.32.0",
+        "@influxdata/influxdb-client": "^1.33.0",
         "cloudflare": "^2.9.1",
         "dotenv": "^16.0.3",
         "graphql-request": "^5.0.0",
         "graphql-tag": "^2.12.6",
-        "luxon": "^3.1.0"
+        "luxon": "^3.1.1"
     },
     "devDependencies": {
-        "@graphql-codegen/add": "^3.2.1",
-        "@graphql-codegen/cli": "2.13.11",
-        "@graphql-codegen/introspection": "2.2.1",
-        "@graphql-codegen/plugin-helpers": "^2.7.2",
-        "@graphql-codegen/typescript": "2.8.1",
+        "@graphql-codegen/add": "^3.2.3",
+        "@graphql-codegen/cli": "2.16.1",
+        "@graphql-codegen/introspection": "2.2.3",
+        "@graphql-codegen/plugin-helpers": "^3.1.1",
+        "@graphql-codegen/typescript": "2.8.5",
         "@graphql-codegen/typescript-graphql-request": "^4.5.8",
-        "@graphql-codegen/typescript-operations": "^2.5.6",
+        "@graphql-codegen/typescript-operations": "^2.5.10",
         "@types/cloudflare": "^2.7.9",
         "@types/luxon": "^3.1.0",
-        "@types/node": "^18.11.9",
-        "@typescript-eslint/eslint-plugin": "^5.42.0",
-        "@typescript-eslint/parser": "^5.42.0",
-        "esbuild": "^0.15.13",
-        "esbuild-node-externals": "^1.5.0",
-        "eslint": "^8.27.0",
+        "@types/node": "^18.11.15",
+        "@typescript-eslint/eslint-plugin": "^5.46.1",
+        "@typescript-eslint/parser": "^5.46.1",
+        "esbuild": "^0.16.5",
+        "esbuild-node-externals": "^1.6.0",
+        "eslint": "^8.29.0",
         "eslint-import-resolver-node": "^0.3.6",
         "eslint-plugin-import": "^2.26.0",
         "graphql": "^16.6.0",
         "nodemon": "^2.0.20",
         "ts-node": "^10.9.1",
-        "typescript": "^4.8.4"
+        "typescript": "^4.9.4"
     }
 }
