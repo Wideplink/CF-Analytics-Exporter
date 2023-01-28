@@ -2,13 +2,13 @@
 import type { GraphQLClient } from 'graphql-request';
 import type * as Dom from 'graphql-request/dist/types.dom';
 import gql from 'graphql-tag';
-export type Maybe<T> = T | null;
-export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+type Maybe<T> = T;
+type InputMaybe<T> = T;
+type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
-export type Scalars = {
+type Scalars = {
   ID: string;
   String: string;
   Boolean: boolean;
@@ -28,7 +28,7 @@ export type Scalars = {
   uint64: number;
 };
 
-export type AccountAccessLoginRequestsAdaptiveGroupsFilter_InputObject = {
+type AccountAccessLoginRequestsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountAccessLoginRequestsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountAccessLoginRequestsAdaptiveGroupsFilter_InputObject>>;
   readonly appId: InputMaybe<Scalars['string']>;
@@ -209,7 +209,7 @@ export type AccountAccessLoginRequestsAdaptiveGroupsFilter_InputObject = {
   readonly userUuid_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountAccessLoginRequestsAdaptiveGroupsOrderBy =
+type AccountAccessLoginRequestsAdaptiveGroupsOrderBy =
   /** appId ascending */
   | 'appId_ASC'
   /** appId descending */
@@ -295,7 +295,7 @@ export type AccountAccessLoginRequestsAdaptiveGroupsOrderBy =
   /** userUuid descending */
   | 'userUuid_DESC';
 
-export type AccountCdnNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
+type AccountCdnNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountCdnNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountCdnNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly coloCity: InputMaybe<Scalars['string']>;
@@ -964,7 +964,7 @@ export type AccountCdnNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
   readonly udpPayloadLength_notin: InputMaybe<ReadonlyArray<Scalars['uint16']>>;
 };
 
-export type AccountCdnNetworkAnalyticsAdaptiveGroupsOrderBy =
+type AccountCdnNetworkAnalyticsAdaptiveGroupsOrderBy =
   /** avg(bitRateDay) ascending */
   | 'avg_bitRateDay_ASC'
   /** avg(bitRateDay) descending */
@@ -1346,7 +1346,7 @@ export type AccountCdnNetworkAnalyticsAdaptiveGroupsOrderBy =
   /** verdict descending */
   | 'verdict_DESC';
 
-export type AccountDosdAttackAnalyticsGroupsFilter_InputObject = {
+type AccountDosdAttackAnalyticsGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountDosdAttackAnalyticsGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountDosdAttackAnalyticsGroupsFilter_InputObject>>;
   readonly attackId: InputMaybe<Scalars['string']>;
@@ -1523,7 +1523,7 @@ export type AccountDosdAttackAnalyticsGroupsFilter_InputObject = {
   readonly tcpFlags_notin: InputMaybe<Scalars['bytes']>;
 };
 
-export type AccountDosdAttackAnalyticsGroupsOrderBy =
+type AccountDosdAttackAnalyticsGroupsOrderBy =
   /** attackId ascending */
   | 'attackId_ASC'
   /** attackId descending */
@@ -1601,7 +1601,7 @@ export type AccountDosdAttackAnalyticsGroupsOrderBy =
   /** tcpFlags descending */
   | 'tcpFlags_DESC';
 
-export type AccountDosdNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
+type AccountDosdNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountDosdNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountDosdNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly attackId: InputMaybe<Scalars['string']>;
@@ -2340,7 +2340,7 @@ export type AccountDosdNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
   readonly verdict_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountDosdNetworkAnalyticsAdaptiveGroupsOrderBy =
+type AccountDosdNetworkAnalyticsAdaptiveGroupsOrderBy =
   /** attackId ascending */
   | 'attackId_ASC'
   /** attackId descending */
@@ -2746,7 +2746,7 @@ export type AccountDosdNetworkAnalyticsAdaptiveGroupsOrderBy =
   /** verdict descending */
   | 'verdict_DESC';
 
-export type AccountDurableObjectsInvocationsAdaptiveGroupsFilter_InputObject = {
+type AccountDurableObjectsInvocationsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountDurableObjectsInvocationsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountDurableObjectsInvocationsAdaptiveGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -2833,7 +2833,7 @@ export type AccountDurableObjectsInvocationsAdaptiveGroupsFilter_InputObject = {
   readonly status_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountDurableObjectsInvocationsAdaptiveGroupsOrderBy =
+type AccountDurableObjectsInvocationsAdaptiveGroupsOrderBy =
   /** avg(sampleInterval) ascending */
   | 'avg_sampleInterval_ASC'
   /** avg(sampleInterval) descending */
@@ -2955,7 +2955,7 @@ export type AccountDurableObjectsInvocationsAdaptiveGroupsOrderBy =
   /** sum(wallTime) descending */
   | 'sum_wallTime_DESC';
 
-export type AccountDurableObjectsPeriodicGroupsFilter_InputObject = {
+type AccountDurableObjectsPeriodicGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountDurableObjectsPeriodicGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountDurableObjectsPeriodicGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -3004,7 +3004,7 @@ export type AccountDurableObjectsPeriodicGroupsFilter_InputObject = {
   readonly objectId_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountDurableObjectsPeriodicGroupsOrderBy =
+type AccountDurableObjectsPeriodicGroupsOrderBy =
   /** date ascending */
   | 'date_ASC'
   /** date descending */
@@ -3074,7 +3074,7 @@ export type AccountDurableObjectsPeriodicGroupsOrderBy =
   /** sum(subrequests) descending */
   | 'sum_subrequests_DESC';
 
-export type AccountDurableObjectsStorageGroupsFilter_InputObject = {
+type AccountDurableObjectsStorageGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountDurableObjectsStorageGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountDurableObjectsStorageGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -3095,7 +3095,7 @@ export type AccountDurableObjectsStorageGroupsFilter_InputObject = {
   readonly datetimeHour_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
 };
 
-export type AccountDurableObjectsStorageGroupsOrderBy =
+type AccountDurableObjectsStorageGroupsOrderBy =
   /** date ascending */
   | 'date_ASC'
   /** date descending */
@@ -3109,7 +3109,7 @@ export type AccountDurableObjectsStorageGroupsOrderBy =
   /** max(storedBytes) descending */
   | 'max_storedBytes_DESC';
 
-export type AccountDurableObjectsSubrequestsAdaptiveGroupsFilter_InputObject = {
+type AccountDurableObjectsSubrequestsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountDurableObjectsSubrequestsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountDurableObjectsSubrequestsAdaptiveGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -3186,7 +3186,7 @@ export type AccountDurableObjectsSubrequestsAdaptiveGroupsFilter_InputObject = {
   readonly scriptName_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountDurableObjectsSubrequestsAdaptiveGroupsOrderBy =
+type AccountDurableObjectsSubrequestsAdaptiveGroupsOrderBy =
   /** date ascending */
   | 'date_ASC'
   /** date descending */
@@ -3224,7 +3224,7 @@ export type AccountDurableObjectsSubrequestsAdaptiveGroupsOrderBy =
   /** sum(requestBodySizeUncached) descending */
   | 'sum_requestBodySizeUncached_DESC';
 
-export type AccountFbmAttackAnalyticsGroupsFilter_InputObject = {
+type AccountFbmAttackAnalyticsGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountFbmAttackAnalyticsGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountFbmAttackAnalyticsGroupsFilter_InputObject>>;
   readonly attackId: InputMaybe<Scalars['string']>;
@@ -3401,7 +3401,7 @@ export type AccountFbmAttackAnalyticsGroupsFilter_InputObject = {
   readonly tcpFlags_notin: InputMaybe<Scalars['bytes']>;
 };
 
-export type AccountFbmAttackAnalyticsGroupsOrderBy =
+type AccountFbmAttackAnalyticsGroupsOrderBy =
   /** attackId ascending */
   | 'attackId_ASC'
   /** attackId descending */
@@ -3479,11 +3479,11 @@ export type AccountFbmAttackAnalyticsGroupsOrderBy =
   /** tcpFlags descending */
   | 'tcpFlags_DESC';
 
-export type AccountFilter_InputObject = {
+type AccountFilter_InputObject = {
   readonly accountTag: Scalars['string'];
 };
 
-export type AccountFirewallEventsAdaptiveFilter_InputObject = {
+type AccountFirewallEventsAdaptiveFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountFirewallEventsAdaptiveFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountFirewallEventsAdaptiveFilter_InputObject>>;
   readonly action: InputMaybe<Scalars['string']>;
@@ -3974,7 +3974,7 @@ export type AccountFirewallEventsAdaptiveFilter_InputObject = {
   readonly wafXssAttackScore_notin: InputMaybe<Scalars['bytes']>;
 };
 
-export type AccountFirewallEventsAdaptiveGroupsFilter_InputObject = {
+type AccountFirewallEventsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountFirewallEventsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountFirewallEventsAdaptiveGroupsFilter_InputObject>>;
   readonly action: InputMaybe<Scalars['string']>;
@@ -4421,7 +4421,7 @@ export type AccountFirewallEventsAdaptiveGroupsFilter_InputObject = {
   readonly wafXssAttackScore_notin: InputMaybe<Scalars['bytes']>;
 };
 
-export type AccountFirewallEventsAdaptiveGroupsOrderBy =
+type AccountFirewallEventsAdaptiveGroupsOrderBy =
   /** action ascending */
   | 'action_ASC'
   /** action descending */
@@ -4627,7 +4627,7 @@ export type AccountFirewallEventsAdaptiveGroupsOrderBy =
   /** wafXssAttackScore descending */
   | 'wafXssAttackScore_DESC';
 
-export type AccountFirewallEventsAdaptiveOrderBy =
+type AccountFirewallEventsAdaptiveOrderBy =
   /** action ascending */
   | 'action_ASC'
   /** action descending */
@@ -4845,7 +4845,7 @@ export type AccountFirewallEventsAdaptiveOrderBy =
   /** wafXssAttackScore descending */
   | 'wafXssAttackScore_DESC';
 
-export type AccountFlowtrackdNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
+type AccountFlowtrackdNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountFlowtrackdNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountFlowtrackdNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly coloCity: InputMaybe<Scalars['string']>;
@@ -5544,7 +5544,7 @@ export type AccountFlowtrackdNetworkAnalyticsAdaptiveGroupsFilter_InputObject = 
   readonly verdict_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountFlowtrackdNetworkAnalyticsAdaptiveGroupsOrderBy =
+type AccountFlowtrackdNetworkAnalyticsAdaptiveGroupsOrderBy =
   /** avg(bitRateDay) ascending */
   | 'avg_bitRateDay_ASC'
   /** avg(bitRateDay) descending */
@@ -5934,7 +5934,7 @@ export type AccountFlowtrackdNetworkAnalyticsAdaptiveGroupsOrderBy =
   /** verdict descending */
   | 'verdict_DESC';
 
-export type AccountGatewayL4DownstreamSessionsAdaptiveGroupsFilter_InputObject = {
+type AccountGatewayL4DownstreamSessionsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountGatewayL4DownstreamSessionsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountGatewayL4DownstreamSessionsAdaptiveGroupsFilter_InputObject>>;
   readonly coloCode: InputMaybe<Scalars['string']>;
@@ -6091,7 +6091,7 @@ export type AccountGatewayL4DownstreamSessionsAdaptiveGroupsFilter_InputObject =
   readonly transport_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountGatewayL4DownstreamSessionsAdaptiveGroupsOrderBy =
+type AccountGatewayL4DownstreamSessionsAdaptiveGroupsOrderBy =
   /** coloCode ascending */
   | 'coloCode_ASC'
   /** coloCode descending */
@@ -6193,7 +6193,7 @@ export type AccountGatewayL4DownstreamSessionsAdaptiveGroupsOrderBy =
   /** transport descending */
   | 'transport_DESC';
 
-export type AccountGatewayL4SessionsAdaptiveGroupsFilter_InputObject = {
+type AccountGatewayL4SessionsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountGatewayL4SessionsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountGatewayL4SessionsAdaptiveGroupsFilter_InputObject>>;
   readonly action: InputMaybe<Scalars['string']>;
@@ -6316,7 +6316,7 @@ export type AccountGatewayL4SessionsAdaptiveGroupsFilter_InputObject = {
   readonly userId_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountGatewayL4SessionsAdaptiveGroupsOrderBy =
+type AccountGatewayL4SessionsAdaptiveGroupsOrderBy =
   /** action ascending */
   | 'action_ASC'
   /** action descending */
@@ -6374,7 +6374,7 @@ export type AccountGatewayL4SessionsAdaptiveGroupsOrderBy =
   /** userId descending */
   | 'userId_DESC';
 
-export type AccountGatewayL4UpstreamSessionsAdaptiveGroupsFilter_InputObject = {
+type AccountGatewayL4UpstreamSessionsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountGatewayL4UpstreamSessionsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountGatewayL4UpstreamSessionsAdaptiveGroupsFilter_InputObject>>;
   readonly coloCode: InputMaybe<Scalars['string']>;
@@ -6541,7 +6541,7 @@ export type AccountGatewayL4UpstreamSessionsAdaptiveGroupsFilter_InputObject = {
   readonly transport_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountGatewayL4UpstreamSessionsAdaptiveGroupsOrderBy =
+type AccountGatewayL4UpstreamSessionsAdaptiveGroupsOrderBy =
   /** coloCode ascending */
   | 'coloCode_ASC'
   /** coloCode descending */
@@ -6659,7 +6659,7 @@ export type AccountGatewayL4UpstreamSessionsAdaptiveGroupsOrderBy =
   /** transport descending */
   | 'transport_DESC';
 
-export type AccountGatewayL7RequestsAdaptiveGroupsFilter_InputObject = {
+type AccountGatewayL7RequestsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountGatewayL7RequestsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountGatewayL7RequestsAdaptiveGroupsFilter_InputObject>>;
   readonly action: InputMaybe<Scalars['string']>;
@@ -6746,7 +6746,7 @@ export type AccountGatewayL7RequestsAdaptiveGroupsFilter_InputObject = {
   readonly userId_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountGatewayL7RequestsAdaptiveGroupsOrderBy =
+type AccountGatewayL7RequestsAdaptiveGroupsOrderBy =
   /** action ascending */
   | 'action_ASC'
   /** action descending */
@@ -6788,7 +6788,7 @@ export type AccountGatewayL7RequestsAdaptiveGroupsOrderBy =
   /** userId descending */
   | 'userId_DESC';
 
-export type AccountGatewayResolverByCategoryAdaptiveGroupsFilter_InputObject = {
+type AccountGatewayResolverByCategoryAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountGatewayResolverByCategoryAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountGatewayResolverByCategoryAdaptiveGroupsFilter_InputObject>>;
   readonly categoryId: InputMaybe<Scalars['uint16']>;
@@ -6843,7 +6843,7 @@ export type AccountGatewayResolverByCategoryAdaptiveGroupsFilter_InputObject = {
   readonly resolverDecision_notin: InputMaybe<ReadonlyArray<Scalars['uint16']>>;
 };
 
-export type AccountGatewayResolverByCategoryAdaptiveGroupsOrderBy =
+type AccountGatewayResolverByCategoryAdaptiveGroupsOrderBy =
   /** categoryId ascending */
   | 'categoryId_ASC'
   /** categoryId descending */
@@ -6873,7 +6873,7 @@ export type AccountGatewayResolverByCategoryAdaptiveGroupsOrderBy =
   /** resolverDecision descending */
   | 'resolverDecision_DESC';
 
-export type AccountGatewayResolverQueriesAdaptiveGroupsFilter_InputObject = {
+type AccountGatewayResolverQueriesAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountGatewayResolverQueriesAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountGatewayResolverQueriesAdaptiveGroupsFilter_InputObject>>;
   readonly categoryIds: InputMaybe<Scalars['string']>;
@@ -6950,7 +6950,7 @@ export type AccountGatewayResolverQueriesAdaptiveGroupsFilter_InputObject = {
   readonly scheduleInfo_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountGatewayResolverQueriesAdaptiveGroupsOrderBy =
+type AccountGatewayResolverQueriesAdaptiveGroupsOrderBy =
   /** categoryIds ascending */
   | 'categoryIds_ASC'
   /** categoryIds descending */
@@ -6988,7 +6988,7 @@ export type AccountGatewayResolverQueriesAdaptiveGroupsOrderBy =
   /** scheduleInfo descending */
   | 'scheduleInfo_DESC';
 
-export type AccountHttpRequests1dGroupsFilter_InputObject = {
+type AccountHttpRequests1dGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountHttpRequests1dGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountHttpRequests1dGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -7001,7 +7001,7 @@ export type AccountHttpRequests1dGroupsFilter_InputObject = {
   readonly date_notin: InputMaybe<ReadonlyArray<Scalars['Date']>>;
 };
 
-export type AccountHttpRequests1dGroupsOrderBy =
+type AccountHttpRequests1dGroupsOrderBy =
   /** avg(bytes) ascending */
   | 'avg_bytes_ASC'
   /** avg(bytes) descending */
@@ -7051,7 +7051,7 @@ export type AccountHttpRequests1dGroupsOrderBy =
   /** uniq(uniques) descending */
   | 'uniq_uniques_DESC';
 
-export type AccountHttpRequests1hGroupsFilter_InputObject = {
+type AccountHttpRequests1hGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountHttpRequests1hGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountHttpRequests1hGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -7072,7 +7072,7 @@ export type AccountHttpRequests1hGroupsFilter_InputObject = {
   readonly datetime_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
 };
 
-export type AccountHttpRequests1hGroupsOrderBy =
+type AccountHttpRequests1hGroupsOrderBy =
   /** avg(bytes) ascending */
   | 'avg_bytes_ASC'
   /** avg(bytes) descending */
@@ -7126,7 +7126,7 @@ export type AccountHttpRequests1hGroupsOrderBy =
   /** uniq(uniques) descending */
   | 'uniq_uniques_DESC';
 
-export type AccountHttpRequests1mGroupsFilter_InputObject = {
+type AccountHttpRequests1mGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountHttpRequests1mGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountHttpRequests1mGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -7195,7 +7195,7 @@ export type AccountHttpRequests1mGroupsFilter_InputObject = {
   readonly datetime_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
 };
 
-export type AccountHttpRequests1mGroupsOrderBy =
+type AccountHttpRequests1mGroupsOrderBy =
   /** avg(bytes) ascending */
   | 'avg_bytes_ASC'
   /** avg(bytes) descending */
@@ -7273,7 +7273,7 @@ export type AccountHttpRequests1mGroupsOrderBy =
   /** uniq(uniques) descending */
   | 'uniq_uniques_DESC';
 
-export type AccountHttpRequestsAdaptiveFilter_InputObject = {
+type AccountHttpRequestsAdaptiveFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountHttpRequestsAdaptiveFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountHttpRequestsAdaptiveFilter_InputObject>>;
   readonly apiGatewayMatchedEndpoint: InputMaybe<Scalars['string']>;
@@ -7730,7 +7730,7 @@ export type AccountHttpRequestsAdaptiveFilter_InputObject = {
   readonly xRequestedWith_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountHttpRequestsAdaptiveGroupsFilter_InputObject = {
+type AccountHttpRequestsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountHttpRequestsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountHttpRequestsAdaptiveGroupsFilter_InputObject>>;
   readonly apiGatewayMatchedEndpoint: InputMaybe<Scalars['string']>;
@@ -8195,7 +8195,7 @@ export type AccountHttpRequestsAdaptiveGroupsFilter_InputObject = {
   readonly xRequestedWith_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountHttpRequestsAdaptiveGroupsOrderBy =
+type AccountHttpRequestsAdaptiveGroupsOrderBy =
   /** apiGatewayMatchedEndpoint ascending */
   | 'apiGatewayMatchedEndpoint_ASC'
   /** apiGatewayMatchedEndpoint descending */
@@ -8425,7 +8425,7 @@ export type AccountHttpRequestsAdaptiveGroupsOrderBy =
   /** xRequestedWith descending */
   | 'xRequestedWith_DESC';
 
-export type AccountHttpRequestsAdaptiveOrderBy =
+type AccountHttpRequestsAdaptiveOrderBy =
   /** apiGatewayMatchedEndpoint ascending */
   | 'apiGatewayMatchedEndpoint_ASC'
   /** apiGatewayMatchedEndpoint descending */
@@ -8623,7 +8623,7 @@ export type AccountHttpRequestsAdaptiveOrderBy =
   /** xRequestedWith descending */
   | 'xRequestedWith_DESC';
 
-export type AccountHttpRequestsOverviewAdaptiveGroupsFilter_InputObject = {
+type AccountHttpRequestsOverviewAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountHttpRequestsOverviewAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountHttpRequestsOverviewAdaptiveGroupsFilter_InputObject>>;
   readonly clientCountryName: InputMaybe<Scalars['string']>;
@@ -8752,7 +8752,7 @@ export type AccountHttpRequestsOverviewAdaptiveGroupsFilter_InputObject = {
   readonly userAgentBrowser_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountHttpRequestsOverviewAdaptiveGroupsOrderBy =
+type AccountHttpRequestsOverviewAdaptiveGroupsOrderBy =
   /** avg(originResponseDurationMs) ascending */
   | 'avg_originResponseDurationMs_ASC'
   /** avg(originResponseDurationMs) descending */
@@ -8870,7 +8870,7 @@ export type AccountHttpRequestsOverviewAdaptiveGroupsOrderBy =
   /** userAgentBrowser descending */
   | 'userAgentBrowser_DESC';
 
-export type AccountImagesRequestsAdaptiveGroupsFilter_InputObject = {
+type AccountImagesRequestsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountImagesRequestsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountImagesRequestsAdaptiveGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -8923,7 +8923,7 @@ export type AccountImagesRequestsAdaptiveGroupsFilter_InputObject = {
   readonly datetime_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
 };
 
-export type AccountImagesRequestsAdaptiveGroupsOrderBy =
+type AccountImagesRequestsAdaptiveGroupsOrderBy =
   /** avg(sampleInterval) ascending */
   | 'avg_sampleInterval_ASC'
   /** avg(sampleInterval) descending */
@@ -8961,7 +8961,7 @@ export type AccountImagesRequestsAdaptiveGroupsOrderBy =
   /** sum(requests) descending */
   | 'sum_requests_DESC';
 
-export type AccountIpFlows1dGroupsFilter_InputObject = {
+type AccountIpFlows1dGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountIpFlows1dGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountIpFlows1dGroupsFilter_InputObject>>;
   readonly attackDestinationIP: InputMaybe<Scalars['string']>;
@@ -9146,7 +9146,7 @@ export type AccountIpFlows1dGroupsFilter_InputObject = {
   readonly ipVersion_notin: InputMaybe<Scalars['bytes']>;
 };
 
-export type AccountIpFlows1dGroupsOrderBy =
+type AccountIpFlows1dGroupsOrderBy =
   /** attackDestinationIP ascending */
   | 'attackDestinationIP_ASC'
   /** attackDestinationIP descending */
@@ -9236,7 +9236,7 @@ export type AccountIpFlows1dGroupsOrderBy =
   /** sum(packets) descending */
   | 'sum_packets_DESC';
 
-export type AccountIpFlows1hGroupsFilter_InputObject = {
+type AccountIpFlows1hGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountIpFlows1hGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountIpFlows1hGroupsFilter_InputObject>>;
   readonly attackDestinationIP: InputMaybe<Scalars['string']>;
@@ -9477,7 +9477,7 @@ export type AccountIpFlows1hGroupsFilter_InputObject = {
   readonly tcpFlags_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountIpFlows1hGroupsOrderBy =
+type AccountIpFlows1hGroupsOrderBy =
   /** attackDestinationIP ascending */
   | 'attackDestinationIP_ASC'
   /** attackDestinationIP descending */
@@ -9591,7 +9591,7 @@ export type AccountIpFlows1hGroupsOrderBy =
   /** tcpFlags descending */
   | 'tcpFlags_DESC';
 
-export type AccountIpFlows1mAttacksGroupsFilter_InputObject = {
+type AccountIpFlows1mAttacksGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountIpFlows1mAttacksGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountIpFlows1mAttacksGroupsFilter_InputObject>>;
   readonly attackDestinationIP: InputMaybe<Scalars['string']>;
@@ -9698,7 +9698,7 @@ export type AccountIpFlows1mAttacksGroupsFilter_InputObject = {
   readonly destinationPort_notin: InputMaybe<ReadonlyArray<Scalars['uint16']>>;
 };
 
-export type AccountIpFlows1mAttacksGroupsOrderBy =
+type AccountIpFlows1mAttacksGroupsOrderBy =
   /** attackDestinationIP ascending */
   | 'attackDestinationIP_ASC'
   /** attackDestinationIP descending */
@@ -9788,7 +9788,7 @@ export type AccountIpFlows1mAttacksGroupsOrderBy =
   /** sum(packets) descending */
   | 'sum_packets_DESC';
 
-export type AccountIpFlows1mGroupsFilter_InputObject = {
+type AccountIpFlows1mGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountIpFlows1mGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountIpFlows1mGroupsFilter_InputObject>>;
   readonly attackDestinationIP: InputMaybe<Scalars['string']>;
@@ -10063,7 +10063,7 @@ export type AccountIpFlows1mGroupsFilter_InputObject = {
   readonly tcpFlags_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountIpFlows1mGroupsOrderBy =
+type AccountIpFlows1mGroupsOrderBy =
   /** attackDestinationIP ascending */
   | 'attackDestinationIP_ASC'
   /** attackDestinationIP descending */
@@ -10225,7 +10225,7 @@ export type AccountIpFlows1mGroupsOrderBy =
   /** tcpFlags descending */
   | 'tcpFlags_DESC';
 
-export type AccountLogpushHealthAdaptiveGroupsFilter_InputObject = {
+type AccountLogpushHealthAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountLogpushHealthAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountLogpushHealthAdaptiveGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -10312,7 +10312,7 @@ export type AccountLogpushHealthAdaptiveGroupsFilter_InputObject = {
   readonly status_notin: InputMaybe<ReadonlyArray<Scalars['uint16']>>;
 };
 
-export type AccountLogpushHealthAdaptiveGroupsOrderBy =
+type AccountLogpushHealthAdaptiveGroupsOrderBy =
   /** avg(sampleInterval) ascending */
   | 'avg_sampleInterval_ASC'
   /** avg(sampleInterval) descending */
@@ -10374,13 +10374,9 @@ export type AccountLogpushHealthAdaptiveGroupsOrderBy =
   /** sum(records) descending */
   | 'sum_records_DESC';
 
-export type AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
-  readonly AND: InputMaybe<
-    ReadonlyArray<AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject>
-  >;
-  readonly OR: InputMaybe<
-    ReadonlyArray<AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject>
-  >;
+type AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
+  readonly AND: InputMaybe<ReadonlyArray<AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
+  readonly OR: InputMaybe<ReadonlyArray<AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly coloCity: InputMaybe<Scalars['string']>;
   readonly coloCity_geq: InputMaybe<Scalars['string']>;
   readonly coloCity_gt: InputMaybe<Scalars['string']>;
@@ -11067,7 +11063,7 @@ export type AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject
   readonly verdict_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsOrderBy =
+type AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsOrderBy =
   /** avg(bitRateDay) ascending */
   | 'avg_bitRateDay_ASC'
   /** avg(bitRateDay) descending */
@@ -11453,7 +11449,7 @@ export type AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsOrderBy =
   /** verdict descending */
   | 'verdict_DESC';
 
-export type AccountMagicFirewallSamplesAdaptiveGroupsFilter_InputObject = {
+type AccountMagicFirewallSamplesAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountMagicFirewallSamplesAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountMagicFirewallSamplesAdaptiveGroupsFilter_InputObject>>;
   readonly datetime: InputMaybe<Scalars['Time']>;
@@ -11484,7 +11480,7 @@ export type AccountMagicFirewallSamplesAdaptiveGroupsFilter_InputObject = {
   readonly ruleId_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountMagicFirewallSamplesAdaptiveGroupsOrderBy =
+type AccountMagicFirewallSamplesAdaptiveGroupsOrderBy =
   /** datetimeFiveMinute ascending */
   | 'datetimeFiveMinute_ASC'
   /** datetimeFiveMinute descending */
@@ -11510,10 +11506,8 @@ export type AccountMagicFirewallSamplesAdaptiveGroupsOrderBy =
   /** system descending */
   | 'system_DESC';
 
-export type AccountMagicTransitNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
-  readonly AND: InputMaybe<
-    ReadonlyArray<AccountMagicTransitNetworkAnalyticsAdaptiveGroupsFilter_InputObject>
-  >;
+type AccountMagicTransitNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
+  readonly AND: InputMaybe<ReadonlyArray<AccountMagicTransitNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountMagicTransitNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly coloCity: InputMaybe<Scalars['string']>;
   readonly coloCity_geq: InputMaybe<Scalars['string']>;
@@ -12181,7 +12175,7 @@ export type AccountMagicTransitNetworkAnalyticsAdaptiveGroupsFilter_InputObject 
   readonly udpPayloadLength_notin: InputMaybe<ReadonlyArray<Scalars['uint16']>>;
 };
 
-export type AccountMagicTransitNetworkAnalyticsAdaptiveGroupsOrderBy =
+type AccountMagicTransitNetworkAnalyticsAdaptiveGroupsOrderBy =
   /** avg(bitRateDay) ascending */
   | 'avg_bitRateDay_ASC'
   /** avg(bitRateDay) descending */
@@ -12563,13 +12557,9 @@ export type AccountMagicTransitNetworkAnalyticsAdaptiveGroupsOrderBy =
   /** verdict descending */
   | 'verdict_DESC';
 
-export type AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject = {
-  readonly AND: InputMaybe<
-    ReadonlyArray<AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject>
-  >;
-  readonly OR: InputMaybe<
-    ReadonlyArray<AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject>
-  >;
+type AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject = {
+  readonly AND: InputMaybe<ReadonlyArray<AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject>>;
+  readonly OR: InputMaybe<ReadonlyArray<AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject>>;
   readonly datetime: InputMaybe<Scalars['Time']>;
   readonly datetimeFifteenMinutes: InputMaybe<Scalars['Time']>;
   readonly datetimeFifteenMinutes_geq: InputMaybe<Scalars['Time']>;
@@ -12700,7 +12690,7 @@ export type AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObjec
   readonly tunnelName_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountMagicTransitTunnelHealthChecksAdaptiveGroupsOrderBy =
+type AccountMagicTransitTunnelHealthChecksAdaptiveGroupsOrderBy =
   /** avg(sampleInterval) ascending */
   | 'avg_sampleInterval_ASC'
   /** avg(sampleInterval) descending */
@@ -12770,7 +12760,7 @@ export type AccountMagicTransitTunnelHealthChecksAdaptiveGroupsOrderBy =
   /** tunnelName descending */
   | 'tunnelName_DESC';
 
-export type AccountMagicTransitTunnelTrafficAdaptiveGroupsFilter_InputObject = {
+type AccountMagicTransitTunnelTrafficAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountMagicTransitTunnelTrafficAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountMagicTransitTunnelTrafficAdaptiveGroupsFilter_InputObject>>;
   readonly datetime: InputMaybe<Scalars['Time']>;
@@ -12887,7 +12877,7 @@ export type AccountMagicTransitTunnelTrafficAdaptiveGroupsFilter_InputObject = {
   readonly tunnelName_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountMagicTransitTunnelTrafficAdaptiveGroupsOrderBy =
+type AccountMagicTransitTunnelTrafficAdaptiveGroupsOrderBy =
   /** avg(bitRateFifteenMinutes) ascending */
   | 'avg_bitRateFifteenMinutes_ASC'
   /** avg(bitRateFifteenMinutes) descending */
@@ -12953,7 +12943,7 @@ export type AccountMagicTransitTunnelTrafficAdaptiveGroupsOrderBy =
   /** tunnelName descending */
   | 'tunnelName_DESC';
 
-export type AccountMnmFlowDataAdaptiveGroupsFilter_InputObject = {
+type AccountMnmFlowDataAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountMnmFlowDataAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountMnmFlowDataAdaptiveGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -13112,7 +13102,7 @@ export type AccountMnmFlowDataAdaptiveGroupsFilter_InputObject = {
   readonly version_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
 };
 
-export type AccountMnmFlowDataAdaptiveGroupsOrderBy =
+type AccountMnmFlowDataAdaptiveGroupsOrderBy =
   /** avg(bitRateDay) ascending */
   | 'avg_bitRateDay_ASC'
   /** avg(bitRateDay) descending */
@@ -13254,7 +13244,7 @@ export type AccountMnmFlowDataAdaptiveGroupsOrderBy =
   /** version descending */
   | 'version_DESC';
 
-export type AccountNelReportsAdaptiveGroupsFilter_InputObject = {
+type AccountNelReportsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountNelReportsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountNelReportsAdaptiveGroupsFilter_InputObject>>;
   readonly clientIPASN: InputMaybe<Scalars['uint32']>;
@@ -13401,7 +13391,7 @@ export type AccountNelReportsAdaptiveGroupsFilter_InputObject = {
   readonly type_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountNelReportsAdaptiveGroupsOrderBy =
+type AccountNelReportsAdaptiveGroupsOrderBy =
   /** avg(sampleInterval) ascending */
   | 'avg_sampleInterval_ASC'
   /** avg(sampleInterval) descending */
@@ -13475,7 +13465,7 @@ export type AccountNelReportsAdaptiveGroupsOrderBy =
   /** type descending */
   | 'type_DESC';
 
-export type AccountPagesFunctionsInvocationsAdaptiveGroupsFilter_InputObject = {
+type AccountPagesFunctionsInvocationsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountPagesFunctionsInvocationsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountPagesFunctionsInvocationsAdaptiveGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -13542,7 +13532,7 @@ export type AccountPagesFunctionsInvocationsAdaptiveGroupsFilter_InputObject = {
   readonly usageModel_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountPagesFunctionsInvocationsAdaptiveGroupsOrderBy =
+type AccountPagesFunctionsInvocationsAdaptiveGroupsOrderBy =
   /** avg(sampleInterval) ascending */
   | 'avg_sampleInterval_ASC'
   /** avg(sampleInterval) descending */
@@ -13636,7 +13626,7 @@ export type AccountPagesFunctionsInvocationsAdaptiveGroupsOrderBy =
   /** usageModel descending */
   | 'usageModel_DESC';
 
-export type AccountQueueBacklogAdaptiveGroupsFilter_InputObject = {
+type AccountQueueBacklogAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountQueueBacklogAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountQueueBacklogAdaptiveGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -13683,7 +13673,7 @@ export type AccountQueueBacklogAdaptiveGroupsFilter_InputObject = {
   readonly queueId_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountQueueBacklogAdaptiveGroupsOrderBy =
+type AccountQueueBacklogAdaptiveGroupsOrderBy =
   /** avg(bytes) ascending */
   | 'avg_bytes_ASC'
   /** avg(bytes) descending */
@@ -13717,7 +13707,7 @@ export type AccountQueueBacklogAdaptiveGroupsOrderBy =
   /** queueId descending */
   | 'queueId_DESC';
 
-export type AccountQueueMessageOperationsAdaptiveGroupsFilter_InputObject = {
+type AccountQueueMessageOperationsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountQueueMessageOperationsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountQueueMessageOperationsAdaptiveGroupsFilter_InputObject>>;
   readonly actionType: InputMaybe<Scalars['string']>;
@@ -13784,7 +13774,7 @@ export type AccountQueueMessageOperationsAdaptiveGroupsFilter_InputObject = {
   readonly queueId_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountQueueMessageOperationsAdaptiveGroupsOrderBy =
+type AccountQueueMessageOperationsAdaptiveGroupsOrderBy =
   /** actionType ascending */
   | 'actionType_ASC'
   /** actionType descending */
@@ -13842,7 +13832,7 @@ export type AccountQueueMessageOperationsAdaptiveGroupsOrderBy =
   /** sum(bytes) descending */
   | 'sum_bytes_DESC';
 
-export type AccountR2OperationsAdaptiveGroupsFilter_InputObject = {
+type AccountR2OperationsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountR2OperationsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountR2OperationsAdaptiveGroupsFilter_InputObject>>;
   readonly actionStatus: InputMaybe<Scalars['string']>;
@@ -13927,7 +13917,7 @@ export type AccountR2OperationsAdaptiveGroupsFilter_InputObject = {
   readonly responseStatusCode_notin: InputMaybe<ReadonlyArray<Scalars['uint16']>>;
 };
 
-export type AccountR2OperationsAdaptiveGroupsOrderBy =
+type AccountR2OperationsAdaptiveGroupsOrderBy =
   /** actionStatus ascending */
   | 'actionStatus_ASC'
   /** actionStatus descending */
@@ -13973,7 +13963,7 @@ export type AccountR2OperationsAdaptiveGroupsOrderBy =
   /** sum(responseObjectSize) descending */
   | 'sum_responseObjectSize_DESC';
 
-export type AccountR2StorageAdaptiveGroupsFilter_InputObject = {
+type AccountR2StorageAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountR2StorageAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountR2StorageAdaptiveGroupsFilter_InputObject>>;
   readonly bucketName: InputMaybe<Scalars['string']>;
@@ -14020,7 +14010,7 @@ export type AccountR2StorageAdaptiveGroupsFilter_InputObject = {
   readonly datetime_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
 };
 
-export type AccountR2StorageAdaptiveGroupsOrderBy =
+type AccountR2StorageAdaptiveGroupsOrderBy =
   /** bucketName ascending */
   | 'bucketName_ASC'
   /** bucketName descending */
@@ -14058,7 +14048,7 @@ export type AccountR2StorageAdaptiveGroupsOrderBy =
   /** max(uploadCount) descending */
   | 'max_uploadCount_DESC';
 
-export type AccountRumPageloadEventsAdaptiveGroupsFilter_InputObject = {
+type AccountRumPageloadEventsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountRumPageloadEventsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountRumPageloadEventsAdaptiveGroupsFilter_InputObject>>;
   readonly countryName: InputMaybe<Scalars['string']>;
@@ -14239,7 +14229,7 @@ export type AccountRumPageloadEventsAdaptiveGroupsFilter_InputObject = {
   readonly userAgentOS_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountRumPageloadEventsAdaptiveGroupsOrderBy =
+type AccountRumPageloadEventsAdaptiveGroupsOrderBy =
   /** avg(sampleInterval) ascending */
   | 'avg_sampleInterval_ASC'
   /** avg(sampleInterval) descending */
@@ -14325,7 +14315,7 @@ export type AccountRumPageloadEventsAdaptiveGroupsOrderBy =
   /** userAgentOS descending */
   | 'userAgentOS_DESC';
 
-export type AccountRumPerformanceEventsAdaptiveGroupsFilter_InputObject = {
+type AccountRumPerformanceEventsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountRumPerformanceEventsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountRumPerformanceEventsAdaptiveGroupsFilter_InputObject>>;
   readonly countryName: InputMaybe<Scalars['string']>;
@@ -14506,7 +14496,7 @@ export type AccountRumPerformanceEventsAdaptiveGroupsFilter_InputObject = {
   readonly userAgentOS_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountRumPerformanceEventsAdaptiveGroupsOrderBy =
+type AccountRumPerformanceEventsAdaptiveGroupsOrderBy =
   /** avg(connectionTime) ascending */
   | 'avg_connectionTime_ASC'
   /** avg(connectionTime) descending */
@@ -14772,7 +14762,7 @@ export type AccountRumPerformanceEventsAdaptiveGroupsOrderBy =
   /** userAgentOS descending */
   | 'userAgentOS_DESC';
 
-export type AccountRumWebVitalsEventsAdaptiveFilter_InputObject = {
+type AccountRumWebVitalsEventsAdaptiveFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountRumWebVitalsEventsAdaptiveFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountRumWebVitalsEventsAdaptiveFilter_InputObject>>;
   readonly countryName: InputMaybe<Scalars['string']>;
@@ -15009,7 +14999,7 @@ export type AccountRumWebVitalsEventsAdaptiveFilter_InputObject = {
   readonly userAgentOS_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountRumWebVitalsEventsAdaptiveGroupsFilter_InputObject = {
+type AccountRumWebVitalsEventsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountRumWebVitalsEventsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountRumWebVitalsEventsAdaptiveGroupsFilter_InputObject>>;
   readonly countryName: InputMaybe<Scalars['string']>;
@@ -15314,7 +15304,7 @@ export type AccountRumWebVitalsEventsAdaptiveGroupsFilter_InputObject = {
   readonly userAgentOS_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountRumWebVitalsEventsAdaptiveGroupsOrderBy =
+type AccountRumWebVitalsEventsAdaptiveGroupsOrderBy =
   /** avg(cumulativeLayoutShift) ascending */
   | 'avg_cumulativeLayoutShift_ASC'
   /** avg(cumulativeLayoutShift) descending */
@@ -15656,7 +15646,7 @@ export type AccountRumWebVitalsEventsAdaptiveGroupsOrderBy =
   /** userAgentOS descending */
   | 'userAgentOS_DESC';
 
-export type AccountRumWebVitalsEventsAdaptiveOrderBy =
+type AccountRumWebVitalsEventsAdaptiveOrderBy =
   /** countryName ascending */
   | 'countryName_ASC'
   /** countryName descending */
@@ -15758,7 +15748,7 @@ export type AccountRumWebVitalsEventsAdaptiveOrderBy =
   /** userAgentOS descending */
   | 'userAgentOS_DESC';
 
-export type AccountSpectrumNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
+type AccountSpectrumNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountSpectrumNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountSpectrumNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly coloCity: InputMaybe<Scalars['string']>;
@@ -16427,7 +16417,7 @@ export type AccountSpectrumNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
   readonly udpPayloadLength_notin: InputMaybe<ReadonlyArray<Scalars['uint16']>>;
 };
 
-export type AccountSpectrumNetworkAnalyticsAdaptiveGroupsOrderBy =
+type AccountSpectrumNetworkAnalyticsAdaptiveGroupsOrderBy =
   /** avg(bitRateDay) ascending */
   | 'avg_bitRateDay_ASC'
   /** avg(bitRateDay) descending */
@@ -16809,7 +16799,7 @@ export type AccountSpectrumNetworkAnalyticsAdaptiveGroupsOrderBy =
   /** verdict descending */
   | 'verdict_DESC';
 
-export type AccountStorageTracesFilter_InputObject = {
+type AccountStorageTracesFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountStorageTracesFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountStorageTracesFilter_InputObject>>;
   readonly containerId: InputMaybe<Scalars['string']>;
@@ -16872,7 +16862,7 @@ export type AccountStorageTracesFilter_InputObject = {
   readonly userAccountId_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountStorageTracesOrderBy =
+type AccountStorageTracesOrderBy =
   /** containerId ascending */
   | 'containerId_ASC'
   /** containerId descending */
@@ -16898,7 +16888,7 @@ export type AccountStorageTracesOrderBy =
   /** userAccountId descending */
   | 'userAccountId_DESC';
 
-export type AccountStreamMinutesViewedAdaptiveGroupsFilter_InputObject = {
+type AccountStreamMinutesViewedAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountStreamMinutesViewedAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountStreamMinutesViewedAdaptiveGroupsFilter_InputObject>>;
   readonly clientCountryName: InputMaybe<Scalars['string']>;
@@ -16991,7 +16981,7 @@ export type AccountStreamMinutesViewedAdaptiveGroupsFilter_InputObject = {
   readonly uid_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountStreamMinutesViewedAdaptiveGroupsOrderBy =
+type AccountStreamMinutesViewedAdaptiveGroupsOrderBy =
   /** clientCountryName ascending */
   | 'clientCountryName_ASC'
   /** clientCountryName descending */
@@ -17041,7 +17031,7 @@ export type AccountStreamMinutesViewedAdaptiveGroupsOrderBy =
   /** uid descending */
   | 'uid_DESC';
 
-export type AccountTurnstileAdaptiveGroupsFilter_InputObject = {
+type AccountTurnstileAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountTurnstileAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountTurnstileAdaptiveGroupsFilter_InputObject>>;
   readonly action: InputMaybe<Scalars['string']>;
@@ -17140,7 +17130,7 @@ export type AccountTurnstileAdaptiveGroupsFilter_InputObject = {
   readonly siteKey_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountTurnstileAdaptiveGroupsOrderBy =
+type AccountTurnstileAdaptiveGroupsOrderBy =
   /** action ascending */
   | 'action_ASC'
   /** action descending */
@@ -17194,7 +17184,7 @@ export type AccountTurnstileAdaptiveGroupsOrderBy =
   /** siteKey descending */
   | 'siteKey_DESC';
 
-export type AccountVideoBufferEventsAdaptiveGroupsFilter_InputObject = {
+type AccountVideoBufferEventsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountVideoBufferEventsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountVideoBufferEventsAdaptiveGroupsFilter_InputObject>>;
   readonly clientCountryName: InputMaybe<Scalars['string']>;
@@ -17305,7 +17295,7 @@ export type AccountVideoBufferEventsAdaptiveGroupsFilter_InputObject = {
   readonly uid_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountVideoBufferEventsAdaptiveGroupsOrderBy =
+type AccountVideoBufferEventsAdaptiveGroupsOrderBy =
   /** avg(sampleInterval) ascending */
   | 'avg_sampleInterval_ASC'
   /** avg(sampleInterval) descending */
@@ -17367,7 +17357,7 @@ export type AccountVideoBufferEventsAdaptiveGroupsOrderBy =
   /** uid descending */
   | 'uid_DESC';
 
-export type AccountVideoPlaybackEventsAdaptiveGroupsFilter_InputObject = {
+type AccountVideoPlaybackEventsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountVideoPlaybackEventsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountVideoPlaybackEventsAdaptiveGroupsFilter_InputObject>>;
   readonly clientCountryName: InputMaybe<Scalars['string']>;
@@ -17478,7 +17468,7 @@ export type AccountVideoPlaybackEventsAdaptiveGroupsFilter_InputObject = {
   readonly uid_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountVideoPlaybackEventsAdaptiveGroupsOrderBy =
+type AccountVideoPlaybackEventsAdaptiveGroupsOrderBy =
   /** avg(sampleInterval) ascending */
   | 'avg_sampleInterval_ASC'
   /** avg(sampleInterval) descending */
@@ -17540,7 +17530,7 @@ export type AccountVideoPlaybackEventsAdaptiveGroupsOrderBy =
   /** uid descending */
   | 'uid_DESC';
 
-export type AccountVideoQualityEventsAdaptiveGroupsFilter_InputObject = {
+type AccountVideoQualityEventsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountVideoQualityEventsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountVideoQualityEventsAdaptiveGroupsFilter_InputObject>>;
   readonly clientCountryName: InputMaybe<Scalars['string']>;
@@ -17659,7 +17649,7 @@ export type AccountVideoQualityEventsAdaptiveGroupsFilter_InputObject = {
   readonly uid_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountVideoQualityEventsAdaptiveGroupsOrderBy =
+type AccountVideoQualityEventsAdaptiveGroupsOrderBy =
   /** avg(sampleInterval) ascending */
   | 'avg_sampleInterval_ASC'
   /** avg(sampleInterval) descending */
@@ -17725,7 +17715,7 @@ export type AccountVideoQualityEventsAdaptiveGroupsOrderBy =
   /** uid descending */
   | 'uid_DESC';
 
-export type AccountWorkersAnalyticsEngineAdaptiveGroupsFilter_InputObject = {
+type AccountWorkersAnalyticsEngineAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountWorkersAnalyticsEngineAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountWorkersAnalyticsEngineAdaptiveGroupsFilter_InputObject>>;
   readonly dataset: InputMaybe<Scalars['string']>;
@@ -17788,7 +17778,7 @@ export type AccountWorkersAnalyticsEngineAdaptiveGroupsFilter_InputObject = {
   readonly datetime_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
 };
 
-export type AccountWorkersAnalyticsEngineAdaptiveGroupsOrderBy =
+type AccountWorkersAnalyticsEngineAdaptiveGroupsOrderBy =
   /** count() ascending */
   | 'count_ASC'
   /** count() descending */
@@ -17822,7 +17812,7 @@ export type AccountWorkersAnalyticsEngineAdaptiveGroupsOrderBy =
   /** datetime descending */
   | 'datetime_DESC';
 
-export type AccountWorkersInvocationsAdaptiveFilter_InputObject = {
+type AccountWorkersInvocationsAdaptiveFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountWorkersInvocationsAdaptiveFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountWorkersInvocationsAdaptiveFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -17919,7 +17909,7 @@ export type AccountWorkersInvocationsAdaptiveFilter_InputObject = {
   readonly usageModel_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountWorkersInvocationsAdaptiveOrderBy =
+type AccountWorkersInvocationsAdaptiveOrderBy =
   /** avg(sampleInterval) ascending */
   | 'avg_sampleInterval_ASC'
   /** avg(sampleInterval) descending */
@@ -18125,7 +18115,7 @@ export type AccountWorkersInvocationsAdaptiveOrderBy =
   /** usageModel descending */
   | 'usageModel_DESC';
 
-export type AccountWorkersInvocationsScheduledFilter_InputObject = {
+type AccountWorkersInvocationsScheduledFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountWorkersInvocationsScheduledFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountWorkersInvocationsScheduledFilter_InputObject>>;
   readonly cpuTimeUs: InputMaybe<Scalars['uint32']>;
@@ -18194,7 +18184,7 @@ export type AccountWorkersInvocationsScheduledFilter_InputObject = {
   readonly status_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountWorkersInvocationsScheduledOrderBy =
+type AccountWorkersInvocationsScheduledOrderBy =
   /** cpuTimeUs ascending */
   | 'cpuTimeUs_ASC'
   /** cpuTimeUs descending */
@@ -18224,7 +18214,7 @@ export type AccountWorkersInvocationsScheduledOrderBy =
   /** status descending */
   | 'status_DESC';
 
-export type AccountWorkersSubrequestsAdaptiveGroupsFilter_InputObject = {
+type AccountWorkersSubrequestsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountWorkersSubrequestsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountWorkersSubrequestsAdaptiveGroupsFilter_InputObject>>;
   readonly cacheStatus: InputMaybe<Scalars['uint64']>;
@@ -18299,7 +18289,7 @@ export type AccountWorkersSubrequestsAdaptiveGroupsFilter_InputObject = {
   readonly usageModel_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountWorkersSubrequestsAdaptiveGroupsOrderBy =
+type AccountWorkersSubrequestsAdaptiveGroupsOrderBy =
   /** cacheStatus ascending */
   | 'cacheStatus_ASC'
   /** cacheStatus descending */
@@ -18349,7 +18339,7 @@ export type AccountWorkersSubrequestsAdaptiveGroupsOrderBy =
   /** usageModel descending */
   | 'usageModel_DESC';
 
-export type AccountZeroTrustPrivateNetworkDiscoveryGroupsFilter_InputObject = {
+type AccountZeroTrustPrivateNetworkDiscoveryGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountZeroTrustPrivateNetworkDiscoveryGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountZeroTrustPrivateNetworkDiscoveryGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -18448,7 +18438,7 @@ export type AccountZeroTrustPrivateNetworkDiscoveryGroupsFilter_InputObject = {
   readonly userId_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type AccountZeroTrustPrivateNetworkDiscoveryGroupsOrderBy =
+type AccountZeroTrustPrivateNetworkDiscoveryGroupsOrderBy =
   /** count() ascending */
   | 'count_ASC'
   /** count() descending */
@@ -18510,7 +18500,7 @@ export type AccountZeroTrustPrivateNetworkDiscoveryGroupsOrderBy =
   /** userId descending */
   | 'userId_DESC';
 
-export type ZoneApiRequestSequencesGroupsFilter_InputObject = {
+type ZoneApiRequestSequencesGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneApiRequestSequencesGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneApiRequestSequencesGroupsFilter_InputObject>>;
   readonly clientRequestHTTPHost: InputMaybe<Scalars['string']>;
@@ -18541,7 +18531,7 @@ export type ZoneApiRequestSequencesGroupsFilter_InputObject = {
   readonly rank_notin: InputMaybe<ReadonlyArray<Scalars['uint16']>>;
 };
 
-export type ZoneApiRequestSequencesGroupsOrderBy =
+type ZoneApiRequestSequencesGroupsOrderBy =
   /** aggArgMax(correlation) ascending */
   | 'aggArgMax_correlation_ASC'
   /** aggArgMax(correlation) descending */
@@ -18579,7 +18569,7 @@ export type ZoneApiRequestSequencesGroupsOrderBy =
   /** rank descending */
   | 'rank_DESC';
 
-export type ZoneCacheReserveOperationsAdaptiveGroupsFilter_InputObject = {
+type ZoneCacheReserveOperationsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneCacheReserveOperationsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneCacheReserveOperationsAdaptiveGroupsFilter_InputObject>>;
   readonly actionStatus: InputMaybe<Scalars['string']>;
@@ -18646,7 +18636,7 @@ export type ZoneCacheReserveOperationsAdaptiveGroupsFilter_InputObject = {
   readonly operationClass_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneCacheReserveOperationsAdaptiveGroupsOrderBy =
+type ZoneCacheReserveOperationsAdaptiveGroupsOrderBy =
   /** actionStatus ascending */
   | 'actionStatus_ASC'
   /** actionStatus descending */
@@ -18680,7 +18670,7 @@ export type ZoneCacheReserveOperationsAdaptiveGroupsOrderBy =
   /** sum(requests) descending */
   | 'sum_requests_DESC';
 
-export type ZoneCacheReserveStorageAdaptiveGroupsFilter_InputObject = {
+type ZoneCacheReserveStorageAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneCacheReserveStorageAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneCacheReserveStorageAdaptiveGroupsFilter_InputObject>>;
   readonly bucketHash: InputMaybe<Scalars['string']>;
@@ -18737,7 +18727,7 @@ export type ZoneCacheReserveStorageAdaptiveGroupsFilter_InputObject = {
   readonly datetime_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
 };
 
-export type ZoneCacheReserveStorageAdaptiveGroupsOrderBy =
+type ZoneCacheReserveStorageAdaptiveGroupsOrderBy =
   /** bucketHash ascending */
   | 'bucketHash_ASC'
   /** bucketHash descending */
@@ -18767,7 +18757,7 @@ export type ZoneCacheReserveStorageAdaptiveGroupsOrderBy =
   /** max(storedBytes) descending */
   | 'max_storedBytes_DESC';
 
-export type ZoneEmailRoutingAdaptiveFilter_InputObject = {
+type ZoneEmailRoutingAdaptiveFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneEmailRoutingAdaptiveFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneEmailRoutingAdaptiveFilter_InputObject>>;
   readonly datetime: InputMaybe<Scalars['Time']>;
@@ -18906,7 +18896,7 @@ export type ZoneEmailRoutingAdaptiveFilter_InputObject = {
   readonly to_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneEmailRoutingAdaptiveGroupsFilter_InputObject = {
+type ZoneEmailRoutingAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneEmailRoutingAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneEmailRoutingAdaptiveGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -19017,7 +19007,7 @@ export type ZoneEmailRoutingAdaptiveGroupsFilter_InputObject = {
   readonly status_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneEmailRoutingAdaptiveGroupsOrderBy =
+type ZoneEmailRoutingAdaptiveGroupsOrderBy =
   /** count() ascending */
   | 'count_ASC'
   /** count() descending */
@@ -19071,7 +19061,7 @@ export type ZoneEmailRoutingAdaptiveGroupsOrderBy =
   /** status descending */
   | 'status_DESC';
 
-export type ZoneEmailRoutingAdaptiveOrderBy =
+type ZoneEmailRoutingAdaptiveOrderBy =
   /** datetime ascending */
   | 'datetime_ASC'
   /** datetime descending */
@@ -19129,13 +19119,13 @@ export type ZoneEmailRoutingAdaptiveOrderBy =
   /** to descending */
   | 'to_DESC';
 
-export type ZoneFilter_InputObject = {
+type ZoneFilter_InputObject = {
   readonly zoneTag: InputMaybe<Scalars['string']>;
   readonly zoneTag_gt: InputMaybe<Scalars['string']>;
   readonly zoneTag_in: InputMaybe<ReadonlyArray<Scalars['string']>>;
 };
 
-export type ZoneFirewallEventsAdaptiveByTimeGroupsFilter_InputObject = {
+type ZoneFirewallEventsAdaptiveByTimeGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneFirewallEventsAdaptiveByTimeGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneFirewallEventsAdaptiveByTimeGroupsFilter_InputObject>>;
   readonly action: InputMaybe<Scalars['string']>;
@@ -19582,7 +19572,7 @@ export type ZoneFirewallEventsAdaptiveByTimeGroupsFilter_InputObject = {
   readonly wafXssAttackScore_notin: InputMaybe<Scalars['bytes']>;
 };
 
-export type ZoneFirewallEventsAdaptiveByTimeGroupsOrderBy =
+type ZoneFirewallEventsAdaptiveByTimeGroupsOrderBy =
   /** apiGatewayMatchedEndpoint ascending */
   | 'apiGatewayMatchedEndpoint_ASC'
   /** apiGatewayMatchedEndpoint descending */
@@ -19672,7 +19662,7 @@ export type ZoneFirewallEventsAdaptiveByTimeGroupsOrderBy =
   /** wafXssAttackScore descending */
   | 'wafXssAttackScore_DESC';
 
-export type ZoneFirewallEventsAdaptiveFilter_InputObject = {
+type ZoneFirewallEventsAdaptiveFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneFirewallEventsAdaptiveFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneFirewallEventsAdaptiveFilter_InputObject>>;
   readonly action: InputMaybe<Scalars['string']>;
@@ -20163,7 +20153,7 @@ export type ZoneFirewallEventsAdaptiveFilter_InputObject = {
   readonly wafXssAttackScore_notin: InputMaybe<Scalars['bytes']>;
 };
 
-export type ZoneFirewallEventsAdaptiveGroupsFilter_InputObject = {
+type ZoneFirewallEventsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneFirewallEventsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneFirewallEventsAdaptiveGroupsFilter_InputObject>>;
   readonly action: InputMaybe<Scalars['string']>;
@@ -20610,7 +20600,7 @@ export type ZoneFirewallEventsAdaptiveGroupsFilter_InputObject = {
   readonly wafXssAttackScore_notin: InputMaybe<Scalars['bytes']>;
 };
 
-export type ZoneFirewallEventsAdaptiveGroupsOrderBy =
+type ZoneFirewallEventsAdaptiveGroupsOrderBy =
   /** action ascending */
   | 'action_ASC'
   /** action descending */
@@ -20816,7 +20806,7 @@ export type ZoneFirewallEventsAdaptiveGroupsOrderBy =
   /** wafXssAttackScore descending */
   | 'wafXssAttackScore_DESC';
 
-export type ZoneFirewallEventsAdaptiveOrderBy =
+type ZoneFirewallEventsAdaptiveOrderBy =
   /** action ascending */
   | 'action_ASC'
   /** action descending */
@@ -21034,7 +21024,7 @@ export type ZoneFirewallEventsAdaptiveOrderBy =
   /** wafXssAttackScore descending */
   | 'wafXssAttackScore_DESC';
 
-export type ZoneHealthCheckEventsAdaptiveFilter_InputObject = {
+type ZoneHealthCheckEventsAdaptiveFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneHealthCheckEventsAdaptiveFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneHealthCheckEventsAdaptiveFilter_InputObject>>;
   readonly datetime: InputMaybe<Scalars['Time']>;
@@ -21203,7 +21193,7 @@ export type ZoneHealthCheckEventsAdaptiveFilter_InputObject = {
   readonly tlsHandshakeMs_notin: InputMaybe<ReadonlyArray<Scalars['uint32']>>;
 };
 
-export type ZoneHealthCheckEventsAdaptiveGroupsFilter_InputObject = {
+type ZoneHealthCheckEventsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneHealthCheckEventsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneHealthCheckEventsAdaptiveGroupsFilter_InputObject>>;
   readonly datetime: InputMaybe<Scalars['Time']>;
@@ -21384,7 +21374,7 @@ export type ZoneHealthCheckEventsAdaptiveGroupsFilter_InputObject = {
   readonly tlsHandshakeMs_notin: InputMaybe<ReadonlyArray<Scalars['uint32']>>;
 };
 
-export type ZoneHealthCheckEventsAdaptiveGroupsOrderBy =
+type ZoneHealthCheckEventsAdaptiveGroupsOrderBy =
   /** avg(rttMs) ascending */
   | 'avg_rttMs_ASC'
   /** avg(rttMs) descending */
@@ -21494,7 +21484,7 @@ export type ZoneHealthCheckEventsAdaptiveGroupsOrderBy =
   /** tlsHandshakeMs descending */
   | 'tlsHandshakeMs_DESC';
 
-export type ZoneHealthCheckEventsAdaptiveOrderBy =
+type ZoneHealthCheckEventsAdaptiveOrderBy =
   /** datetime ascending */
   | 'datetime_ASC'
   /** datetime descending */
@@ -21568,7 +21558,7 @@ export type ZoneHealthCheckEventsAdaptiveOrderBy =
   /** tlsHandshakeMs descending */
   | 'tlsHandshakeMs_DESC';
 
-export type ZoneHttpRequests1dByColoGroupsFilter_InputObject = {
+type ZoneHttpRequests1dByColoGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneHttpRequests1dByColoGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneHttpRequests1dByColoGroupsFilter_InputObject>>;
   readonly coloCode: InputMaybe<Scalars['string']>;
@@ -21591,7 +21581,7 @@ export type ZoneHttpRequests1dByColoGroupsFilter_InputObject = {
   readonly date_notin: InputMaybe<ReadonlyArray<Scalars['Date']>>;
 };
 
-export type ZoneHttpRequests1dByColoGroupsOrderBy =
+type ZoneHttpRequests1dByColoGroupsOrderBy =
   /** coloCode ascending */
   | 'coloCode_ASC'
   /** coloCode descending */
@@ -21617,7 +21607,7 @@ export type ZoneHttpRequests1dByColoGroupsOrderBy =
   /** sum(requests) descending */
   | 'sum_requests_DESC';
 
-export type ZoneHttpRequests1dGroupsFilter_InputObject = {
+type ZoneHttpRequests1dGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneHttpRequests1dGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneHttpRequests1dGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -21630,7 +21620,7 @@ export type ZoneHttpRequests1dGroupsFilter_InputObject = {
   readonly date_notin: InputMaybe<ReadonlyArray<Scalars['Date']>>;
 };
 
-export type ZoneHttpRequests1dGroupsOrderBy =
+type ZoneHttpRequests1dGroupsOrderBy =
   /** avg(bytes) ascending */
   | 'avg_bytes_ASC'
   /** avg(bytes) descending */
@@ -21680,7 +21670,7 @@ export type ZoneHttpRequests1dGroupsOrderBy =
   /** uniq(uniques) descending */
   | 'uniq_uniques_DESC';
 
-export type ZoneHttpRequests1hGroupsFilter_InputObject = {
+type ZoneHttpRequests1hGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneHttpRequests1hGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneHttpRequests1hGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -21701,7 +21691,7 @@ export type ZoneHttpRequests1hGroupsFilter_InputObject = {
   readonly datetime_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
 };
 
-export type ZoneHttpRequests1hGroupsOrderBy =
+type ZoneHttpRequests1hGroupsOrderBy =
   /** avg(bytes) ascending */
   | 'avg_bytes_ASC'
   /** avg(bytes) descending */
@@ -21755,7 +21745,7 @@ export type ZoneHttpRequests1hGroupsOrderBy =
   /** uniq(uniques) descending */
   | 'uniq_uniques_DESC';
 
-export type ZoneHttpRequests1mByColoGroupsFilter_InputObject = {
+type ZoneHttpRequests1mByColoGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneHttpRequests1mByColoGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneHttpRequests1mByColoGroupsFilter_InputObject>>;
   readonly coloCode: InputMaybe<Scalars['string']>;
@@ -21810,7 +21800,7 @@ export type ZoneHttpRequests1mByColoGroupsFilter_InputObject = {
   readonly datetime_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
 };
 
-export type ZoneHttpRequests1mByColoGroupsOrderBy =
+type ZoneHttpRequests1mByColoGroupsOrderBy =
   /** coloCode ascending */
   | 'coloCode_ASC'
   /** coloCode descending */
@@ -21852,7 +21842,7 @@ export type ZoneHttpRequests1mByColoGroupsOrderBy =
   /** sum(requests) descending */
   | 'sum_requests_DESC';
 
-export type ZoneHttpRequests1mGroupsFilter_InputObject = {
+type ZoneHttpRequests1mGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneHttpRequests1mGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneHttpRequests1mGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -21921,7 +21911,7 @@ export type ZoneHttpRequests1mGroupsFilter_InputObject = {
   readonly datetime_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
 };
 
-export type ZoneHttpRequests1mGroupsOrderBy =
+type ZoneHttpRequests1mGroupsOrderBy =
   /** avg(bytes) ascending */
   | 'avg_bytes_ASC'
   /** avg(bytes) descending */
@@ -21999,7 +21989,7 @@ export type ZoneHttpRequests1mGroupsOrderBy =
   /** uniq(uniques) descending */
   | 'uniq_uniques_DESC';
 
-export type ZoneHttpRequestsAdaptiveFilter_InputObject = {
+type ZoneHttpRequestsAdaptiveFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneHttpRequestsAdaptiveFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneHttpRequestsAdaptiveFilter_InputObject>>;
   readonly apiGatewayMatchedEndpoint: InputMaybe<Scalars['string']>;
@@ -22456,7 +22446,7 @@ export type ZoneHttpRequestsAdaptiveFilter_InputObject = {
   readonly xRequestedWith_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneHttpRequestsAdaptiveGroupsFilter_InputObject = {
+type ZoneHttpRequestsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneHttpRequestsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneHttpRequestsAdaptiveGroupsFilter_InputObject>>;
   readonly apiGatewayMatchedEndpoint: InputMaybe<Scalars['string']>;
@@ -22921,7 +22911,7 @@ export type ZoneHttpRequestsAdaptiveGroupsFilter_InputObject = {
   readonly xRequestedWith_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneHttpRequestsAdaptiveGroupsOrderBy =
+type ZoneHttpRequestsAdaptiveGroupsOrderBy =
   /** apiGatewayMatchedEndpoint ascending */
   | 'apiGatewayMatchedEndpoint_ASC'
   /** apiGatewayMatchedEndpoint descending */
@@ -23151,7 +23141,7 @@ export type ZoneHttpRequestsAdaptiveGroupsOrderBy =
   /** xRequestedWith descending */
   | 'xRequestedWith_DESC';
 
-export type ZoneHttpRequestsAdaptiveOrderBy =
+type ZoneHttpRequestsAdaptiveOrderBy =
   /** apiGatewayMatchedEndpoint ascending */
   | 'apiGatewayMatchedEndpoint_ASC'
   /** apiGatewayMatchedEndpoint descending */
@@ -23349,7 +23339,7 @@ export type ZoneHttpRequestsAdaptiveOrderBy =
   /** xRequestedWith descending */
   | 'xRequestedWith_DESC';
 
-export type ZoneHttpRequestsOverviewAdaptiveGroupsFilter_InputObject = {
+type ZoneHttpRequestsOverviewAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneHttpRequestsOverviewAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneHttpRequestsOverviewAdaptiveGroupsFilter_InputObject>>;
   readonly clientCountryName: InputMaybe<Scalars['string']>;
@@ -23478,7 +23468,7 @@ export type ZoneHttpRequestsOverviewAdaptiveGroupsFilter_InputObject = {
   readonly userAgentBrowser_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneHttpRequestsOverviewAdaptiveGroupsOrderBy =
+type ZoneHttpRequestsOverviewAdaptiveGroupsOrderBy =
   /** avg(originResponseDurationMs) ascending */
   | 'avg_originResponseDurationMs_ASC'
   /** avg(originResponseDurationMs) descending */
@@ -23596,7 +23586,7 @@ export type ZoneHttpRequestsOverviewAdaptiveGroupsOrderBy =
   /** userAgentBrowser descending */
   | 'userAgentBrowser_DESC';
 
-export type ZoneImageResizingRequests1mGroupsFilter_InputObject = {
+type ZoneImageResizingRequests1mGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneImageResizingRequests1mGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneImageResizingRequests1mGroupsFilter_InputObject>>;
   readonly contentType: InputMaybe<Scalars['string']>;
@@ -23669,7 +23659,7 @@ export type ZoneImageResizingRequests1mGroupsFilter_InputObject = {
   readonly resizeError_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneImageResizingRequests1mGroupsOrderBy =
+type ZoneImageResizingRequests1mGroupsOrderBy =
   /** contentType ascending */
   | 'contentType_ASC'
   /** contentType descending */
@@ -23727,7 +23717,7 @@ export type ZoneImageResizingRequests1mGroupsOrderBy =
   /** sum(resizedPixels) descending */
   | 'sum_resizedPixels_DESC';
 
-export type ZoneLoadBalancingRequestsAdaptiveFilter_InputObject = {
+type ZoneLoadBalancingRequestsAdaptiveFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneLoadBalancingRequestsAdaptiveFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneLoadBalancingRequestsAdaptiveFilter_InputObject>>;
   readonly coloCode: InputMaybe<Scalars['string']>;
@@ -23894,7 +23884,7 @@ export type ZoneLoadBalancingRequestsAdaptiveFilter_InputObject = {
   readonly steeringPolicy_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneLoadBalancingRequestsAdaptiveGroupsFilter_InputObject = {
+type ZoneLoadBalancingRequestsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneLoadBalancingRequestsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneLoadBalancingRequestsAdaptiveGroupsFilter_InputObject>>;
   readonly coloCode: InputMaybe<Scalars['string']>;
@@ -24129,7 +24119,7 @@ export type ZoneLoadBalancingRequestsAdaptiveGroupsFilter_InputObject = {
   readonly steeringPolicy_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneLoadBalancingRequestsAdaptiveGroupsOrderBy =
+type ZoneLoadBalancingRequestsAdaptiveGroupsOrderBy =
   /** avg(sampleInterval) ascending */
   | 'avg_sampleInterval_ASC'
   /** avg(sampleInterval) descending */
@@ -24243,7 +24233,7 @@ export type ZoneLoadBalancingRequestsAdaptiveGroupsOrderBy =
   /** steeringPolicy descending */
   | 'steeringPolicy_DESC';
 
-export type ZoneLoadBalancingRequestsAdaptiveOrderBy =
+type ZoneLoadBalancingRequestsAdaptiveOrderBy =
   /** coloCode ascending */
   | 'coloCode_ASC'
   /** coloCode descending */
@@ -24317,7 +24307,7 @@ export type ZoneLoadBalancingRequestsAdaptiveOrderBy =
   /** steeringPolicy descending */
   | 'steeringPolicy_DESC';
 
-export type ZoneLogpushHealthAdaptiveGroupsFilter_InputObject = {
+type ZoneLogpushHealthAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneLogpushHealthAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneLogpushHealthAdaptiveGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -24404,7 +24394,7 @@ export type ZoneLogpushHealthAdaptiveGroupsFilter_InputObject = {
   readonly status_notin: InputMaybe<ReadonlyArray<Scalars['uint16']>>;
 };
 
-export type ZoneLogpushHealthAdaptiveGroupsOrderBy =
+type ZoneLogpushHealthAdaptiveGroupsOrderBy =
   /** avg(sampleInterval) ascending */
   | 'avg_sampleInterval_ASC'
   /** avg(sampleInterval) descending */
@@ -24466,7 +24456,7 @@ export type ZoneLogpushHealthAdaptiveGroupsOrderBy =
   /** sum(records) descending */
   | 'sum_records_DESC';
 
-export type ZoneNelReportsAdaptiveGroupsFilter_InputObject = {
+type ZoneNelReportsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneNelReportsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneNelReportsAdaptiveGroupsFilter_InputObject>>;
   readonly clientIPASN: InputMaybe<Scalars['uint32']>;
@@ -24613,7 +24603,7 @@ export type ZoneNelReportsAdaptiveGroupsFilter_InputObject = {
   readonly type_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneNelReportsAdaptiveGroupsOrderBy =
+type ZoneNelReportsAdaptiveGroupsOrderBy =
   /** avg(sampleInterval) ascending */
   | 'avg_sampleInterval_ASC'
   /** avg(sampleInterval) descending */
@@ -24687,7 +24677,7 @@ export type ZoneNelReportsAdaptiveGroupsOrderBy =
   /** type descending */
   | 'type_DESC';
 
-export type ZoneSynAvgPps1mGroupsFilter_InputObject = {
+type ZoneSynAvgPps1mGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneSynAvgPps1mGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneSynAvgPps1mGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -24740,7 +24730,7 @@ export type ZoneSynAvgPps1mGroupsFilter_InputObject = {
   readonly datetimeMinute_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
 };
 
-export type ZoneSynAvgPps1mGroupsOrderBy =
+type ZoneSynAvgPps1mGroupsOrderBy =
   /** count() ascending */
   | 'count_ASC'
   /** count() descending */
@@ -24774,7 +24764,7 @@ export type ZoneSynAvgPps1mGroupsOrderBy =
   /** sum(avgPpsPerMinute) descending */
   | 'sum_avgPpsPerMinute_DESC';
 
-export type ZoneWaitingRoomAnalyticsAdaptiveFilter_InputObject = {
+type ZoneWaitingRoomAnalyticsAdaptiveFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneWaitingRoomAnalyticsAdaptiveFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneWaitingRoomAnalyticsAdaptiveFilter_InputObject>>;
   readonly datetime: InputMaybe<Scalars['Time']>;
@@ -24999,7 +24989,7 @@ export type ZoneWaitingRoomAnalyticsAdaptiveFilter_InputObject = {
   readonly waitingRoomName_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneWaitingRoomAnalyticsAdaptiveGroupsFilter_InputObject = {
+type ZoneWaitingRoomAnalyticsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneWaitingRoomAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneWaitingRoomAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -25070,7 +25060,7 @@ export type ZoneWaitingRoomAnalyticsAdaptiveGroupsFilter_InputObject = {
   readonly waitingRoomId_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneWaitingRoomAnalyticsAdaptiveGroupsOrderBy =
+type ZoneWaitingRoomAnalyticsAdaptiveGroupsOrderBy =
   /** avgWeighted(timeBetweenRefreshesP50) ascending */
   | 'avgWeighted_timeBetweenRefreshesP50_ASC'
   /** avgWeighted(timeBetweenRefreshesP50) descending */
@@ -25264,7 +25254,7 @@ export type ZoneWaitingRoomAnalyticsAdaptiveGroupsOrderBy =
   /** waitingRoomId descending */
   | 'waitingRoomId_DESC';
 
-export type ZoneWaitingRoomAnalyticsAdaptiveOrderBy =
+type ZoneWaitingRoomAnalyticsAdaptiveOrderBy =
   /** abandoningUsersPerMinute ascending */
   | 'abandoningUsersPerMinute_ASC'
   /** abandoningUsersPerMinute descending */
@@ -25378,7 +25368,7 @@ export type ZoneWaitingRoomAnalyticsAdaptiveOrderBy =
   /** waitingRoomName descending */
   | 'waitingRoomName_DESC';
 
-export type ZoneWorkersZoneInvocationsAdaptiveGroupsFilter_InputObject = {
+type ZoneWorkersZoneInvocationsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneWorkersZoneInvocationsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneWorkersZoneInvocationsAdaptiveGroupsFilter_InputObject>>;
   readonly constantScriptId: InputMaybe<Scalars['uint32']>;
@@ -25441,7 +25431,7 @@ export type ZoneWorkersZoneInvocationsAdaptiveGroupsFilter_InputObject = {
   readonly status_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneWorkersZoneInvocationsAdaptiveGroupsOrderBy =
+type ZoneWorkersZoneInvocationsAdaptiveGroupsOrderBy =
   /** avg(avgCpuTime) ascending */
   | 'avg_avgCpuTime_ASC'
   /** avg(avgCpuTime) descending */
@@ -25499,7 +25489,7 @@ export type ZoneWorkersZoneInvocationsAdaptiveGroupsOrderBy =
   /** sum(totalCpuTime) descending */
   | 'sum_totalCpuTime_DESC';
 
-export type ZoneWorkersZoneSubrequestsAdaptiveGroupsFilter_InputObject = {
+type ZoneWorkersZoneSubrequestsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneWorkersZoneSubrequestsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneWorkersZoneSubrequestsAdaptiveGroupsFilter_InputObject>>;
   readonly cacheStatus: InputMaybe<Scalars['uint64']>;
@@ -25552,7 +25542,7 @@ export type ZoneWorkersZoneSubrequestsAdaptiveGroupsFilter_InputObject = {
   readonly httpResponseStatus_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
 };
 
-export type ZoneWorkersZoneSubrequestsAdaptiveGroupsOrderBy =
+type ZoneWorkersZoneSubrequestsAdaptiveGroupsOrderBy =
   /** cacheStatus ascending */
   | 'cacheStatus_ASC'
   /** cacheStatus descending */
@@ -25598,7 +25588,7 @@ export type ZoneWorkersZoneSubrequestsAdaptiveGroupsOrderBy =
   /** sum(subrequests) descending */
   | 'sum_subrequests_DESC';
 
-export type ZoneZarazActionsAdaptiveGroupsFilter_InputObject = {
+type ZoneZarazActionsAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneZarazActionsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneZarazActionsAdaptiveGroupsFilter_InputObject>>;
   readonly actionName: InputMaybe<Scalars['string']>;
@@ -25663,7 +25653,7 @@ export type ZoneZarazActionsAdaptiveGroupsFilter_InputObject = {
   readonly toolName_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneZarazActionsAdaptiveGroupsOrderBy =
+type ZoneZarazActionsAdaptiveGroupsOrderBy =
   /** actionName ascending */
   | 'actionName_ASC'
   /** actionName descending */
@@ -25697,7 +25687,7 @@ export type ZoneZarazActionsAdaptiveGroupsOrderBy =
   /** toolName descending */
   | 'toolName_DESC';
 
-export type ZoneZarazTrackAdaptiveGroupsFilter_InputObject = {
+type ZoneZarazTrackAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneZarazTrackAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneZarazTrackAdaptiveGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -25762,7 +25752,7 @@ export type ZoneZarazTrackAdaptiveGroupsFilter_InputObject = {
   readonly urlPath_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneZarazTrackAdaptiveGroupsOrderBy =
+type ZoneZarazTrackAdaptiveGroupsOrderBy =
   /** count() ascending */
   | 'count_ASC'
   /** count() descending */
@@ -25796,7 +25786,7 @@ export type ZoneZarazTrackAdaptiveGroupsOrderBy =
   /** urlPath descending */
   | 'urlPath_DESC';
 
-export type ZoneZarazTriggersAdaptiveGroupsFilter_InputObject = {
+type ZoneZarazTriggersAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<ZoneZarazTriggersAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<ZoneZarazTriggersAdaptiveGroupsFilter_InputObject>>;
   readonly date: InputMaybe<Scalars['Date']>;
@@ -25851,7 +25841,7 @@ export type ZoneZarazTriggersAdaptiveGroupsFilter_InputObject = {
   readonly triggerName_notlike: InputMaybe<Scalars['string']>;
 };
 
-export type ZoneZarazTriggersAdaptiveGroupsOrderBy =
+type ZoneZarazTriggersAdaptiveGroupsOrderBy =
   /** count() ascending */
   | 'count_ASC'
   /** count() descending */
@@ -25881,477 +25871,281 @@ export type ZoneZarazTriggersAdaptiveGroupsOrderBy =
   /** triggerName descending */
   | 'triggerName_DESC';
 
-export type FetchZoneAnalyticsQueryVariables = Exact<{
+type FetchZoneAnalyticsQueryVariables = Exact<{
   zoneTag?: InputMaybe<Scalars['string']>;
   datetime?: InputMaybe<Scalars['Time']>;
 }>;
 
-export type FetchZoneAnalyticsQuery = {
-  readonly viewer: {
-    readonly zones: ReadonlyArray<{
-      readonly httpRequests1mGroups: ReadonlyArray<{
-        readonly dimensions: { readonly datetime: string } | null;
-        readonly sum: {
-          readonly bytes: number;
-          readonly cachedBytes: number;
-          readonly cachedRequests: number;
-          readonly encryptedBytes: number;
-          readonly encryptedRequests: number;
-          readonly pageViews: number;
-          readonly requests: number;
-          readonly threats: number;
-          readonly browserMap: ReadonlyArray<{
-            readonly pageViews: number;
-            readonly uaBrowserFamily: string;
-          }>;
-          readonly clientHTTPVersionMap: ReadonlyArray<{
-            readonly clientHTTPProtocol: string;
-            readonly requests: number;
-          }>;
-          readonly clientSSLMap: ReadonlyArray<{
-            readonly clientSSLProtocol: string;
-            readonly requests: number;
-          }>;
-          readonly contentTypeMap: ReadonlyArray<{
-            readonly bytes: number;
-            readonly edgeResponseContentTypeName: string;
-            readonly requests: number;
-          }>;
-          readonly countryMap: ReadonlyArray<{
-            readonly bytes: number;
-            readonly clientCountryName: string;
-            readonly requests: number;
-            readonly threats: number;
-          }>;
-          readonly ipClassMap: ReadonlyArray<{ readonly ipType: string; readonly requests: number }>;
-          readonly responseStatusMap: ReadonlyArray<{
-            readonly edgeResponseStatus: number;
-            readonly requests: number;
-          }>;
-          readonly threatPathingMap: ReadonlyArray<{
-            readonly requests: number;
-            readonly threatPathingName: string;
-          }>;
-        } | null;
-        readonly uniq: { readonly uniques: number } | null;
-      }>;
-      readonly httpRequestsAdaptiveGroups: ReadonlyArray<{
-        readonly count: number;
-        readonly sum: { readonly edgeResponseBytes: number; readonly visits: number } | null;
-        readonly dimensions: {
-          readonly datetime: string;
-          readonly clientRequestHTTPHost: string;
-          readonly clientCountryName: string;
-          readonly cacheStatus: string;
-          readonly edgeResponseStatus: number;
-          readonly edgeResponseContentTypeName: string;
-        } | null;
-      }>;
-      readonly healthCheckEventsAdaptiveGroups: ReadonlyArray<{
-        readonly count: number;
-        readonly sum: { readonly healthStatus: number } | null;
-        readonly dimensions: {
-          readonly healthStatus: string;
-          readonly region: string;
-          readonly fqdn: string;
-          readonly datetime: string;
-          readonly rttMs: number;
-        } | null;
-      }>;
-      readonly firewallEventsAdaptiveGroups: ReadonlyArray<{
-        readonly count: number;
-        readonly dimensions: {
-          readonly source: string;
-          readonly datetime: string;
-          readonly action: string;
-          readonly clientRequestHTTPHost: string;
-          readonly clientCountryName: string;
-          readonly clientRequestHTTPMethodName: string;
-        } | null;
-      }>;
-    }>;
-  } | null;
-};
 
-export type FetchAccountAnalyticsQueryVariables = Exact<{
+type FetchZoneAnalyticsQuery = { readonly viewer: { readonly zones: ReadonlyArray<{ readonly httpRequests1mGroups: ReadonlyArray<{ readonly dimensions: { readonly datetime: string }, readonly sum: { readonly bytes: number, readonly cachedBytes: number, readonly cachedRequests: number, readonly encryptedBytes: number, readonly encryptedRequests: number, readonly pageViews: number, readonly requests: number, readonly threats: number, readonly browserMap: ReadonlyArray<{ readonly pageViews: number, readonly uaBrowserFamily: string }>, readonly clientHTTPVersionMap: ReadonlyArray<{ readonly clientHTTPProtocol: string, readonly requests: number }>, readonly clientSSLMap: ReadonlyArray<{ readonly clientSSLProtocol: string, readonly requests: number }>, readonly contentTypeMap: ReadonlyArray<{ readonly bytes: number, readonly edgeResponseContentTypeName: string, readonly requests: number }>, readonly countryMap: ReadonlyArray<{ readonly bytes: number, readonly clientCountryName: string, readonly requests: number, readonly threats: number }>, readonly ipClassMap: ReadonlyArray<{ readonly ipType: string, readonly requests: number }>, readonly responseStatusMap: ReadonlyArray<{ readonly edgeResponseStatus: number, readonly requests: number }>, readonly threatPathingMap: ReadonlyArray<{ readonly requests: number, readonly threatPathingName: string }> }, readonly uniq: { readonly uniques: number } }>, readonly httpRequestsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly sum: { readonly edgeResponseBytes: number, readonly visits: number }, readonly dimensions: { readonly datetime: string, readonly clientRequestHTTPHost: string, readonly clientCountryName: string, readonly cacheStatus: string, readonly edgeResponseStatus: number, readonly edgeResponseContentTypeName: string } }>, readonly healthCheckEventsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly sum: { readonly healthStatus: number }, readonly dimensions: { readonly healthStatus: string, readonly region: string, readonly fqdn: string, readonly datetime: string, readonly rttMs: number } }>, readonly firewallEventsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly dimensions: { readonly source: string, readonly datetime: string, readonly action: string, readonly clientRequestHTTPHost: string, readonly clientCountryName: string, readonly clientRequestHTTPMethodName: string } }> }> } };
+
+type FetchAccountAnalyticsQueryVariables = Exact<{
   accountTag?: InputMaybe<Scalars['string']>;
   datetime?: InputMaybe<Scalars['Time']>;
 }>;
 
-export type FetchAccountAnalyticsQuery = {
-  readonly viewer: {
-    readonly accounts: ReadonlyArray<{
-      readonly workersInvocationsAdaptive: ReadonlyArray<{
-        readonly dimensions: {
-          readonly datetime: string;
-          readonly scriptName: string;
-          readonly status: string;
-        } | null;
-        readonly sum: {
-          readonly duration: number;
-          readonly errors: number;
-          readonly requests: number;
-        } | null;
-      }>;
-      readonly r2OperationsAdaptiveGroups: ReadonlyArray<{
-        readonly dimensions: {
-          readonly actionType: string;
-          readonly bucketName: string;
-          readonly datetime: string;
-        } | null;
-        readonly sum: { readonly requests: number; readonly responseObjectSize: number } | null;
-      }>;
-      readonly r2StorageAdaptiveGroups: ReadonlyArray<{
-        readonly dimensions: { readonly bucketName: string; readonly datetime: string } | null;
-        readonly max: {
-          readonly metadataSize: number;
-          readonly objectCount: number;
-          readonly payloadSize: number;
-          readonly uploadCount: number;
-        } | null;
-      }>;
-      readonly rumPageloadEventsAdaptiveGroups: ReadonlyArray<{
-        readonly count: number;
-        readonly sum: { readonly visits: number } | null;
-        readonly dimensions: {
-          readonly countryName: string;
-          readonly date: unknown;
-          readonly deviceType: string;
-          readonly userAgentOS: string;
-          readonly userAgentBrowser: string;
-          readonly requestHost: string;
-        } | null;
-      }>;
-      readonly rumPerformanceEventsAdaptiveGroups: ReadonlyArray<{
-        readonly count: number;
-        readonly sum: { readonly visits: number } | null;
-        readonly dimensions: {
-          readonly countryName: string;
-          readonly date: unknown;
-          readonly deviceType: string;
-          readonly requestHost: string;
-        } | null;
-        readonly avg: {
-          readonly connectionTime: number;
-          readonly dnsTime: number;
-          readonly firstContentfulPaint: number;
-          readonly firstPaint: number;
-          readonly loadEventTime: number;
-          readonly pageLoadTime: number;
-          readonly pageRenderTime: number;
-          readonly requestTime: number;
-          readonly responseTime: number;
-          readonly sampleInterval: number;
-        } | null;
-      }>;
-      readonly rumWebVitalsEventsAdaptiveGroups: ReadonlyArray<{
-        readonly sum: {
-          readonly clsGood: number;
-          readonly clsNeedsImprovement: number;
-          readonly clsPoor: number;
-          readonly clsTotal: number;
-          readonly fidGood: number;
-          readonly fidNeedsImprovement: number;
-          readonly fidPoor: number;
-          readonly fidTotal: number;
-          readonly lcpGood: number;
-          readonly lcpNeedsImprovement: number;
-          readonly lcpPoor: number;
-          readonly lcpTotal: number;
-          readonly visits: number;
-        } | null;
-        readonly dimensions: {
-          readonly countryName: string;
-          readonly date: unknown;
-          readonly userAgentBrowser: string;
-          readonly requestHost: string;
-          readonly largestContentfulPaintElement: string;
-          readonly largestContentfulPaintObjectPath: string;
-          readonly largestContentfulPaintObjectHost: string;
-          readonly largestContentfulPaintPath: string;
-          readonly firstInputDelayElement: string;
-          readonly firstInputDelayName: string;
-          readonly firstInputDelayPath: string;
-          readonly deviceType: string;
-          readonly userAgentOS: string;
-        } | null;
-      }>;
-    }>;
-  } | null;
-};
 
-export const FetchZoneAnalyticsDocument = gql`
-  query fetchZoneAnalytics($zoneTag: string = "", $datetime: Time = "") {
-    viewer {
-      zones(filter: { zoneTag: $zoneTag }) {
-        httpRequests1mGroups(filter: { datetime_geq: $datetime }, limit: 9999, orderBy: [datetime_ASC]) {
-          dimensions {
-            datetime
-          }
-          sum {
-            browserMap {
-              pageViews
-              uaBrowserFamily
-            }
-            bytes
-            cachedBytes
-            cachedRequests
-            clientHTTPVersionMap {
-              clientHTTPProtocol
-              requests
-            }
-            clientSSLMap {
-              clientSSLProtocol
-              requests
-            }
-            contentTypeMap {
-              bytes
-              edgeResponseContentTypeName
-              requests
-            }
-            countryMap {
-              bytes
-              clientCountryName
-              requests
-              threats
-            }
-            encryptedBytes
-            encryptedRequests
-            ipClassMap {
-              ipType
-              requests
-            }
+type FetchAccountAnalyticsQuery = { readonly viewer: { readonly accounts: ReadonlyArray<{ readonly workersInvocationsAdaptive: ReadonlyArray<{ readonly dimensions: { readonly datetime: string, readonly scriptName: string, readonly status: string }, readonly sum: { readonly duration: number, readonly errors: number, readonly requests: number } }>, readonly r2OperationsAdaptiveGroups: ReadonlyArray<{ readonly dimensions: { readonly actionType: string, readonly bucketName: string, readonly datetime: string }, readonly sum: { readonly requests: number, readonly responseObjectSize: number } }>, readonly r2StorageAdaptiveGroups: ReadonlyArray<{ readonly dimensions: { readonly bucketName: string, readonly datetime: string }, readonly max: { readonly metadataSize: number, readonly objectCount: number, readonly payloadSize: number, readonly uploadCount: number } }>, readonly rumPageloadEventsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly sum: { readonly visits: number }, readonly dimensions: { readonly countryName: string, readonly date: unknown, readonly deviceType: string, readonly userAgentOS: string, readonly userAgentBrowser: string, readonly requestHost: string } }>, readonly rumPerformanceEventsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly sum: { readonly visits: number }, readonly dimensions: { readonly countryName: string, readonly date: unknown, readonly deviceType: string, readonly requestHost: string }, readonly avg: { readonly connectionTime: number, readonly dnsTime: number, readonly firstContentfulPaint: number, readonly firstPaint: number, readonly loadEventTime: number, readonly pageLoadTime: number, readonly pageRenderTime: number, readonly requestTime: number, readonly responseTime: number, readonly sampleInterval: number } }>, readonly rumWebVitalsEventsAdaptiveGroups: ReadonlyArray<{ readonly sum: { readonly clsGood: number, readonly clsNeedsImprovement: number, readonly clsPoor: number, readonly clsTotal: number, readonly fidGood: number, readonly fidNeedsImprovement: number, readonly fidPoor: number, readonly fidTotal: number, readonly lcpGood: number, readonly lcpNeedsImprovement: number, readonly lcpPoor: number, readonly lcpTotal: number, readonly visits: number }, readonly dimensions: { readonly countryName: string, readonly date: unknown, readonly userAgentBrowser: string, readonly requestHost: string, readonly largestContentfulPaintElement: string, readonly largestContentfulPaintObjectPath: string, readonly largestContentfulPaintObjectHost: string, readonly largestContentfulPaintPath: string, readonly firstInputDelayElement: string, readonly firstInputDelayName: string, readonly firstInputDelayPath: string, readonly deviceType: string, readonly userAgentOS: string } }> }> } };
+
+
+ const FetchZoneAnalyticsDocument = gql`
+    query fetchZoneAnalytics($zoneTag: string = "", $datetime: Time = "") {
+  viewer {
+    zones(filter: {zoneTag: $zoneTag}) {
+      httpRequests1mGroups(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          datetime
+        }
+        sum {
+          browserMap {
             pageViews
+            uaBrowserFamily
+          }
+          bytes
+          cachedBytes
+          cachedRequests
+          clientHTTPVersionMap {
+            clientHTTPProtocol
             requests
-            responseStatusMap {
-              edgeResponseStatus
-              requests
-            }
-            threatPathingMap {
-              requests
-              threatPathingName
-            }
+          }
+          clientSSLMap {
+            clientSSLProtocol
+            requests
+          }
+          contentTypeMap {
+            bytes
+            edgeResponseContentTypeName
+            requests
+          }
+          countryMap {
+            bytes
+            clientCountryName
+            requests
             threats
           }
-          uniq {
-            uniques
+          encryptedBytes
+          encryptedRequests
+          ipClassMap {
+            ipType
+            requests
           }
-        }
-        httpRequestsAdaptiveGroups(
-          filter: { datetime_geq: $datetime }
-          limit: 9999
-          orderBy: [datetime_ASC]
-        ) {
-          sum {
-            edgeResponseBytes
-            visits
-          }
-          dimensions {
-            datetime
-            clientRequestHTTPHost
-            clientCountryName
-            cacheStatus
+          pageViews
+          requests
+          responseStatusMap {
             edgeResponseStatus
-            edgeResponseContentTypeName
+            requests
           }
-          count
+          threatPathingMap {
+            requests
+            threatPathingName
+          }
+          threats
         }
-        healthCheckEventsAdaptiveGroups(
-          filter: { datetime_geq: $datetime }
-          limit: 9999
-          orderBy: [datetime_ASC]
-        ) {
-          sum {
-            healthStatus
-          }
-          dimensions {
-            healthStatus
-            region
-            fqdn
-            datetime
-            rttMs
-          }
-          count
+        uniq {
+          uniques
         }
-        firewallEventsAdaptiveGroups(
-          filter: { datetime_geq: $datetime }
-          limit: 9999
-          orderBy: [datetime_ASC]
-        ) {
-          dimensions {
-            source
-            datetime
-            action
-            clientRequestHTTPHost
-            clientCountryName
-            clientRequestHTTPMethodName
-          }
-          count
+      }
+      httpRequestsAdaptiveGroups(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        sum {
+          edgeResponseBytes
+          visits
+        }
+        dimensions {
+          datetime
+          clientRequestHTTPHost
+          clientCountryName
+          cacheStatus
+          edgeResponseStatus
+          edgeResponseContentTypeName
+        }
+        count
+      }
+      healthCheckEventsAdaptiveGroups(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        sum {
+          healthStatus
+        }
+        dimensions {
+          healthStatus
+          region
+          fqdn
+          datetime
+          rttMs
+        }
+        count
+      }
+      firewallEventsAdaptiveGroups(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          source
+          datetime
+          action
+          clientRequestHTTPHost
+          clientCountryName
+          clientRequestHTTPMethodName
+        }
+        count
+      }
+    }
+  }
+}
+    `;
+ const FetchAccountAnalyticsDocument = gql`
+    query fetchAccountAnalytics($accountTag: string = "", $datetime: Time = "") {
+  viewer {
+    accounts(filter: {accountTag: $accountTag}) {
+      workersInvocationsAdaptive(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          datetime
+          scriptName
+          status
+        }
+        sum {
+          duration
+          errors
+          requests
+        }
+      }
+      r2OperationsAdaptiveGroups(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          actionType
+          bucketName
+          datetime
+        }
+        sum {
+          requests
+          responseObjectSize
+        }
+      }
+      r2StorageAdaptiveGroups(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          bucketName
+          datetime
+        }
+        max {
+          metadataSize
+          objectCount
+          payloadSize
+          uploadCount
+        }
+      }
+      rumPageloadEventsAdaptiveGroups(filter: {datetime_geq: $datetime}, limit: 9999) {
+        sum {
+          visits
+        }
+        dimensions {
+          countryName
+          date
+          deviceType
+          userAgentOS
+          userAgentBrowser
+          requestHost
+        }
+        count
+      }
+      rumPerformanceEventsAdaptiveGroups(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+      ) {
+        sum {
+          visits
+        }
+        dimensions {
+          countryName
+          date
+          deviceType
+          requestHost
+        }
+        count
+        avg {
+          connectionTime
+          dnsTime
+          firstContentfulPaint
+          firstPaint
+          loadEventTime
+          pageLoadTime
+          pageRenderTime
+          requestTime
+          responseTime
+          sampleInterval
+        }
+      }
+      rumWebVitalsEventsAdaptiveGroups(filter: {datetime_geq: $datetime}, limit: 9999) {
+        sum {
+          clsGood
+          clsNeedsImprovement
+          clsPoor
+          clsTotal
+          fidGood
+          fidNeedsImprovement
+          fidPoor
+          fidTotal
+          lcpGood
+          lcpNeedsImprovement
+          lcpPoor
+          lcpTotal
+          visits
+        }
+        dimensions {
+          countryName
+          date
+          userAgentBrowser
+          requestHost
+          largestContentfulPaintElement
+          largestContentfulPaintObjectPath
+          largestContentfulPaintObjectHost
+          largestContentfulPaintPath
+          firstInputDelayElement
+          firstInputDelayName
+          firstInputDelayPath
+          deviceType
+          userAgentOS
         }
       }
     }
   }
-`;
-export const FetchAccountAnalyticsDocument = gql`
-  query fetchAccountAnalytics($accountTag: string = "", $datetime: Time = "") {
-    viewer {
-      accounts(filter: { accountTag: $accountTag }) {
-        workersInvocationsAdaptive(
-          filter: { datetime_geq: $datetime }
-          limit: 9999
-          orderBy: [datetime_ASC]
-        ) {
-          dimensions {
-            datetime
-            scriptName
-            status
-          }
-          sum {
-            duration
-            errors
-            requests
-          }
-        }
-        r2OperationsAdaptiveGroups(
-          filter: { datetime_geq: $datetime }
-          limit: 9999
-          orderBy: [datetime_ASC]
-        ) {
-          dimensions {
-            actionType
-            bucketName
-            datetime
-          }
-          sum {
-            requests
-            responseObjectSize
-          }
-        }
-        r2StorageAdaptiveGroups(filter: { datetime_geq: $datetime }, limit: 9999, orderBy: [datetime_ASC]) {
-          dimensions {
-            bucketName
-            datetime
-          }
-          max {
-            metadataSize
-            objectCount
-            payloadSize
-            uploadCount
-          }
-        }
-        rumPageloadEventsAdaptiveGroups(filter: { datetime_geq: $datetime }, limit: 9999) {
-          sum {
-            visits
-          }
-          dimensions {
-            countryName
-            date
-            deviceType
-            userAgentOS
-            userAgentBrowser
-            requestHost
-          }
-          count
-        }
-        rumPerformanceEventsAdaptiveGroups(filter: { datetime_geq: $datetime }, limit: 9999) {
-          sum {
-            visits
-          }
-          dimensions {
-            countryName
-            date
-            deviceType
-            requestHost
-          }
-          count
-          avg {
-            connectionTime
-            dnsTime
-            firstContentfulPaint
-            firstPaint
-            loadEventTime
-            pageLoadTime
-            pageRenderTime
-            requestTime
-            responseTime
-            sampleInterval
-          }
-        }
-        rumWebVitalsEventsAdaptiveGroups(filter: { datetime_geq: $datetime }, limit: 9999) {
-          sum {
-            clsGood
-            clsNeedsImprovement
-            clsPoor
-            clsTotal
-            fidGood
-            fidNeedsImprovement
-            fidPoor
-            fidTotal
-            lcpGood
-            lcpNeedsImprovement
-            lcpPoor
-            lcpTotal
-            visits
-          }
-          dimensions {
-            countryName
-            date
-            userAgentBrowser
-            requestHost
-            largestContentfulPaintElement
-            largestContentfulPaintObjectPath
-            largestContentfulPaintObjectHost
-            largestContentfulPaintPath
-            firstInputDelayElement
-            firstInputDelayName
-            firstInputDelayPath
-            deviceType
-            userAgentOS
-          }
-        }
-      }
-    }
-  }
-`;
+}
+    `;
 
-export type SdkFunctionWrapper = <T>(
-  action: (requestHeaders?: Record<string, string>) => Promise<T>,
-  operationName: string,
-  operationType?: string
-) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
+
 
 const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    fetchZoneAnalytics(
-      variables?: FetchZoneAnalyticsQueryVariables,
-      requestHeaders?: Dom.RequestInit['headers']
-    ): Promise<FetchZoneAnalyticsQuery> {
-      return withWrapper(
-        wrappedRequestHeaders =>
-          client.request<FetchZoneAnalyticsQuery>(FetchZoneAnalyticsDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'fetchZoneAnalytics',
-        'query'
-      );
+    fetchZoneAnalytics(variables?: FetchZoneAnalyticsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<FetchZoneAnalyticsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<FetchZoneAnalyticsQuery>(FetchZoneAnalyticsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'fetchZoneAnalytics', 'query');
     },
-    fetchAccountAnalytics(
-      variables?: FetchAccountAnalyticsQueryVariables,
-      requestHeaders?: Dom.RequestInit['headers']
-    ): Promise<FetchAccountAnalyticsQuery> {
-      return withWrapper(
-        wrappedRequestHeaders =>
-          client.request<FetchAccountAnalyticsQuery>(FetchAccountAnalyticsDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'fetchAccountAnalytics',
-        'query'
-      );
-    },
+    fetchAccountAnalytics(variables?: FetchAccountAnalyticsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<FetchAccountAnalyticsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<FetchAccountAnalyticsQuery>(FetchAccountAnalyticsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'fetchAccountAnalytics', 'query');
+    }
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
