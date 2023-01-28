@@ -5,9 +5,9 @@ on:
     branches:
       - main
     paths:
-      - "**/*.js"
-      - "**/*.ts"
-      - "**/*.json"
+      - '**/*.js'
+      - '**/*.ts'
+      - '**/*.json'
       - yarn.lock
       - .github/workflows/test.yml
   pull_request:
