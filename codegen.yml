@@ -1,5 +1,5 @@
 overwrite: true
-schema: 
+schema:
     - https://api.cloudflare.com/client/v4/graphql:
         headers:
             Authorization: Bearer ${CLOUDFLARE_API_TOKEN}
@@ -8,7 +8,7 @@ generates:
     src/cloudflare/queries.ts:
         config:
             defaultScalarType: unknown
-            scalars: 
+            scalars:
                 bool: boolean
                 bytes: number
                 float32: number
@@ -20,11 +20,10 @@ generates:
                 uint32: number
                 uint64: number
                 Time: string
-            
             avoidOptionals: true
             enumsAsTypes: true
             immutableTypes: true
-            noExport: true
+            noExport: false
             dedupeOperationSuffix: true
             mergeFragmentTypes: true
             onlyOperationTypes: true

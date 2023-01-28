@@ -8,9 +8,7 @@
     "checkJs": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "ESNext"
-    ],
+    "lib": ["ESNext"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -25,8 +23,5 @@
     "strict": true,
     "target": "ESNext"
   },
-  "include": [
-    "src",
-    "build.js"
-  ]
+  "include": ["src", "build.js"]
 }
