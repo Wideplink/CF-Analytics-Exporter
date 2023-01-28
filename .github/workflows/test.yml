@@ -56,4 +56,4 @@ jobs:
         run: yarn install --immutable
 
       - name: Check lint
-        run: yarn eslint .
+        run: yarn lint:ci
