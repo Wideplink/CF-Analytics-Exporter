@@ -1,11 +1,11 @@
-import type { CFZoneResponse } from './cloudflare/interface';
-import { error, log } from 'console';
-import { env, exit } from 'process';
-import { inspect } from 'util';
 import { InfluxDB, Point } from '@influxdata/influxdb-client';
 import Cloudflare from 'cloudflare';
+import { error, log } from 'console';
 import { ClientError, GraphQLClient } from 'graphql-request';
 import { DateTime } from 'luxon';
+import { env, exit } from 'process';
+import { inspect } from 'util';
+import type { CFZoneResponse } from './cloudflare/interface';
 import { getSdk } from './cloudflare/queries';
 
 const {
@@ -78,7 +78,7 @@ await Promise.allSettled([
         rej(err);
       },
       complete() {
-        res(log(`Last adaptive request time: ${adaptiveTime}`));
+        res(log(`Last adaptive request time: ${adaptiveTime.toString()}`));
       },
     });
   }),
@@ -182,179 +182,179 @@ async function doTask() {
         zoneTag: CLOUDFLARE_ZONE,
         datetime: shouldFetchTime.plus({ second: 1 }).toUTC().toString(),
       })
-      .then(res => res.viewer?.zones[0]);
+      .then(res => res.viewer.zones[0]);
     const httpRequests1mGroups =
       zone?.httpRequests1mGroups.filter(
-        ({ dimensions }) => DateTime.fromISO(`${dimensions?.datetime ?? ''}`) > requestTime
+        ({ dimensions }) => DateTime.fromISO(`${dimensions.datetime}`) > requestTime
       ) ?? [];
     const httpRequestsAdaptiveGroups =
       zone?.httpRequestsAdaptiveGroups.filter(
-        ({ dimensions }) => DateTime.fromISO(`${dimensions?.datetime ?? ''}`) > adaptiveTime
+        ({ dimensions }) => DateTime.fromISO(`${dimensions.datetime}`) > adaptiveTime
       ) ?? [];
     const firewallEventsAdaptiveGroups =
       zone?.firewallEventsAdaptiveGroups.filter(
-        ({ dimensions }) => DateTime.fromISO(`${dimensions?.datetime ?? ''}`) > firewallTime
+        ({ dimensions }) => DateTime.fromISO(`${dimensions.datetime}`) > firewallTime
       ) ?? [];
     const healthCheckEventsAdaptiveGroups =
       zone?.healthCheckEventsAdaptiveGroups.filter(
-        ({ dimensions }) => DateTime.fromISO(`${dimensions?.datetime ?? ''}`) > healthTime
+        ({ dimensions }) => DateTime.fromISO(`${dimensions.datetime}`) > healthTime
       ) ?? [];
 
     writeApi.writePoints([
-      ...httpRequests1mGroups
-        .filter(
-          (request): request is RequiredNotNull<FetchZoneAnalyticsQuery> => request.dimensions?.datetime
-        )
-        .flatMap(request => [
+      ...httpRequests1mGroups.flatMap(request => [
+        newPoint()
+          .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+          .intField('requests_total', request.sum.requests)
+          .tag('zone', zoneName),
+        newPoint()
+          .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+          .intField('requests_cached', request.sum.cachedRequests)
+          .tag('zone', zoneName),
+        newPoint()
+          .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+          .intField('requests_encrypted', request.sum.encryptedRequests)
+          .tag('zone', zoneName),
+        ...request.sum.contentTypeMap.flatMap(contentType => [
           newPoint()
-            .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-            .intField('requests_total', request.sum?.requests)
-            .tag('zone', zoneName),
+            .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+            .intField('requests_content_type', contentType.requests)
+            .tag('zone', zoneName)
+            .tag('content_type', contentType.edgeResponseContentTypeName),
           newPoint()
-            .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-            .intField('requests_cached', request.sum?.cachedRequests)
-            .tag('zone', zoneName),
-          newPoint()
-            .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-            .intField('requests_encrypted', request.sum?.encryptedRequests)
-            .tag('zone', zoneName),
-          ...(request.sum?.contentTypeMap.flatMap(contentType => [
-            newPoint()
-              .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-              .intField('requests_content_type', contentType.requests)
-              .tag('zone', zoneName)
-              .tag('content_type', contentType.edgeResponseContentTypeName),
-            newPoint()
-              .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-              .intField('bandwidth_content_type', contentType.bytes)
-              .tag('zone', zoneName)
-              .tag('content_type', contentType.edgeResponseContentTypeName),
-          ]) ?? []),
-          ...(request.sum?.countryMap.flatMap(country => [
-            newPoint()
-              .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-              .intField('requests_country', country.requests)
-              .tag('zone', zoneName)
-              .tag('country', country.clientCountryName),
-            newPoint()
-              .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-              .intField('bandwidth_country', country.bytes)
-              .tag('zone', zoneName)
-              .tag('country', country.clientCountryName),
-            newPoint()
-              .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-              .intField('threats_country', country.threats)
-              .tag('zone', zoneName)
-              .tag('country', country.clientCountryName),
-          ]) ?? []),
-          ...(request.sum?.responseStatusMap.map(status =>
-            newPoint()
-              .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-              .intField('requests_status', status.requests)
-              .tag('zone', zoneName)
-              .tag('status', `${status.edgeResponseStatus}`)
-          ) ?? []),
-          ...(request.sum?.browserMap.map(browser =>
-            newPoint()
-              .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-              .intField('requests_pageviews', browser.pageViews)
-              .tag('zone', zoneName)
-              .tag('browser', browser.uaBrowserFamily)
-          ) ?? []),
-          newPoint()
-            .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-            .intField('bandwidth_total', request.sum?.bytes)
-            .tag('zone', zoneName),
-          newPoint()
-            .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-            .intField('bandwidth_cached', request.sum?.cachedBytes)
-            .tag('zone', zoneName),
-          newPoint()
-            .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-            .intField('bandwidth_encrypted', request.sum?.encryptedBytes)
-            .tag('zone', zoneName),
-          newPoint()
-            .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-            .intField('threats_total', request.sum?.threats)
-            .tag('zone', zoneName),
-          ...(request.sum?.threatPathingMap.map(threat =>
-            newPoint()
-              .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-              .intField('threats_type', threat.requests)
-              .tag('zone', zoneName)
-              .tag('type', threat.threatPathingName)
-          ) ?? []),
-          newPoint()
-            .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-            .intField('pageviews_total', request.sum?.pageViews)
-            .tag('zone', zoneName),
-          newPoint()
-            .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-            .intField('uniques_total', request.uniq?.uniques)
-            .tag('zone', zoneName),
+            .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+            .intField('bandwidth_content_type', contentType.bytes)
+            .tag('zone', zoneName)
+            .tag('content_type', contentType.edgeResponseContentTypeName),
         ]),
+        ...request.sum.countryMap.flatMap(country => [
+          newPoint()
+            .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+            .intField('requests_country', country.requests)
+            .tag('zone', zoneName)
+            .tag('country', country.clientCountryName),
+          newPoint()
+            .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+            .intField('bandwidth_country', country.bytes)
+            .tag('zone', zoneName)
+            .tag('country', country.clientCountryName),
+          newPoint()
+            .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+            .intField('threats_country', country.threats)
+            .tag('zone', zoneName)
+            .tag('country', country.clientCountryName),
+        ]),
+        ...request.sum.responseStatusMap.map(status =>
+          newPoint()
+            .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+            .intField('requests_status', status.requests)
+            .tag('zone', zoneName)
+            .tag('status', `${status.edgeResponseStatus}`)
+        ),
+        ...request.sum.browserMap.map(browser =>
+          newPoint()
+            .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+            .intField('requests_pageviews', browser.pageViews)
+            .tag('zone', zoneName)
+            .tag('browser', browser.uaBrowserFamily)
+        ),
+        newPoint()
+          .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+          .intField('bandwidth_total', request.sum.bytes)
+          .tag('zone', zoneName),
+        newPoint()
+          .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+          .intField('bandwidth_cached', request.sum.cachedBytes)
+          .tag('zone', zoneName),
+        newPoint()
+          .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+          .intField('bandwidth_encrypted', request.sum.encryptedBytes)
+          .tag('zone', zoneName),
+        newPoint()
+          .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+          .intField('threats_total', request.sum.threats)
+          .tag('zone', zoneName),
+        ...request.sum.threatPathingMap.map(threat =>
+          newPoint()
+            .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+            .intField('threats_type', threat.requests)
+            .tag('zone', zoneName)
+            .tag('type', threat.threatPathingName)
+        ),
+        newPoint()
+          .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+          .intField('pageviews_total', request.sum.pageViews)
+          .tag('zone', zoneName),
+        newPoint()
+          .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+          .intField('uniques_total', request.uniq.uniques)
+          .tag('zone', zoneName),
+      ]),
 
       ...httpRequestsAdaptiveGroups.flatMap(request => [
         newPoint()
-          .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
+          .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
           .intField('requests', request.count)
           .tag('zone', zoneName)
-          .tag('status', `${request.dimensions?.edgeResponseStatus}`)
-          .tag('cache', `${request.dimensions?.cacheStatus}`)
-          .tag('content_type', `${request.dimensions?.edgeResponseContentTypeName}`)
-          .tag('country', `${request.dimensions?.clientCountryName}`)
-          .tag('host', `${request.dimensions?.clientRequestHTTPHost}`),
+          .tag('status', `${request.dimensions.edgeResponseStatus}`)
+          .tag('cache', `${request.dimensions.cacheStatus}`)
+          .tag('content_type', `${request.dimensions.edgeResponseContentTypeName}`)
+          .tag('country', `${request.dimensions.clientCountryName}`)
+          .tag('host', `${request.dimensions.clientRequestHTTPHost}`),
         newPoint()
-          .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-          .intField('bandwidth', request.sum?.edgeResponseBytes)
+          .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+          .intField('bandwidth', request.sum.edgeResponseBytes)
           .tag('zone', zoneName)
-          .tag('status', `${request.dimensions?.edgeResponseStatus}`)
-          .tag('cache', `${request.dimensions?.cacheStatus}`)
-          .tag('content_type', `${request.dimensions?.edgeResponseContentTypeName}`)
-          .tag('country', `${request.dimensions?.clientCountryName}`)
-          .tag('host', `${request.dimensions?.clientRequestHTTPHost}`),
+          .tag('status', `${request.dimensions.edgeResponseStatus}`)
+          .tag('cache', `${request.dimensions.cacheStatus}`)
+          .tag('content_type', `${request.dimensions.edgeResponseContentTypeName}`)
+          .tag('country', `${request.dimensions.clientCountryName}`)
+          .tag('host', `${request.dimensions.clientRequestHTTPHost}`),
         newPoint()
-          .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-          .intField('visits', request.sum?.visits)
+          .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+          .intField('visits', request.sum.visits)
           .tag('zone', zoneName)
-          .tag('status', `${request.dimensions?.edgeResponseStatus}`)
-          .tag('cache', `${request.dimensions?.cacheStatus}`)
-          .tag('content_type', `${request.dimensions?.edgeResponseContentTypeName}`)
-          .tag('country', `${request.dimensions?.clientCountryName}`)
-          .tag('host', `${request.dimensions?.clientRequestHTTPHost}`),
+          .tag('status', `${request.dimensions.edgeResponseStatus}`)
+          .tag('cache', `${request.dimensions.cacheStatus}`)
+          .tag('content_type', `${request.dimensions.edgeResponseContentTypeName}`)
+          .tag('country', `${request.dimensions.clientCountryName}`)
+          .tag('host', `${request.dimensions.clientRequestHTTPHost}`),
       ]),
 
       ...firewallEventsAdaptiveGroups.map(event =>
         newPoint()
-          .timestamp(DateTime.fromISO(`${event.dimensions?.datetime}`).toJSDate())
+          .timestamp(DateTime.fromISO(`${event.dimensions.datetime}`).toJSDate())
           .intField('firewall_events_count', event.count)
           .tag('zone', zoneName)
-          .tag('action', `${event.dimensions?.action}`)
-          .tag('source', `${event.dimensions?.source}`)
-          .tag('country', `${event.dimensions?.clientCountryName}`)
-          .tag('host', `${event.dimensions?.clientRequestHTTPHost}`)
-          .tag('method', `${event.dimensions?.clientRequestHTTPMethodName}`)
+          .tag('action', `${event.dimensions.action}`)
+          .tag('source', `${event.dimensions.source}`)
+          .tag('country', `${event.dimensions.clientCountryName}`)
+          .tag('host', `${event.dimensions.clientRequestHTTPHost}`)
+          .tag('method', `${event.dimensions.clientRequestHTTPMethodName}`)
       ),
 
       ...healthCheckEventsAdaptiveGroups.map(request =>
         newPoint()
-          .timestamp(DateTime.fromISO(`${request.dimensions?.datetime}`).toJSDate())
-          .intField('health_check_rtt', request.dimensions?.rttMs)
+          .timestamp(DateTime.fromISO(`${request.dimensions.datetime}`).toJSDate())
+          .intField('health_check_rtt', request.dimensions.rttMs)
           .tag('zone', zoneName)
-          .tag('status', `${request.dimensions?.healthStatus}`)
-          .tag('region', `${request.dimensions?.region}`)
-          .tag('fqdn', `${request.dimensions?.fqdn}`)
+          .tag('status', `${request.dimensions.healthStatus}`)
+          .tag('region', `${request.dimensions.region}`)
+          .tag('fqdn', `${request.dimensions.fqdn}`)
       ),
     ]);
 
     if (httpRequests1mGroups.length)
-      requestTime = DateTime.fromISO(`${httpRequests1mGroups.pop()?.dimensions?.datetime}`);
+      // eslint-disable-next-line require-atomic-updates
+      requestTime = DateTime.fromISO(`${httpRequests1mGroups.pop()?.dimensions.datetime ?? ''}`);
     if (httpRequestsAdaptiveGroups.length)
-      adaptiveTime = DateTime.fromISO(`${httpRequestsAdaptiveGroups.pop()?.dimensions?.datetime}`);
+      // eslint-disable-next-line require-atomic-updates
+      adaptiveTime = DateTime.fromISO(`${httpRequestsAdaptiveGroups.pop()?.dimensions.datetime ?? ''}`);
     if (firewallEventsAdaptiveGroups.length)
-      firewallTime = DateTime.fromISO(`${firewallEventsAdaptiveGroups.pop()?.dimensions?.datetime}`);
+      // eslint-disable-next-line require-atomic-updates
+      firewallTime = DateTime.fromISO(`${firewallEventsAdaptiveGroups.pop()?.dimensions.datetime ?? ''}`);
     if (healthCheckEventsAdaptiveGroups.length)
-      healthTime = DateTime.fromISO(`${healthCheckEventsAdaptiveGroups.pop()?.dimensions?.datetime}`);
+      // eslint-disable-next-line require-atomic-updates
+      healthTime = DateTime.fromISO(`${healthCheckEventsAdaptiveGroups.pop()?.dimensions.datetime ?? ''}`);
 
     if (workerTime < shouldFetchTime) shouldFetchTime = workerTime;
     if (r2StorageTime < shouldFetchTime) shouldFetchTime = r2StorageTime;
@@ -369,77 +369,80 @@ async function doTask() {
         accountTag: CLOUDFLARE_ACCOUNT,
         datetime: shouldFetchTime.plus({ second: 1 }).toUTC().toString(),
       })
-      .then(res => res.viewer?.accounts[0]);
+      .then(res => res.viewer.accounts[0]);
     const workersInvocationsAdaptive =
       account?.workersInvocationsAdaptive.filter(
-        ({ dimensions }) => DateTime.fromISO(`${dimensions?.datetime}`) > workerTime
+        ({ dimensions }) => DateTime.fromISO(`${dimensions.datetime}`) > workerTime
       ) ?? [];
     const r2StorageAdaptiveGroups =
       account?.r2StorageAdaptiveGroups.filter(
-        ({ dimensions }) => DateTime.fromISO(`${dimensions?.datetime}`) > r2StorageTime
+        ({ dimensions }) => DateTime.fromISO(`${dimensions.datetime}`) > r2StorageTime
       ) ?? [];
     const r2OperationsAdaptiveGroups =
       account?.r2OperationsAdaptiveGroups.filter(
-        ({ dimensions }) => DateTime.fromISO(`${dimensions?.datetime}`) > r2OperationTime
+        ({ dimensions }) => DateTime.fromISO(`${dimensions.datetime}`) > r2OperationTime
       ) ?? [];
 
     writeApi.writePoints([
       ...workersInvocationsAdaptive.flatMap(worker => [
         newPoint()
-          .timestamp(DateTime.fromISO(`${worker.dimensions?.datetime}`).toJSDate())
-          .intField('worker_requests_count', worker.sum?.requests)
+          .timestamp(DateTime.fromISO(`${worker.dimensions.datetime}`).toJSDate())
+          .intField('worker_requests_count', worker.sum.requests)
           .tag('zone', zoneName)
-          .tag('script', `${worker.dimensions?.scriptName}`),
+          .tag('script', `${worker.dimensions.scriptName}`),
         newPoint()
-          .timestamp(DateTime.fromISO(`${worker.dimensions?.datetime}`).toJSDate())
-          .intField('worker_errors_count', worker.sum?.errors)
+          .timestamp(DateTime.fromISO(`${worker.dimensions.datetime}`).toJSDate())
+          .intField('worker_errors_count', worker.sum.errors)
           .tag('zone', zoneName)
-          .tag('script', `${worker.dimensions?.scriptName}`),
+          .tag('script', `${worker.dimensions.scriptName}`),
       ]),
       ...r2StorageAdaptiveGroups.flatMap(storage => [
         newPoint()
-          .timestamp(DateTime.fromISO(`${storage.dimensions?.datetime}`).toJSDate())
-          .intField('r2_storage_payload_size', storage.max?.payloadSize)
+          .timestamp(DateTime.fromISO(`${storage.dimensions.datetime}`).toJSDate())
+          .intField('r2_storage_payload_size', storage.max.payloadSize)
           .tag('zone', zoneName)
-          .tag('bucket', `${storage.dimensions?.bucketName}`),
+          .tag('bucket', `${storage.dimensions.bucketName}`),
         newPoint()
-          .timestamp(DateTime.fromISO(`${storage.dimensions?.datetime}`).toJSDate())
-          .intField('r2_storage_metadata_size', storage.max?.metadataSize)
+          .timestamp(DateTime.fromISO(`${storage.dimensions.datetime}`).toJSDate())
+          .intField('r2_storage_metadata_size', storage.max.metadataSize)
           .tag('zone', zoneName)
-          .tag('bucket', `${storage.dimensions?.bucketName}`),
+          .tag('bucket', `${storage.dimensions.bucketName}`),
         newPoint()
-          .timestamp(DateTime.fromISO(`${storage.dimensions?.datetime}`).toJSDate())
-          .intField('r2_storage_upload_count', storage.max?.uploadCount)
+          .timestamp(DateTime.fromISO(`${storage.dimensions.datetime}`).toJSDate())
+          .intField('r2_storage_upload_count', storage.max.uploadCount)
           .tag('zone', zoneName)
-          .tag('bucket', `${storage.dimensions?.bucketName}`),
+          .tag('bucket', `${storage.dimensions.bucketName}`),
         newPoint()
-          .timestamp(DateTime.fromISO(`${storage.dimensions?.datetime}`).toJSDate())
-          .intField('r2_storage_object_count', storage.max?.objectCount)
+          .timestamp(DateTime.fromISO(`${storage.dimensions.datetime}`).toJSDate())
+          .intField('r2_storage_object_count', storage.max.objectCount)
           .tag('zone', zoneName)
-          .tag('bucket', `${storage.dimensions?.bucketName}`),
+          .tag('bucket', `${storage.dimensions.bucketName}`),
       ]),
       ...r2OperationsAdaptiveGroups.flatMap(operation => [
         newPoint()
-          .timestamp(DateTime.fromISO(`${operation.dimensions?.datetime}`).toJSDate())
-          .intField('r2_operation_request', operation.sum?.requests)
+          .timestamp(DateTime.fromISO(`${operation.dimensions.datetime}`).toJSDate())
+          .intField('r2_operation_request', operation.sum.requests)
           .tag('zone', zoneName)
-          .tag('bucket', `${operation.dimensions?.bucketName}`)
-          .tag('action', `${operation.dimensions?.actionType}`),
+          .tag('bucket', `${operation.dimensions.bucketName}`)
+          .tag('action', `${operation.dimensions.actionType}`),
         newPoint()
-          .timestamp(DateTime.fromISO(`${operation.dimensions?.datetime}`).toJSDate())
-          .intField('r2_operation_response_size', operation.sum?.responseObjectSize)
+          .timestamp(DateTime.fromISO(`${operation.dimensions.datetime}`).toJSDate())
+          .intField('r2_operation_response_size', operation.sum.responseObjectSize)
           .tag('zone', zoneName)
-          .tag('bucket', `${operation.dimensions?.bucketName}`)
-          .tag('action', `${operation.dimensions?.actionType}`),
+          .tag('bucket', `${operation.dimensions.bucketName}`)
+          .tag('action', `${operation.dimensions.actionType}`),
       ]),
     ]);
 
     if (workersInvocationsAdaptive.length)
-      workerTime = DateTime.fromISO(`${workersInvocationsAdaptive.pop()?.dimensions?.datetime}`);
+      // eslint-disable-next-line require-atomic-updates
+      workerTime = DateTime.fromISO(`${workersInvocationsAdaptive.pop()?.dimensions.datetime ?? ''}`);
     if (r2StorageAdaptiveGroups.length)
-      r2StorageTime = DateTime.fromISO(`${r2StorageAdaptiveGroups.pop()?.dimensions?.datetime}`);
+      // eslint-disable-next-line require-atomic-updates
+      r2StorageTime = DateTime.fromISO(`${r2StorageAdaptiveGroups.pop()?.dimensions.datetime ?? ''}`);
     if (r2OperationsAdaptiveGroups.length)
-      r2OperationTime = DateTime.fromISO(`${r2OperationsAdaptiveGroups.pop()?.dimensions?.datetime}`);
+      // eslint-disable-next-line require-atomic-updates
+      r2OperationTime = DateTime.fromISO(`${r2OperationsAdaptiveGroups.pop()?.dimensions.datetime ?? ''}`);
   } catch (e) {
     if (e instanceof ClientError) {
       error(e.response.status, e.response.errors);
@@ -448,14 +451,17 @@ async function doTask() {
     }
   } finally {
     setTimeout(() => {
-      doTask();
+      void doTask();
     }, 1000 * 5);
   }
 }
 
 ['SIGTERM', 'SIGINT', 'SIGUSR2'].forEach(signal =>
   process.once(signal, () => {
-    writeApi.close().then(() => exit());
+    writeApi
+      .close()
+      .then(() => exit())
+      .catch(() => exit(1));
   })
 );
 
@@ -463,4 +469,4 @@ async function doTask() {
   process.on(signal, e => error(`Signal: ${signal}\n`, inspect(e, { depth: null })))
 );
 
-doTask();
+await doTask();
