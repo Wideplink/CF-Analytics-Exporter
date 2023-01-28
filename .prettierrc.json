@@ -4,5 +4,6 @@
   "semi": true,
   "arrowParens": "avoid",
   "jsxSingleQuote": true,
-  "printWidth": 110
+  "printWidth": 110,
+  "endOfLine": "auto"
 }
