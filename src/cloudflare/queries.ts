@@ -10379,8 +10379,12 @@ type AccountLogpushHealthAdaptiveGroupsOrderBy =
   | 'sum_records_DESC';
 
 type AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
-  readonly AND: InputMaybe<ReadonlyArray<AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
-  readonly OR: InputMaybe<ReadonlyArray<AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
+  readonly AND: InputMaybe<
+    ReadonlyArray<AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject>
+  >;
+  readonly OR: InputMaybe<
+    ReadonlyArray<AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject>
+  >;
   readonly coloCity: InputMaybe<Scalars['string']>;
   readonly coloCity_geq: InputMaybe<Scalars['string']>;
   readonly coloCity_gt: InputMaybe<Scalars['string']>;
@@ -11511,7 +11515,9 @@ type AccountMagicFirewallSamplesAdaptiveGroupsOrderBy =
   | 'system_DESC';
 
 type AccountMagicTransitNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
-  readonly AND: InputMaybe<ReadonlyArray<AccountMagicTransitNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
+  readonly AND: InputMaybe<
+    ReadonlyArray<AccountMagicTransitNetworkAnalyticsAdaptiveGroupsFilter_InputObject>
+  >;
   readonly OR: InputMaybe<ReadonlyArray<AccountMagicTransitNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly coloCity: InputMaybe<Scalars['string']>;
   readonly coloCity_geq: InputMaybe<Scalars['string']>;
@@ -12562,8 +12568,12 @@ type AccountMagicTransitNetworkAnalyticsAdaptiveGroupsOrderBy =
   | 'verdict_DESC';
 
 type AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject = {
-  readonly AND: InputMaybe<ReadonlyArray<AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject>>;
-  readonly OR: InputMaybe<ReadonlyArray<AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject>>;
+  readonly AND: InputMaybe<
+    ReadonlyArray<AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject>
+  >;
+  readonly OR: InputMaybe<
+    ReadonlyArray<AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject>
+  >;
   readonly datetime: InputMaybe<Scalars['Time']>;
   readonly datetimeFifteenMinutes: InputMaybe<Scalars['Time']>;
   readonly datetimeFifteenMinutes_geq: InputMaybe<Scalars['Time']>;
@@ -26043,276 +26053,468 @@ type FetchZoneAnalyticsQueryVariables = Exact<{
   datetime?: InputMaybe<Scalars['Time']>;
 }>;
 
-
-type FetchZoneAnalyticsQuery = { readonly viewer: { readonly zones: ReadonlyArray<{ readonly httpRequests1mGroups: ReadonlyArray<{ readonly dimensions: { readonly datetime: string }, readonly sum: { readonly bytes: number, readonly cachedBytes: number, readonly cachedRequests: number, readonly encryptedBytes: number, readonly encryptedRequests: number, readonly pageViews: number, readonly requests: number, readonly threats: number, readonly browserMap: ReadonlyArray<{ readonly pageViews: number, readonly uaBrowserFamily: string }>, readonly clientHTTPVersionMap: ReadonlyArray<{ readonly clientHTTPProtocol: string, readonly requests: number }>, readonly clientSSLMap: ReadonlyArray<{ readonly clientSSLProtocol: string, readonly requests: number }>, readonly contentTypeMap: ReadonlyArray<{ readonly bytes: number, readonly edgeResponseContentTypeName: string, readonly requests: number }>, readonly countryMap: ReadonlyArray<{ readonly bytes: number, readonly clientCountryName: string, readonly requests: number, readonly threats: number }>, readonly ipClassMap: ReadonlyArray<{ readonly ipType: string, readonly requests: number }>, readonly responseStatusMap: ReadonlyArray<{ readonly edgeResponseStatus: number, readonly requests: number }>, readonly threatPathingMap: ReadonlyArray<{ readonly requests: number, readonly threatPathingName: string }> }, readonly uniq: { readonly uniques: number } }>, readonly httpRequestsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly sum: { readonly edgeResponseBytes: number, readonly visits: number }, readonly dimensions: { readonly datetime: string, readonly clientRequestHTTPHost: string, readonly clientCountryName: string, readonly cacheStatus: string, readonly edgeResponseStatus: number, readonly edgeResponseContentTypeName: string } }>, readonly healthCheckEventsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly sum: { readonly healthStatus: number }, readonly dimensions: { readonly healthStatus: string, readonly region: string, readonly fqdn: string, readonly datetime: string, readonly rttMs: number } }>, readonly firewallEventsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly dimensions: { readonly source: string, readonly datetime: string, readonly action: string, readonly clientRequestHTTPHost: string, readonly clientCountryName: string, readonly clientRequestHTTPMethodName: string } }> }> } };
+type FetchZoneAnalyticsQuery = {
+  readonly viewer: {
+    readonly zones: ReadonlyArray<{
+      readonly httpRequests1mGroups: ReadonlyArray<{
+        readonly dimensions: { readonly datetime: string };
+        readonly sum: {
+          readonly bytes: number;
+          readonly cachedBytes: number;
+          readonly cachedRequests: number;
+          readonly encryptedBytes: number;
+          readonly encryptedRequests: number;
+          readonly pageViews: number;
+          readonly requests: number;
+          readonly threats: number;
+          readonly browserMap: ReadonlyArray<{
+            readonly pageViews: number;
+            readonly uaBrowserFamily: string;
+          }>;
+          readonly clientHTTPVersionMap: ReadonlyArray<{
+            readonly clientHTTPProtocol: string;
+            readonly requests: number;
+          }>;
+          readonly clientSSLMap: ReadonlyArray<{
+            readonly clientSSLProtocol: string;
+            readonly requests: number;
+          }>;
+          readonly contentTypeMap: ReadonlyArray<{
+            readonly bytes: number;
+            readonly edgeResponseContentTypeName: string;
+            readonly requests: number;
+          }>;
+          readonly countryMap: ReadonlyArray<{
+            readonly bytes: number;
+            readonly clientCountryName: string;
+            readonly requests: number;
+            readonly threats: number;
+          }>;
+          readonly ipClassMap: ReadonlyArray<{ readonly ipType: string; readonly requests: number }>;
+          readonly responseStatusMap: ReadonlyArray<{
+            readonly edgeResponseStatus: number;
+            readonly requests: number;
+          }>;
+          readonly threatPathingMap: ReadonlyArray<{
+            readonly requests: number;
+            readonly threatPathingName: string;
+          }>;
+        };
+        readonly uniq: { readonly uniques: number };
+      }>;
+      readonly httpRequestsAdaptiveGroups: ReadonlyArray<{
+        readonly count: number;
+        readonly sum: { readonly edgeResponseBytes: number; readonly visits: number };
+        readonly dimensions: {
+          readonly datetime: string;
+          readonly clientRequestHTTPHost: string;
+          readonly clientCountryName: string;
+          readonly cacheStatus: string;
+          readonly edgeResponseStatus: number;
+          readonly edgeResponseContentTypeName: string;
+        };
+      }>;
+      readonly healthCheckEventsAdaptiveGroups: ReadonlyArray<{
+        readonly count: number;
+        readonly sum: { readonly healthStatus: number };
+        readonly dimensions: {
+          readonly healthStatus: string;
+          readonly region: string;
+          readonly fqdn: string;
+          readonly datetime: string;
+          readonly rttMs: number;
+        };
+      }>;
+      readonly firewallEventsAdaptiveGroups: ReadonlyArray<{
+        readonly count: number;
+        readonly dimensions: {
+          readonly source: string;
+          readonly datetime: string;
+          readonly action: string;
+          readonly clientRequestHTTPHost: string;
+          readonly clientCountryName: string;
+          readonly clientRequestHTTPMethodName: string;
+        };
+      }>;
+    }>;
+  };
+};
 
 type FetchAccountAnalyticsQueryVariables = Exact<{
   accountTag?: InputMaybe<Scalars['string']>;
   datetime?: InputMaybe<Scalars['Time']>;
 }>;
 
+type FetchAccountAnalyticsQuery = {
+  readonly viewer: {
+    readonly accounts: ReadonlyArray<{
+      readonly workersInvocationsAdaptive: ReadonlyArray<{
+        readonly dimensions: {
+          readonly datetime: string;
+          readonly scriptName: string;
+          readonly status: string;
+        };
+        readonly sum: { readonly duration: number; readonly errors: number; readonly requests: number };
+      }>;
+      readonly r2OperationsAdaptiveGroups: ReadonlyArray<{
+        readonly dimensions: {
+          readonly actionType: string;
+          readonly bucketName: string;
+          readonly datetime: string;
+        };
+        readonly sum: { readonly requests: number; readonly responseObjectSize: number };
+      }>;
+      readonly r2StorageAdaptiveGroups: ReadonlyArray<{
+        readonly dimensions: { readonly bucketName: string; readonly datetime: string };
+        readonly max: {
+          readonly metadataSize: number;
+          readonly objectCount: number;
+          readonly payloadSize: number;
+          readonly uploadCount: number;
+        };
+      }>;
+      readonly rumPageloadEventsAdaptiveGroups: ReadonlyArray<{
+        readonly count: number;
+        readonly sum: { readonly visits: number };
+        readonly dimensions: {
+          readonly countryName: string;
+          readonly date: unknown;
+          readonly deviceType: string;
+          readonly userAgentOS: string;
+          readonly userAgentBrowser: string;
+          readonly requestHost: string;
+        };
+      }>;
+      readonly rumPerformanceEventsAdaptiveGroups: ReadonlyArray<{
+        readonly count: number;
+        readonly sum: { readonly visits: number };
+        readonly dimensions: {
+          readonly countryName: string;
+          readonly date: unknown;
+          readonly deviceType: string;
+          readonly requestHost: string;
+        };
+        readonly avg: {
+          readonly connectionTime: number;
+          readonly dnsTime: number;
+          readonly firstContentfulPaint: number;
+          readonly firstPaint: number;
+          readonly loadEventTime: number;
+          readonly pageLoadTime: number;
+          readonly pageRenderTime: number;
+          readonly requestTime: number;
+          readonly responseTime: number;
+          readonly sampleInterval: number;
+        };
+      }>;
+      readonly rumWebVitalsEventsAdaptiveGroups: ReadonlyArray<{
+        readonly sum: {
+          readonly clsGood: number;
+          readonly clsNeedsImprovement: number;
+          readonly clsPoor: number;
+          readonly clsTotal: number;
+          readonly fidGood: number;
+          readonly fidNeedsImprovement: number;
+          readonly fidPoor: number;
+          readonly fidTotal: number;
+          readonly lcpGood: number;
+          readonly lcpNeedsImprovement: number;
+          readonly lcpPoor: number;
+          readonly lcpTotal: number;
+          readonly visits: number;
+        };
+        readonly dimensions: {
+          readonly countryName: string;
+          readonly date: unknown;
+          readonly userAgentBrowser: string;
+          readonly requestHost: string;
+          readonly largestContentfulPaintElement: string;
+          readonly largestContentfulPaintObjectPath: string;
+          readonly largestContentfulPaintObjectHost: string;
+          readonly largestContentfulPaintPath: string;
+          readonly firstInputDelayElement: string;
+          readonly firstInputDelayName: string;
+          readonly firstInputDelayPath: string;
+          readonly deviceType: string;
+          readonly userAgentOS: string;
+        };
+      }>;
+    }>;
+  };
+};
 
-type FetchAccountAnalyticsQuery = { readonly viewer: { readonly accounts: ReadonlyArray<{ readonly workersInvocationsAdaptive: ReadonlyArray<{ readonly dimensions: { readonly datetime: string, readonly scriptName: string, readonly status: string }, readonly sum: { readonly duration: number, readonly errors: number, readonly requests: number } }>, readonly r2OperationsAdaptiveGroups: ReadonlyArray<{ readonly dimensions: { readonly actionType: string, readonly bucketName: string, readonly datetime: string }, readonly sum: { readonly requests: number, readonly responseObjectSize: number } }>, readonly r2StorageAdaptiveGroups: ReadonlyArray<{ readonly dimensions: { readonly bucketName: string, readonly datetime: string }, readonly max: { readonly metadataSize: number, readonly objectCount: number, readonly payloadSize: number, readonly uploadCount: number } }>, readonly rumPageloadEventsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly sum: { readonly visits: number }, readonly dimensions: { readonly countryName: string, readonly date: unknown, readonly deviceType: string, readonly userAgentOS: string, readonly userAgentBrowser: string, readonly requestHost: string } }>, readonly rumPerformanceEventsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly sum: { readonly visits: number }, readonly dimensions: { readonly countryName: string, readonly date: unknown, readonly deviceType: string, readonly requestHost: string }, readonly avg: { readonly connectionTime: number, readonly dnsTime: number, readonly firstContentfulPaint: number, readonly firstPaint: number, readonly loadEventTime: number, readonly pageLoadTime: number, readonly pageRenderTime: number, readonly requestTime: number, readonly responseTime: number, readonly sampleInterval: number } }>, readonly rumWebVitalsEventsAdaptiveGroups: ReadonlyArray<{ readonly sum: { readonly clsGood: number, readonly clsNeedsImprovement: number, readonly clsPoor: number, readonly clsTotal: number, readonly fidGood: number, readonly fidNeedsImprovement: number, readonly fidPoor: number, readonly fidTotal: number, readonly lcpGood: number, readonly lcpNeedsImprovement: number, readonly lcpPoor: number, readonly lcpTotal: number, readonly visits: number }, readonly dimensions: { readonly countryName: string, readonly date: unknown, readonly userAgentBrowser: string, readonly requestHost: string, readonly largestContentfulPaintElement: string, readonly largestContentfulPaintObjectPath: string, readonly largestContentfulPaintObjectHost: string, readonly largestContentfulPaintPath: string, readonly firstInputDelayElement: string, readonly firstInputDelayName: string, readonly firstInputDelayPath: string, readonly deviceType: string, readonly userAgentOS: string } }> }> } };
-
-
- const FetchZoneAnalyticsDocument = gql`
-    query fetchZoneAnalytics($zoneTag: string = "", $datetime: Time = "") {
-  viewer {
-    zones(filter: {zoneTag: $zoneTag}) {
-      httpRequests1mGroups(
-        filter: {datetime_geq: $datetime}
-        limit: 9999
-        orderBy: [datetime_ASC]
-      ) {
-        dimensions {
-          datetime
-        }
-        sum {
-          browserMap {
+const FetchZoneAnalyticsDocument = gql`
+  query fetchZoneAnalytics($zoneTag: string = "", $datetime: Time = "") {
+    viewer {
+      zones(filter: { zoneTag: $zoneTag }) {
+        httpRequests1mGroups(filter: { datetime_geq: $datetime }, limit: 9999, orderBy: [datetime_ASC]) {
+          dimensions {
+            datetime
+          }
+          sum {
+            browserMap {
+              pageViews
+              uaBrowserFamily
+            }
+            bytes
+            cachedBytes
+            cachedRequests
+            clientHTTPVersionMap {
+              clientHTTPProtocol
+              requests
+            }
+            clientSSLMap {
+              clientSSLProtocol
+              requests
+            }
+            contentTypeMap {
+              bytes
+              edgeResponseContentTypeName
+              requests
+            }
+            countryMap {
+              bytes
+              clientCountryName
+              requests
+              threats
+            }
+            encryptedBytes
+            encryptedRequests
+            ipClassMap {
+              ipType
+              requests
+            }
             pageViews
-            uaBrowserFamily
-          }
-          bytes
-          cachedBytes
-          cachedRequests
-          clientHTTPVersionMap {
-            clientHTTPProtocol
             requests
-          }
-          clientSSLMap {
-            clientSSLProtocol
-            requests
-          }
-          contentTypeMap {
-            bytes
-            edgeResponseContentTypeName
-            requests
-          }
-          countryMap {
-            bytes
-            clientCountryName
-            requests
+            responseStatusMap {
+              edgeResponseStatus
+              requests
+            }
+            threatPathingMap {
+              requests
+              threatPathingName
+            }
             threats
           }
-          encryptedBytes
-          encryptedRequests
-          ipClassMap {
-            ipType
-            requests
+          uniq {
+            uniques
           }
-          pageViews
-          requests
-          responseStatusMap {
+        }
+        httpRequestsAdaptiveGroups(
+          filter: { datetime_geq: $datetime }
+          limit: 9999
+          orderBy: [datetime_ASC]
+        ) {
+          sum {
+            edgeResponseBytes
+            visits
+          }
+          dimensions {
+            datetime
+            clientRequestHTTPHost
+            clientCountryName
+            cacheStatus
             edgeResponseStatus
-            requests
+            edgeResponseContentTypeName
           }
-          threatPathingMap {
-            requests
-            threatPathingName
+          count
+        }
+        healthCheckEventsAdaptiveGroups(
+          filter: { datetime_geq: $datetime }
+          limit: 9999
+          orderBy: [datetime_ASC]
+        ) {
+          sum {
+            healthStatus
           }
-          threats
+          dimensions {
+            healthStatus
+            region
+            fqdn
+            datetime
+            rttMs
+          }
+          count
         }
-        uniq {
-          uniques
-        }
-      }
-      httpRequestsAdaptiveGroups(
-        filter: {datetime_geq: $datetime}
-        limit: 9999
-        orderBy: [datetime_ASC]
-      ) {
-        sum {
-          edgeResponseBytes
-          visits
-        }
-        dimensions {
-          datetime
-          clientRequestHTTPHost
-          clientCountryName
-          cacheStatus
-          edgeResponseStatus
-          edgeResponseContentTypeName
-        }
-        count
-      }
-      healthCheckEventsAdaptiveGroups(
-        filter: {datetime_geq: $datetime}
-        limit: 9999
-        orderBy: [datetime_ASC]
-      ) {
-        sum {
-          healthStatus
-        }
-        dimensions {
-          healthStatus
-          region
-          fqdn
-          datetime
-          rttMs
-        }
-        count
-      }
-      firewallEventsAdaptiveGroups(
-        filter: {datetime_geq: $datetime}
-        limit: 9999
-        orderBy: [datetime_ASC]
-      ) {
-        dimensions {
-          source
-          datetime
-          action
-          clientRequestHTTPHost
-          clientCountryName
-          clientRequestHTTPMethodName
-        }
-        count
-      }
-    }
-  }
-}
-    `;
- const FetchAccountAnalyticsDocument = gql`
-    query fetchAccountAnalytics($accountTag: string = "", $datetime: Time = "") {
-  viewer {
-    accounts(filter: {accountTag: $accountTag}) {
-      workersInvocationsAdaptive(
-        filter: {datetime_geq: $datetime}
-        limit: 9999
-        orderBy: [datetime_ASC]
-      ) {
-        dimensions {
-          datetime
-          scriptName
-          status
-        }
-        sum {
-          duration
-          errors
-          requests
-        }
-      }
-      r2OperationsAdaptiveGroups(
-        filter: {datetime_geq: $datetime}
-        limit: 9999
-        orderBy: [datetime_ASC]
-      ) {
-        dimensions {
-          actionType
-          bucketName
-          datetime
-        }
-        sum {
-          requests
-          responseObjectSize
-        }
-      }
-      r2StorageAdaptiveGroups(
-        filter: {datetime_geq: $datetime}
-        limit: 9999
-        orderBy: [datetime_ASC]
-      ) {
-        dimensions {
-          bucketName
-          datetime
-        }
-        max {
-          metadataSize
-          objectCount
-          payloadSize
-          uploadCount
-        }
-      }
-      rumPageloadEventsAdaptiveGroups(filter: {datetime_geq: $datetime}, limit: 9999) {
-        sum {
-          visits
-        }
-        dimensions {
-          countryName
-          date
-          deviceType
-          userAgentOS
-          userAgentBrowser
-          requestHost
-        }
-        count
-      }
-      rumPerformanceEventsAdaptiveGroups(
-        filter: {datetime_geq: $datetime}
-        limit: 9999
-      ) {
-        sum {
-          visits
-        }
-        dimensions {
-          countryName
-          date
-          deviceType
-          requestHost
-        }
-        count
-        avg {
-          connectionTime
-          dnsTime
-          firstContentfulPaint
-          firstPaint
-          loadEventTime
-          pageLoadTime
-          pageRenderTime
-          requestTime
-          responseTime
-          sampleInterval
-        }
-      }
-      rumWebVitalsEventsAdaptiveGroups(filter: {datetime_geq: $datetime}, limit: 9999) {
-        sum {
-          clsGood
-          clsNeedsImprovement
-          clsPoor
-          clsTotal
-          fidGood
-          fidNeedsImprovement
-          fidPoor
-          fidTotal
-          lcpGood
-          lcpNeedsImprovement
-          lcpPoor
-          lcpTotal
-          visits
-        }
-        dimensions {
-          countryName
-          date
-          userAgentBrowser
-          requestHost
-          largestContentfulPaintElement
-          largestContentfulPaintObjectPath
-          largestContentfulPaintObjectHost
-          largestContentfulPaintPath
-          firstInputDelayElement
-          firstInputDelayName
-          firstInputDelayPath
-          deviceType
-          userAgentOS
+        firewallEventsAdaptiveGroups(
+          filter: { datetime_geq: $datetime }
+          limit: 9999
+          orderBy: [datetime_ASC]
+        ) {
+          dimensions {
+            source
+            datetime
+            action
+            clientRequestHTTPHost
+            clientCountryName
+            clientRequestHTTPMethodName
+          }
+          count
         }
       }
     }
   }
-}
-    `;
+`;
+const FetchAccountAnalyticsDocument = gql`
+  query fetchAccountAnalytics($accountTag: string = "", $datetime: Time = "") {
+    viewer {
+      accounts(filter: { accountTag: $accountTag }) {
+        workersInvocationsAdaptive(
+          filter: { datetime_geq: $datetime }
+          limit: 9999
+          orderBy: [datetime_ASC]
+        ) {
+          dimensions {
+            datetime
+            scriptName
+            status
+          }
+          sum {
+            duration
+            errors
+            requests
+          }
+        }
+        r2OperationsAdaptiveGroups(
+          filter: { datetime_geq: $datetime }
+          limit: 9999
+          orderBy: [datetime_ASC]
+        ) {
+          dimensions {
+            actionType
+            bucketName
+            datetime
+          }
+          sum {
+            requests
+            responseObjectSize
+          }
+        }
+        r2StorageAdaptiveGroups(filter: { datetime_geq: $datetime }, limit: 9999, orderBy: [datetime_ASC]) {
+          dimensions {
+            bucketName
+            datetime
+          }
+          max {
+            metadataSize
+            objectCount
+            payloadSize
+            uploadCount
+          }
+        }
+        rumPageloadEventsAdaptiveGroups(filter: { datetime_geq: $datetime }, limit: 9999) {
+          sum {
+            visits
+          }
+          dimensions {
+            countryName
+            date
+            deviceType
+            userAgentOS
+            userAgentBrowser
+            requestHost
+          }
+          count
+        }
+        rumPerformanceEventsAdaptiveGroups(filter: { datetime_geq: $datetime }, limit: 9999) {
+          sum {
+            visits
+          }
+          dimensions {
+            countryName
+            date
+            deviceType
+            requestHost
+          }
+          count
+          avg {
+            connectionTime
+            dnsTime
+            firstContentfulPaint
+            firstPaint
+            loadEventTime
+            pageLoadTime
+            pageRenderTime
+            requestTime
+            responseTime
+            sampleInterval
+          }
+        }
+        rumWebVitalsEventsAdaptiveGroups(filter: { datetime_geq: $datetime }, limit: 9999) {
+          sum {
+            clsGood
+            clsNeedsImprovement
+            clsPoor
+            clsTotal
+            fidGood
+            fidNeedsImprovement
+            fidPoor
+            fidTotal
+            lcpGood
+            lcpNeedsImprovement
+            lcpPoor
+            lcpTotal
+            visits
+          }
+          dimensions {
+            countryName
+            date
+            userAgentBrowser
+            requestHost
+            largestContentfulPaintElement
+            largestContentfulPaintObjectPath
+            largestContentfulPaintObjectHost
+            largestContentfulPaintPath
+            firstInputDelayElement
+            firstInputDelayName
+            firstInputDelayPath
+            deviceType
+            userAgentOS
+          }
+        }
+      }
+    }
+  }
+`;
 
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
-
+export type SdkFunctionWrapper = <T>(
+  action: (requestHeaders?: Record<string, string>) => Promise<T>,
+  operationName: string,
+  operationType?: string
+) => Promise<T>;
 
 const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    fetchZoneAnalytics(variables?: FetchZoneAnalyticsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<FetchZoneAnalyticsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<FetchZoneAnalyticsQuery>(FetchZoneAnalyticsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'fetchZoneAnalytics', 'query');
+    fetchZoneAnalytics(
+      variables?: FetchZoneAnalyticsQueryVariables,
+      requestHeaders?: Dom.RequestInit['headers']
+    ): Promise<FetchZoneAnalyticsQuery> {
+      return withWrapper(
+        wrappedRequestHeaders =>
+          client.request<FetchZoneAnalyticsQuery>(FetchZoneAnalyticsDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'fetchZoneAnalytics',
+        'query'
+      );
     },
-    fetchAccountAnalytics(variables?: FetchAccountAnalyticsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<FetchAccountAnalyticsQuery> {
-      return withWrapper((wrappedRequestHeaders) => client.request<FetchAccountAnalyticsQuery>(FetchAccountAnalyticsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'fetchAccountAnalytics', 'query');
-    }
+    fetchAccountAnalytics(
+      variables?: FetchAccountAnalyticsQueryVariables,
+      requestHeaders?: Dom.RequestInit['headers']
+    ): Promise<FetchAccountAnalyticsQuery> {
+      return withWrapper(
+        wrappedRequestHeaders =>
+          client.request<FetchAccountAnalyticsQuery>(FetchAccountAnalyticsDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        'fetchAccountAnalytics',
+        'query'
+      );
+    },
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
