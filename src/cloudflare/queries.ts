@@ -3037,6 +3037,10 @@ type AccountDurableObjectsPeriodicGroupsOrderBy =
   | 'sum_cpuTime_ASC'
   /** sum(cpuTime) descending */
   | 'sum_cpuTime_DESC'
+  /** sum(duration) ascending */
+  | 'sum_duration_ASC'
+  /** sum(duration) descending */
+  | 'sum_duration_DESC'
   /** sum(exceededCpuErrors) ascending */
   | 'sum_exceededCpuErrors_ASC'
   /** sum(exceededCpuErrors) descending */
@@ -10375,12 +10379,8 @@ type AccountLogpushHealthAdaptiveGroupsOrderBy =
   | 'sum_records_DESC';
 
 type AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
-  readonly AND: InputMaybe<
-    ReadonlyArray<AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject>
-  >;
-  readonly OR: InputMaybe<
-    ReadonlyArray<AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject>
-  >;
+  readonly AND: InputMaybe<ReadonlyArray<AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
+  readonly OR: InputMaybe<ReadonlyArray<AccountMagicFirewallNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly coloCity: InputMaybe<Scalars['string']>;
   readonly coloCity_geq: InputMaybe<Scalars['string']>;
   readonly coloCity_gt: InputMaybe<Scalars['string']>;
@@ -11511,9 +11511,7 @@ type AccountMagicFirewallSamplesAdaptiveGroupsOrderBy =
   | 'system_DESC';
 
 type AccountMagicTransitNetworkAnalyticsAdaptiveGroupsFilter_InputObject = {
-  readonly AND: InputMaybe<
-    ReadonlyArray<AccountMagicTransitNetworkAnalyticsAdaptiveGroupsFilter_InputObject>
-  >;
+  readonly AND: InputMaybe<ReadonlyArray<AccountMagicTransitNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly OR: InputMaybe<ReadonlyArray<AccountMagicTransitNetworkAnalyticsAdaptiveGroupsFilter_InputObject>>;
   readonly coloCity: InputMaybe<Scalars['string']>;
   readonly coloCity_geq: InputMaybe<Scalars['string']>;
@@ -12564,12 +12562,8 @@ type AccountMagicTransitNetworkAnalyticsAdaptiveGroupsOrderBy =
   | 'verdict_DESC';
 
 type AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject = {
-  readonly AND: InputMaybe<
-    ReadonlyArray<AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject>
-  >;
-  readonly OR: InputMaybe<
-    ReadonlyArray<AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject>
-  >;
+  readonly AND: InputMaybe<ReadonlyArray<AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject>>;
+  readonly OR: InputMaybe<ReadonlyArray<AccountMagicTransitTunnelHealthChecksAdaptiveGroupsFilter_InputObject>>;
   readonly datetime: InputMaybe<Scalars['Time']>;
   readonly datetimeFifteenMinutes: InputMaybe<Scalars['Time']>;
   readonly datetimeFifteenMinutes_geq: InputMaybe<Scalars['Time']>;
@@ -17724,6 +17718,165 @@ type AccountVideoQualityEventsAdaptiveGroupsOrderBy =
   | 'uid_ASC'
   /** uid descending */
   | 'uid_DESC';
+
+type AccountWarpDeviceAdaptiveGroupsFilter_InputObject = {
+  readonly AND: InputMaybe<ReadonlyArray<AccountWarpDeviceAdaptiveGroupsFilter_InputObject>>;
+  readonly OR: InputMaybe<ReadonlyArray<AccountWarpDeviceAdaptiveGroupsFilter_InputObject>>;
+  readonly clientPlatform: InputMaybe<Scalars['string']>;
+  readonly clientPlatform_geq: InputMaybe<Scalars['string']>;
+  readonly clientPlatform_gt: InputMaybe<Scalars['string']>;
+  readonly clientPlatform_in: InputMaybe<ReadonlyArray<Scalars['string']>>;
+  readonly clientPlatform_leq: InputMaybe<Scalars['string']>;
+  readonly clientPlatform_like: InputMaybe<Scalars['string']>;
+  readonly clientPlatform_lt: InputMaybe<Scalars['string']>;
+  readonly clientPlatform_neq: InputMaybe<Scalars['string']>;
+  readonly clientPlatform_notin: InputMaybe<ReadonlyArray<Scalars['string']>>;
+  readonly clientPlatform_notlike: InputMaybe<Scalars['string']>;
+  readonly clientVersion: InputMaybe<Scalars['string']>;
+  readonly clientVersion_geq: InputMaybe<Scalars['string']>;
+  readonly clientVersion_gt: InputMaybe<Scalars['string']>;
+  readonly clientVersion_in: InputMaybe<ReadonlyArray<Scalars['string']>>;
+  readonly clientVersion_leq: InputMaybe<Scalars['string']>;
+  readonly clientVersion_like: InputMaybe<Scalars['string']>;
+  readonly clientVersion_lt: InputMaybe<Scalars['string']>;
+  readonly clientVersion_neq: InputMaybe<Scalars['string']>;
+  readonly clientVersion_notin: InputMaybe<ReadonlyArray<Scalars['string']>>;
+  readonly clientVersion_notlike: InputMaybe<Scalars['string']>;
+  readonly colo: InputMaybe<Scalars['string']>;
+  readonly colo_geq: InputMaybe<Scalars['string']>;
+  readonly colo_gt: InputMaybe<Scalars['string']>;
+  readonly colo_in: InputMaybe<ReadonlyArray<Scalars['string']>>;
+  readonly colo_leq: InputMaybe<Scalars['string']>;
+  readonly colo_like: InputMaybe<Scalars['string']>;
+  readonly colo_lt: InputMaybe<Scalars['string']>;
+  readonly colo_neq: InputMaybe<Scalars['string']>;
+  readonly colo_notin: InputMaybe<ReadonlyArray<Scalars['string']>>;
+  readonly colo_notlike: InputMaybe<Scalars['string']>;
+  readonly date: InputMaybe<Scalars['Date']>;
+  readonly date_geq: InputMaybe<Scalars['Date']>;
+  readonly date_gt: InputMaybe<Scalars['Date']>;
+  readonly date_in: InputMaybe<ReadonlyArray<Scalars['Date']>>;
+  readonly date_leq: InputMaybe<Scalars['Date']>;
+  readonly date_lt: InputMaybe<Scalars['Date']>;
+  readonly date_neq: InputMaybe<Scalars['Date']>;
+  readonly date_notin: InputMaybe<ReadonlyArray<Scalars['Date']>>;
+  readonly datetime: InputMaybe<Scalars['Time']>;
+  readonly datetimeFiveMinute: InputMaybe<Scalars['Time']>;
+  readonly datetimeFiveMinute_geq: InputMaybe<Scalars['Time']>;
+  readonly datetimeFiveMinute_gt: InputMaybe<Scalars['Time']>;
+  readonly datetimeFiveMinute_in: InputMaybe<ReadonlyArray<Scalars['Time']>>;
+  readonly datetimeFiveMinute_leq: InputMaybe<Scalars['Time']>;
+  readonly datetimeFiveMinute_lt: InputMaybe<Scalars['Time']>;
+  readonly datetimeFiveMinute_neq: InputMaybe<Scalars['Time']>;
+  readonly datetimeFiveMinute_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
+  readonly datetimeHour: InputMaybe<Scalars['Time']>;
+  readonly datetimeHour_geq: InputMaybe<Scalars['Time']>;
+  readonly datetimeHour_gt: InputMaybe<Scalars['Time']>;
+  readonly datetimeHour_in: InputMaybe<ReadonlyArray<Scalars['Time']>>;
+  readonly datetimeHour_leq: InputMaybe<Scalars['Time']>;
+  readonly datetimeHour_lt: InputMaybe<Scalars['Time']>;
+  readonly datetimeHour_neq: InputMaybe<Scalars['Time']>;
+  readonly datetimeHour_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
+  readonly datetimeTenMinute: InputMaybe<Scalars['Time']>;
+  readonly datetimeTenMinute_geq: InputMaybe<Scalars['Time']>;
+  readonly datetimeTenMinute_gt: InputMaybe<Scalars['Time']>;
+  readonly datetimeTenMinute_in: InputMaybe<ReadonlyArray<Scalars['Time']>>;
+  readonly datetimeTenMinute_leq: InputMaybe<Scalars['Time']>;
+  readonly datetimeTenMinute_lt: InputMaybe<Scalars['Time']>;
+  readonly datetimeTenMinute_neq: InputMaybe<Scalars['Time']>;
+  readonly datetimeTenMinute_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
+  readonly datetime_geq: InputMaybe<Scalars['Time']>;
+  readonly datetime_gt: InputMaybe<Scalars['Time']>;
+  readonly datetime_in: InputMaybe<ReadonlyArray<Scalars['Time']>>;
+  readonly datetime_leq: InputMaybe<Scalars['Time']>;
+  readonly datetime_lt: InputMaybe<Scalars['Time']>;
+  readonly datetime_neq: InputMaybe<Scalars['Time']>;
+  readonly datetime_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
+  readonly deviceId: InputMaybe<Scalars['string']>;
+  readonly deviceId_geq: InputMaybe<Scalars['string']>;
+  readonly deviceId_gt: InputMaybe<Scalars['string']>;
+  readonly deviceId_in: InputMaybe<ReadonlyArray<Scalars['string']>>;
+  readonly deviceId_leq: InputMaybe<Scalars['string']>;
+  readonly deviceId_like: InputMaybe<Scalars['string']>;
+  readonly deviceId_lt: InputMaybe<Scalars['string']>;
+  readonly deviceId_neq: InputMaybe<Scalars['string']>;
+  readonly deviceId_notin: InputMaybe<ReadonlyArray<Scalars['string']>>;
+  readonly deviceId_notlike: InputMaybe<Scalars['string']>;
+  readonly mode: InputMaybe<Scalars['string']>;
+  readonly mode_geq: InputMaybe<Scalars['string']>;
+  readonly mode_gt: InputMaybe<Scalars['string']>;
+  readonly mode_in: InputMaybe<ReadonlyArray<Scalars['string']>>;
+  readonly mode_leq: InputMaybe<Scalars['string']>;
+  readonly mode_like: InputMaybe<Scalars['string']>;
+  readonly mode_lt: InputMaybe<Scalars['string']>;
+  readonly mode_neq: InputMaybe<Scalars['string']>;
+  readonly mode_notin: InputMaybe<ReadonlyArray<Scalars['string']>>;
+  readonly mode_notlike: InputMaybe<Scalars['string']>;
+  readonly status: InputMaybe<Scalars['string']>;
+  readonly status_geq: InputMaybe<Scalars['string']>;
+  readonly status_gt: InputMaybe<Scalars['string']>;
+  readonly status_in: InputMaybe<ReadonlyArray<Scalars['string']>>;
+  readonly status_leq: InputMaybe<Scalars['string']>;
+  readonly status_like: InputMaybe<Scalars['string']>;
+  readonly status_lt: InputMaybe<Scalars['string']>;
+  readonly status_neq: InputMaybe<Scalars['string']>;
+  readonly status_notin: InputMaybe<ReadonlyArray<Scalars['string']>>;
+  readonly status_notlike: InputMaybe<Scalars['string']>;
+};
+
+type AccountWarpDeviceAdaptiveGroupsOrderBy =
+  /** clientPlatform ascending */
+  | 'clientPlatform_ASC'
+  /** clientPlatform descending */
+  | 'clientPlatform_DESC'
+  /** clientVersion ascending */
+  | 'clientVersion_ASC'
+  /** clientVersion descending */
+  | 'clientVersion_DESC'
+  /** colo ascending */
+  | 'colo_ASC'
+  /** colo descending */
+  | 'colo_DESC'
+  /** count() ascending */
+  | 'count_ASC'
+  /** count() descending */
+  | 'count_DESC'
+  /** date ascending */
+  | 'date_ASC'
+  /** date descending */
+  | 'date_DESC'
+  /** datetimeFiveMinute ascending */
+  | 'datetimeFiveMinute_ASC'
+  /** datetimeFiveMinute descending */
+  | 'datetimeFiveMinute_DESC'
+  /** datetimeHour ascending */
+  | 'datetimeHour_ASC'
+  /** datetimeHour descending */
+  | 'datetimeHour_DESC'
+  /** datetimeTenMinute ascending */
+  | 'datetimeTenMinute_ASC'
+  /** datetimeTenMinute descending */
+  | 'datetimeTenMinute_DESC'
+  /** datetime ascending */
+  | 'datetime_ASC'
+  /** datetime descending */
+  | 'datetime_DESC'
+  /** deviceId ascending */
+  | 'deviceId_ASC'
+  /** deviceId descending */
+  | 'deviceId_DESC'
+  /** mode ascending */
+  | 'mode_ASC'
+  /** mode descending */
+  | 'mode_DESC'
+  /** status ascending */
+  | 'status_ASC'
+  /** status descending */
+  | 'status_DESC'
+  /** uniq(deviceIds) ascending */
+  | 'uniq_deviceIds_ASC'
+  /** uniq(deviceIds) descending */
+  | 'uniq_deviceIds_DESC';
 
 type AccountWorkersAnalyticsEngineAdaptiveGroupsFilter_InputObject = {
   readonly AND: InputMaybe<ReadonlyArray<AccountWorkersAnalyticsEngineAdaptiveGroupsFilter_InputObject>>;
@@ -24785,30 +24938,30 @@ type ZoneWaitingRoomAnalyticsAdaptiveFilter_InputObject = {
   readonly datetime_lt: InputMaybe<Scalars['Time']>;
   readonly datetime_neq: InputMaybe<Scalars['Time']>;
   readonly datetime_notin: InputMaybe<ReadonlyArray<Scalars['Time']>>;
-  readonly maxEstimatedTimeMinutes: InputMaybe<Scalars['uint64']>;
-  readonly maxEstimatedTimeMinutes_geq: InputMaybe<Scalars['uint64']>;
-  readonly maxEstimatedTimeMinutes_gt: InputMaybe<Scalars['uint64']>;
-  readonly maxEstimatedTimeMinutes_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly maxEstimatedTimeMinutes_leq: InputMaybe<Scalars['uint64']>;
-  readonly maxEstimatedTimeMinutes_lt: InputMaybe<Scalars['uint64']>;
-  readonly maxEstimatedTimeMinutes_neq: InputMaybe<Scalars['uint64']>;
-  readonly maxEstimatedTimeMinutes_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly newUsersPerMinute: InputMaybe<Scalars['uint64']>;
-  readonly newUsersPerMinuteConfig: InputMaybe<Scalars['uint64']>;
-  readonly newUsersPerMinuteConfig_geq: InputMaybe<Scalars['uint64']>;
-  readonly newUsersPerMinuteConfig_gt: InputMaybe<Scalars['uint64']>;
-  readonly newUsersPerMinuteConfig_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly newUsersPerMinuteConfig_leq: InputMaybe<Scalars['uint64']>;
-  readonly newUsersPerMinuteConfig_lt: InputMaybe<Scalars['uint64']>;
-  readonly newUsersPerMinuteConfig_neq: InputMaybe<Scalars['uint64']>;
-  readonly newUsersPerMinuteConfig_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly newUsersPerMinute_geq: InputMaybe<Scalars['uint64']>;
-  readonly newUsersPerMinute_gt: InputMaybe<Scalars['uint64']>;
-  readonly newUsersPerMinute_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly newUsersPerMinute_leq: InputMaybe<Scalars['uint64']>;
-  readonly newUsersPerMinute_lt: InputMaybe<Scalars['uint64']>;
-  readonly newUsersPerMinute_neq: InputMaybe<Scalars['uint64']>;
-  readonly newUsersPerMinute_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
+  readonly maxEstimatedTimeMinutes: InputMaybe<Scalars['int64']>;
+  readonly maxEstimatedTimeMinutes_geq: InputMaybe<Scalars['int64']>;
+  readonly maxEstimatedTimeMinutes_gt: InputMaybe<Scalars['int64']>;
+  readonly maxEstimatedTimeMinutes_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly maxEstimatedTimeMinutes_leq: InputMaybe<Scalars['int64']>;
+  readonly maxEstimatedTimeMinutes_lt: InputMaybe<Scalars['int64']>;
+  readonly maxEstimatedTimeMinutes_neq: InputMaybe<Scalars['int64']>;
+  readonly maxEstimatedTimeMinutes_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly newUsersPerMinute: InputMaybe<Scalars['int64']>;
+  readonly newUsersPerMinuteConfig: InputMaybe<Scalars['int64']>;
+  readonly newUsersPerMinuteConfig_geq: InputMaybe<Scalars['int64']>;
+  readonly newUsersPerMinuteConfig_gt: InputMaybe<Scalars['int64']>;
+  readonly newUsersPerMinuteConfig_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly newUsersPerMinuteConfig_leq: InputMaybe<Scalars['int64']>;
+  readonly newUsersPerMinuteConfig_lt: InputMaybe<Scalars['int64']>;
+  readonly newUsersPerMinuteConfig_neq: InputMaybe<Scalars['int64']>;
+  readonly newUsersPerMinuteConfig_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly newUsersPerMinute_geq: InputMaybe<Scalars['int64']>;
+  readonly newUsersPerMinute_gt: InputMaybe<Scalars['int64']>;
+  readonly newUsersPerMinute_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly newUsersPerMinute_leq: InputMaybe<Scalars['int64']>;
+  readonly newUsersPerMinute_lt: InputMaybe<Scalars['int64']>;
+  readonly newUsersPerMinute_neq: InputMaybe<Scalars['int64']>;
+  readonly newUsersPerMinute_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
   readonly sampleInterval: InputMaybe<Scalars['uint32']>;
   readonly sampleInterval_geq: InputMaybe<Scalars['uint32']>;
   readonly sampleInterval_gt: InputMaybe<Scalars['uint32']>;
@@ -24817,166 +24970,166 @@ type ZoneWaitingRoomAnalyticsAdaptiveFilter_InputObject = {
   readonly sampleInterval_lt: InputMaybe<Scalars['uint32']>;
   readonly sampleInterval_neq: InputMaybe<Scalars['uint32']>;
   readonly sampleInterval_notin: InputMaybe<ReadonlyArray<Scalars['uint32']>>;
-  readonly sessionDuration: InputMaybe<Scalars['uint64']>;
-  readonly sessionDuration_geq: InputMaybe<Scalars['uint64']>;
-  readonly sessionDuration_gt: InputMaybe<Scalars['uint64']>;
-  readonly sessionDuration_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly sessionDuration_leq: InputMaybe<Scalars['uint64']>;
-  readonly sessionDuration_lt: InputMaybe<Scalars['uint64']>;
-  readonly sessionDuration_neq: InputMaybe<Scalars['uint64']>;
-  readonly sessionDuration_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeBetweenRefreshesP50: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP50_geq: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP50_gt: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP50_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeBetweenRefreshesP50_leq: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP50_lt: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP50_neq: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP50_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeBetweenRefreshesP75: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP75_geq: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP75_gt: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP75_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeBetweenRefreshesP75_leq: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP75_lt: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP75_neq: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP75_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeBetweenRefreshesP90: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP90_geq: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP90_gt: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP90_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeBetweenRefreshesP90_leq: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP90_lt: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP90_neq: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP90_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeBetweenRefreshesP95: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP95_geq: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP95_gt: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP95_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeBetweenRefreshesP95_leq: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP95_lt: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP95_neq: InputMaybe<Scalars['uint64']>;
-  readonly timeBetweenRefreshesP95_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeInQueueP50: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP50_geq: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP50_gt: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP50_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeInQueueP50_leq: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP50_lt: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP50_neq: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP50_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeInQueueP75: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP75_geq: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP75_gt: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP75_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeInQueueP75_leq: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP75_lt: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP75_neq: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP75_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeInQueueP90: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP90_geq: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP90_gt: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP90_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeInQueueP90_leq: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP90_lt: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP90_neq: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP90_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeInQueueP95: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP95_geq: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP95_gt: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP95_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeInQueueP95_leq: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP95_lt: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP95_neq: InputMaybe<Scalars['uint64']>;
-  readonly timeInQueueP95_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeOnOriginP50: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP50_geq: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP50_gt: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP50_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeOnOriginP50_leq: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP50_lt: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP50_neq: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP50_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeOnOriginP75: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP75_geq: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP75_gt: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP75_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeOnOriginP75_leq: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP75_lt: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP75_neq: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP75_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeOnOriginP90: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP90_geq: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP90_gt: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP90_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeOnOriginP90_leq: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP90_lt: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP90_neq: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP90_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeOnOriginP95: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP95_geq: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP95_gt: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP95_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly timeOnOriginP95_leq: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP95_lt: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP95_neq: InputMaybe<Scalars['uint64']>;
-  readonly timeOnOriginP95_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly totalActiveUsers: InputMaybe<Scalars['uint64']>;
-  readonly totalActiveUsersConfig: InputMaybe<Scalars['uint64']>;
-  readonly totalActiveUsersConfig_geq: InputMaybe<Scalars['uint64']>;
-  readonly totalActiveUsersConfig_gt: InputMaybe<Scalars['uint64']>;
-  readonly totalActiveUsersConfig_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly totalActiveUsersConfig_leq: InputMaybe<Scalars['uint64']>;
-  readonly totalActiveUsersConfig_lt: InputMaybe<Scalars['uint64']>;
-  readonly totalActiveUsersConfig_neq: InputMaybe<Scalars['uint64']>;
-  readonly totalActiveUsersConfig_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly totalActiveUsers_geq: InputMaybe<Scalars['uint64']>;
-  readonly totalActiveUsers_gt: InputMaybe<Scalars['uint64']>;
-  readonly totalActiveUsers_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly totalActiveUsers_leq: InputMaybe<Scalars['uint64']>;
-  readonly totalActiveUsers_lt: InputMaybe<Scalars['uint64']>;
-  readonly totalActiveUsers_neq: InputMaybe<Scalars['uint64']>;
-  readonly totalActiveUsers_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly totalQueuedUsers: InputMaybe<Scalars['uint64']>;
-  readonly totalQueuedUsers_geq: InputMaybe<Scalars['uint64']>;
-  readonly totalQueuedUsers_gt: InputMaybe<Scalars['uint64']>;
-  readonly totalQueuedUsers_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly totalQueuedUsers_leq: InputMaybe<Scalars['uint64']>;
-  readonly totalQueuedUsers_lt: InputMaybe<Scalars['uint64']>;
-  readonly totalQueuedUsers_neq: InputMaybe<Scalars['uint64']>;
-  readonly totalQueuedUsers_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly totalTimeWaitedP50: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP50_geq: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP50_gt: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP50_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly totalTimeWaitedP50_leq: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP50_lt: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP50_neq: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP50_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly totalTimeWaitedP75: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP75_geq: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP75_gt: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP75_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly totalTimeWaitedP75_leq: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP75_lt: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP75_neq: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP75_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly totalTimeWaitedP90: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP90_geq: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP90_gt: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP90_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly totalTimeWaitedP90_leq: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP90_lt: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP90_neq: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP90_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly totalTimeWaitedP95: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP95_geq: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP95_gt: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP95_in: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
-  readonly totalTimeWaitedP95_leq: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP95_lt: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP95_neq: InputMaybe<Scalars['uint64']>;
-  readonly totalTimeWaitedP95_notin: InputMaybe<ReadonlyArray<Scalars['uint64']>>;
+  readonly sessionDuration: InputMaybe<Scalars['int64']>;
+  readonly sessionDuration_geq: InputMaybe<Scalars['int64']>;
+  readonly sessionDuration_gt: InputMaybe<Scalars['int64']>;
+  readonly sessionDuration_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly sessionDuration_leq: InputMaybe<Scalars['int64']>;
+  readonly sessionDuration_lt: InputMaybe<Scalars['int64']>;
+  readonly sessionDuration_neq: InputMaybe<Scalars['int64']>;
+  readonly sessionDuration_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeBetweenRefreshesP50: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP50_geq: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP50_gt: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP50_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeBetweenRefreshesP50_leq: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP50_lt: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP50_neq: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP50_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeBetweenRefreshesP75: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP75_geq: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP75_gt: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP75_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeBetweenRefreshesP75_leq: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP75_lt: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP75_neq: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP75_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeBetweenRefreshesP90: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP90_geq: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP90_gt: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP90_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeBetweenRefreshesP90_leq: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP90_lt: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP90_neq: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP90_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeBetweenRefreshesP95: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP95_geq: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP95_gt: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP95_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeBetweenRefreshesP95_leq: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP95_lt: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP95_neq: InputMaybe<Scalars['int64']>;
+  readonly timeBetweenRefreshesP95_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeInQueueP50: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP50_geq: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP50_gt: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP50_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeInQueueP50_leq: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP50_lt: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP50_neq: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP50_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeInQueueP75: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP75_geq: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP75_gt: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP75_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeInQueueP75_leq: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP75_lt: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP75_neq: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP75_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeInQueueP90: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP90_geq: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP90_gt: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP90_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeInQueueP90_leq: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP90_lt: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP90_neq: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP90_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeInQueueP95: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP95_geq: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP95_gt: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP95_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeInQueueP95_leq: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP95_lt: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP95_neq: InputMaybe<Scalars['int64']>;
+  readonly timeInQueueP95_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeOnOriginP50: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP50_geq: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP50_gt: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP50_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeOnOriginP50_leq: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP50_lt: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP50_neq: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP50_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeOnOriginP75: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP75_geq: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP75_gt: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP75_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeOnOriginP75_leq: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP75_lt: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP75_neq: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP75_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeOnOriginP90: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP90_geq: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP90_gt: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP90_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeOnOriginP90_leq: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP90_lt: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP90_neq: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP90_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeOnOriginP95: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP95_geq: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP95_gt: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP95_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly timeOnOriginP95_leq: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP95_lt: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP95_neq: InputMaybe<Scalars['int64']>;
+  readonly timeOnOriginP95_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly totalActiveUsers: InputMaybe<Scalars['int64']>;
+  readonly totalActiveUsersConfig: InputMaybe<Scalars['int64']>;
+  readonly totalActiveUsersConfig_geq: InputMaybe<Scalars['int64']>;
+  readonly totalActiveUsersConfig_gt: InputMaybe<Scalars['int64']>;
+  readonly totalActiveUsersConfig_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly totalActiveUsersConfig_leq: InputMaybe<Scalars['int64']>;
+  readonly totalActiveUsersConfig_lt: InputMaybe<Scalars['int64']>;
+  readonly totalActiveUsersConfig_neq: InputMaybe<Scalars['int64']>;
+  readonly totalActiveUsersConfig_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly totalActiveUsers_geq: InputMaybe<Scalars['int64']>;
+  readonly totalActiveUsers_gt: InputMaybe<Scalars['int64']>;
+  readonly totalActiveUsers_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly totalActiveUsers_leq: InputMaybe<Scalars['int64']>;
+  readonly totalActiveUsers_lt: InputMaybe<Scalars['int64']>;
+  readonly totalActiveUsers_neq: InputMaybe<Scalars['int64']>;
+  readonly totalActiveUsers_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly totalQueuedUsers: InputMaybe<Scalars['int64']>;
+  readonly totalQueuedUsers_geq: InputMaybe<Scalars['int64']>;
+  readonly totalQueuedUsers_gt: InputMaybe<Scalars['int64']>;
+  readonly totalQueuedUsers_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly totalQueuedUsers_leq: InputMaybe<Scalars['int64']>;
+  readonly totalQueuedUsers_lt: InputMaybe<Scalars['int64']>;
+  readonly totalQueuedUsers_neq: InputMaybe<Scalars['int64']>;
+  readonly totalQueuedUsers_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly totalTimeWaitedP50: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP50_geq: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP50_gt: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP50_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly totalTimeWaitedP50_leq: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP50_lt: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP50_neq: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP50_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly totalTimeWaitedP75: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP75_geq: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP75_gt: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP75_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly totalTimeWaitedP75_leq: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP75_lt: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP75_neq: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP75_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly totalTimeWaitedP90: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP90_geq: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP90_gt: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP90_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly totalTimeWaitedP90_leq: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP90_lt: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP90_neq: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP90_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly totalTimeWaitedP95: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP95_geq: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP95_gt: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP95_in: InputMaybe<ReadonlyArray<Scalars['int64']>>;
+  readonly totalTimeWaitedP95_leq: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP95_lt: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP95_neq: InputMaybe<Scalars['int64']>;
+  readonly totalTimeWaitedP95_notin: InputMaybe<ReadonlyArray<Scalars['int64']>>;
   readonly waitingRoomId: InputMaybe<Scalars['string']>;
   readonly waitingRoomId_geq: InputMaybe<Scalars['string']>;
   readonly waitingRoomId_gt: InputMaybe<Scalars['string']>;
@@ -25259,6 +25412,10 @@ type ZoneWaitingRoomAnalyticsAdaptiveGroupsOrderBy =
   | 'sampleInterval_ASC'
   /** sampleInterval descending */
   | 'sampleInterval_DESC'
+  /** sum(newUsersPerMinute) ascending */
+  | 'sum_newUsersPerMinute_ASC'
+  /** sum(newUsersPerMinute) descending */
+  | 'sum_newUsersPerMinute_DESC'
   /** waitingRoomId ascending */
   | 'waitingRoomId_ASC'
   /** waitingRoomId descending */
@@ -25886,468 +26043,276 @@ type FetchZoneAnalyticsQueryVariables = Exact<{
   datetime?: InputMaybe<Scalars['Time']>;
 }>;
 
-type FetchZoneAnalyticsQuery = {
-  readonly viewer: {
-    readonly zones: ReadonlyArray<{
-      readonly httpRequests1mGroups: ReadonlyArray<{
-        readonly dimensions: { readonly datetime: string };
-        readonly sum: {
-          readonly bytes: number;
-          readonly cachedBytes: number;
-          readonly cachedRequests: number;
-          readonly encryptedBytes: number;
-          readonly encryptedRequests: number;
-          readonly pageViews: number;
-          readonly requests: number;
-          readonly threats: number;
-          readonly browserMap: ReadonlyArray<{
-            readonly pageViews: number;
-            readonly uaBrowserFamily: string;
-          }>;
-          readonly clientHTTPVersionMap: ReadonlyArray<{
-            readonly clientHTTPProtocol: string;
-            readonly requests: number;
-          }>;
-          readonly clientSSLMap: ReadonlyArray<{
-            readonly clientSSLProtocol: string;
-            readonly requests: number;
-          }>;
-          readonly contentTypeMap: ReadonlyArray<{
-            readonly bytes: number;
-            readonly edgeResponseContentTypeName: string;
-            readonly requests: number;
-          }>;
-          readonly countryMap: ReadonlyArray<{
-            readonly bytes: number;
-            readonly clientCountryName: string;
-            readonly requests: number;
-            readonly threats: number;
-          }>;
-          readonly ipClassMap: ReadonlyArray<{ readonly ipType: string; readonly requests: number }>;
-          readonly responseStatusMap: ReadonlyArray<{
-            readonly edgeResponseStatus: number;
-            readonly requests: number;
-          }>;
-          readonly threatPathingMap: ReadonlyArray<{
-            readonly requests: number;
-            readonly threatPathingName: string;
-          }>;
-        };
-        readonly uniq: { readonly uniques: number };
-      }>;
-      readonly httpRequestsAdaptiveGroups: ReadonlyArray<{
-        readonly count: number;
-        readonly sum: { readonly edgeResponseBytes: number; readonly visits: number };
-        readonly dimensions: {
-          readonly datetime: string;
-          readonly clientRequestHTTPHost: string;
-          readonly clientCountryName: string;
-          readonly cacheStatus: string;
-          readonly edgeResponseStatus: number;
-          readonly edgeResponseContentTypeName: string;
-        };
-      }>;
-      readonly healthCheckEventsAdaptiveGroups: ReadonlyArray<{
-        readonly count: number;
-        readonly sum: { readonly healthStatus: number };
-        readonly dimensions: {
-          readonly healthStatus: string;
-          readonly region: string;
-          readonly fqdn: string;
-          readonly datetime: string;
-          readonly rttMs: number;
-        };
-      }>;
-      readonly firewallEventsAdaptiveGroups: ReadonlyArray<{
-        readonly count: number;
-        readonly dimensions: {
-          readonly source: string;
-          readonly datetime: string;
-          readonly action: string;
-          readonly clientRequestHTTPHost: string;
-          readonly clientCountryName: string;
-          readonly clientRequestHTTPMethodName: string;
-        };
-      }>;
-    }>;
-  };
-};
+
+type FetchZoneAnalyticsQuery = { readonly viewer: { readonly zones: ReadonlyArray<{ readonly httpRequests1mGroups: ReadonlyArray<{ readonly dimensions: { readonly datetime: string }, readonly sum: { readonly bytes: number, readonly cachedBytes: number, readonly cachedRequests: number, readonly encryptedBytes: number, readonly encryptedRequests: number, readonly pageViews: number, readonly requests: number, readonly threats: number, readonly browserMap: ReadonlyArray<{ readonly pageViews: number, readonly uaBrowserFamily: string }>, readonly clientHTTPVersionMap: ReadonlyArray<{ readonly clientHTTPProtocol: string, readonly requests: number }>, readonly clientSSLMap: ReadonlyArray<{ readonly clientSSLProtocol: string, readonly requests: number }>, readonly contentTypeMap: ReadonlyArray<{ readonly bytes: number, readonly edgeResponseContentTypeName: string, readonly requests: number }>, readonly countryMap: ReadonlyArray<{ readonly bytes: number, readonly clientCountryName: string, readonly requests: number, readonly threats: number }>, readonly ipClassMap: ReadonlyArray<{ readonly ipType: string, readonly requests: number }>, readonly responseStatusMap: ReadonlyArray<{ readonly edgeResponseStatus: number, readonly requests: number }>, readonly threatPathingMap: ReadonlyArray<{ readonly requests: number, readonly threatPathingName: string }> }, readonly uniq: { readonly uniques: number } }>, readonly httpRequestsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly sum: { readonly edgeResponseBytes: number, readonly visits: number }, readonly dimensions: { readonly datetime: string, readonly clientRequestHTTPHost: string, readonly clientCountryName: string, readonly cacheStatus: string, readonly edgeResponseStatus: number, readonly edgeResponseContentTypeName: string } }>, readonly healthCheckEventsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly sum: { readonly healthStatus: number }, readonly dimensions: { readonly healthStatus: string, readonly region: string, readonly fqdn: string, readonly datetime: string, readonly rttMs: number } }>, readonly firewallEventsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly dimensions: { readonly source: string, readonly datetime: string, readonly action: string, readonly clientRequestHTTPHost: string, readonly clientCountryName: string, readonly clientRequestHTTPMethodName: string } }> }> } };
 
 type FetchAccountAnalyticsQueryVariables = Exact<{
   accountTag?: InputMaybe<Scalars['string']>;
   datetime?: InputMaybe<Scalars['Time']>;
 }>;
 
-type FetchAccountAnalyticsQuery = {
-  readonly viewer: {
-    readonly accounts: ReadonlyArray<{
-      readonly workersInvocationsAdaptive: ReadonlyArray<{
-        readonly dimensions: {
-          readonly datetime: string;
-          readonly scriptName: string;
-          readonly status: string;
-        };
-        readonly sum: { readonly duration: number; readonly errors: number; readonly requests: number };
-      }>;
-      readonly r2OperationsAdaptiveGroups: ReadonlyArray<{
-        readonly dimensions: {
-          readonly actionType: string;
-          readonly bucketName: string;
-          readonly datetime: string;
-        };
-        readonly sum: { readonly requests: number; readonly responseObjectSize: number };
-      }>;
-      readonly r2StorageAdaptiveGroups: ReadonlyArray<{
-        readonly dimensions: { readonly bucketName: string; readonly datetime: string };
-        readonly max: {
-          readonly metadataSize: number;
-          readonly objectCount: number;
-          readonly payloadSize: number;
-          readonly uploadCount: number;
-        };
-      }>;
-      readonly rumPageloadEventsAdaptiveGroups: ReadonlyArray<{
-        readonly count: number;
-        readonly sum: { readonly visits: number };
-        readonly dimensions: {
-          readonly countryName: string;
-          readonly date: unknown;
-          readonly deviceType: string;
-          readonly userAgentOS: string;
-          readonly userAgentBrowser: string;
-          readonly requestHost: string;
-        };
-      }>;
-      readonly rumPerformanceEventsAdaptiveGroups: ReadonlyArray<{
-        readonly count: number;
-        readonly sum: { readonly visits: number };
-        readonly dimensions: {
-          readonly countryName: string;
-          readonly date: unknown;
-          readonly deviceType: string;
-          readonly requestHost: string;
-        };
-        readonly avg: {
-          readonly connectionTime: number;
-          readonly dnsTime: number;
-          readonly firstContentfulPaint: number;
-          readonly firstPaint: number;
-          readonly loadEventTime: number;
-          readonly pageLoadTime: number;
-          readonly pageRenderTime: number;
-          readonly requestTime: number;
-          readonly responseTime: number;
-          readonly sampleInterval: number;
-        };
-      }>;
-      readonly rumWebVitalsEventsAdaptiveGroups: ReadonlyArray<{
-        readonly sum: {
-          readonly clsGood: number;
-          readonly clsNeedsImprovement: number;
-          readonly clsPoor: number;
-          readonly clsTotal: number;
-          readonly fidGood: number;
-          readonly fidNeedsImprovement: number;
-          readonly fidPoor: number;
-          readonly fidTotal: number;
-          readonly lcpGood: number;
-          readonly lcpNeedsImprovement: number;
-          readonly lcpPoor: number;
-          readonly lcpTotal: number;
-          readonly visits: number;
-        };
-        readonly dimensions: {
-          readonly countryName: string;
-          readonly date: unknown;
-          readonly userAgentBrowser: string;
-          readonly requestHost: string;
-          readonly largestContentfulPaintElement: string;
-          readonly largestContentfulPaintObjectPath: string;
-          readonly largestContentfulPaintObjectHost: string;
-          readonly largestContentfulPaintPath: string;
-          readonly firstInputDelayElement: string;
-          readonly firstInputDelayName: string;
-          readonly firstInputDelayPath: string;
-          readonly deviceType: string;
-          readonly userAgentOS: string;
-        };
-      }>;
-    }>;
-  };
-};
 
-const FetchZoneAnalyticsDocument = gql`
-  query fetchZoneAnalytics($zoneTag: string = "", $datetime: Time = "") {
-    viewer {
-      zones(filter: { zoneTag: $zoneTag }) {
-        httpRequests1mGroups(filter: { datetime_geq: $datetime }, limit: 9999, orderBy: [datetime_ASC]) {
-          dimensions {
-            datetime
-          }
-          sum {
-            browserMap {
-              pageViews
-              uaBrowserFamily
-            }
-            bytes
-            cachedBytes
-            cachedRequests
-            clientHTTPVersionMap {
-              clientHTTPProtocol
-              requests
-            }
-            clientSSLMap {
-              clientSSLProtocol
-              requests
-            }
-            contentTypeMap {
-              bytes
-              edgeResponseContentTypeName
-              requests
-            }
-            countryMap {
-              bytes
-              clientCountryName
-              requests
-              threats
-            }
-            encryptedBytes
-            encryptedRequests
-            ipClassMap {
-              ipType
-              requests
-            }
+type FetchAccountAnalyticsQuery = { readonly viewer: { readonly accounts: ReadonlyArray<{ readonly workersInvocationsAdaptive: ReadonlyArray<{ readonly dimensions: { readonly datetime: string, readonly scriptName: string, readonly status: string }, readonly sum: { readonly duration: number, readonly errors: number, readonly requests: number } }>, readonly r2OperationsAdaptiveGroups: ReadonlyArray<{ readonly dimensions: { readonly actionType: string, readonly bucketName: string, readonly datetime: string }, readonly sum: { readonly requests: number, readonly responseObjectSize: number } }>, readonly r2StorageAdaptiveGroups: ReadonlyArray<{ readonly dimensions: { readonly bucketName: string, readonly datetime: string }, readonly max: { readonly metadataSize: number, readonly objectCount: number, readonly payloadSize: number, readonly uploadCount: number } }>, readonly rumPageloadEventsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly sum: { readonly visits: number }, readonly dimensions: { readonly countryName: string, readonly date: unknown, readonly deviceType: string, readonly userAgentOS: string, readonly userAgentBrowser: string, readonly requestHost: string } }>, readonly rumPerformanceEventsAdaptiveGroups: ReadonlyArray<{ readonly count: number, readonly sum: { readonly visits: number }, readonly dimensions: { readonly countryName: string, readonly date: unknown, readonly deviceType: string, readonly requestHost: string }, readonly avg: { readonly connectionTime: number, readonly dnsTime: number, readonly firstContentfulPaint: number, readonly firstPaint: number, readonly loadEventTime: number, readonly pageLoadTime: number, readonly pageRenderTime: number, readonly requestTime: number, readonly responseTime: number, readonly sampleInterval: number } }>, readonly rumWebVitalsEventsAdaptiveGroups: ReadonlyArray<{ readonly sum: { readonly clsGood: number, readonly clsNeedsImprovement: number, readonly clsPoor: number, readonly clsTotal: number, readonly fidGood: number, readonly fidNeedsImprovement: number, readonly fidPoor: number, readonly fidTotal: number, readonly lcpGood: number, readonly lcpNeedsImprovement: number, readonly lcpPoor: number, readonly lcpTotal: number, readonly visits: number }, readonly dimensions: { readonly countryName: string, readonly date: unknown, readonly userAgentBrowser: string, readonly requestHost: string, readonly largestContentfulPaintElement: string, readonly largestContentfulPaintObjectPath: string, readonly largestContentfulPaintObjectHost: string, readonly largestContentfulPaintPath: string, readonly firstInputDelayElement: string, readonly firstInputDelayName: string, readonly firstInputDelayPath: string, readonly deviceType: string, readonly userAgentOS: string } }> }> } };
+
+
+ const FetchZoneAnalyticsDocument = gql`
+    query fetchZoneAnalytics($zoneTag: string = "", $datetime: Time = "") {
+  viewer {
+    zones(filter: {zoneTag: $zoneTag}) {
+      httpRequests1mGroups(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          datetime
+        }
+        sum {
+          browserMap {
             pageViews
+            uaBrowserFamily
+          }
+          bytes
+          cachedBytes
+          cachedRequests
+          clientHTTPVersionMap {
+            clientHTTPProtocol
             requests
-            responseStatusMap {
-              edgeResponseStatus
-              requests
-            }
-            threatPathingMap {
-              requests
-              threatPathingName
-            }
+          }
+          clientSSLMap {
+            clientSSLProtocol
+            requests
+          }
+          contentTypeMap {
+            bytes
+            edgeResponseContentTypeName
+            requests
+          }
+          countryMap {
+            bytes
+            clientCountryName
+            requests
             threats
           }
-          uniq {
-            uniques
+          encryptedBytes
+          encryptedRequests
+          ipClassMap {
+            ipType
+            requests
           }
-        }
-        httpRequestsAdaptiveGroups(
-          filter: { datetime_geq: $datetime }
-          limit: 9999
-          orderBy: [datetime_ASC]
-        ) {
-          sum {
-            edgeResponseBytes
-            visits
-          }
-          dimensions {
-            datetime
-            clientRequestHTTPHost
-            clientCountryName
-            cacheStatus
+          pageViews
+          requests
+          responseStatusMap {
             edgeResponseStatus
-            edgeResponseContentTypeName
+            requests
           }
-          count
+          threatPathingMap {
+            requests
+            threatPathingName
+          }
+          threats
         }
-        healthCheckEventsAdaptiveGroups(
-          filter: { datetime_geq: $datetime }
-          limit: 9999
-          orderBy: [datetime_ASC]
-        ) {
-          sum {
-            healthStatus
-          }
-          dimensions {
-            healthStatus
-            region
-            fqdn
-            datetime
-            rttMs
-          }
-          count
+        uniq {
+          uniques
         }
-        firewallEventsAdaptiveGroups(
-          filter: { datetime_geq: $datetime }
-          limit: 9999
-          orderBy: [datetime_ASC]
-        ) {
-          dimensions {
-            source
-            datetime
-            action
-            clientRequestHTTPHost
-            clientCountryName
-            clientRequestHTTPMethodName
-          }
-          count
+      }
+      httpRequestsAdaptiveGroups(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        sum {
+          edgeResponseBytes
+          visits
+        }
+        dimensions {
+          datetime
+          clientRequestHTTPHost
+          clientCountryName
+          cacheStatus
+          edgeResponseStatus
+          edgeResponseContentTypeName
+        }
+        count
+      }
+      healthCheckEventsAdaptiveGroups(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        sum {
+          healthStatus
+        }
+        dimensions {
+          healthStatus
+          region
+          fqdn
+          datetime
+          rttMs
+        }
+        count
+      }
+      firewallEventsAdaptiveGroups(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          source
+          datetime
+          action
+          clientRequestHTTPHost
+          clientCountryName
+          clientRequestHTTPMethodName
+        }
+        count
+      }
+    }
+  }
+}
+    `;
+ const FetchAccountAnalyticsDocument = gql`
+    query fetchAccountAnalytics($accountTag: string = "", $datetime: Time = "") {
+  viewer {
+    accounts(filter: {accountTag: $accountTag}) {
+      workersInvocationsAdaptive(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          datetime
+          scriptName
+          status
+        }
+        sum {
+          duration
+          errors
+          requests
+        }
+      }
+      r2OperationsAdaptiveGroups(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          actionType
+          bucketName
+          datetime
+        }
+        sum {
+          requests
+          responseObjectSize
+        }
+      }
+      r2StorageAdaptiveGroups(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+        orderBy: [datetime_ASC]
+      ) {
+        dimensions {
+          bucketName
+          datetime
+        }
+        max {
+          metadataSize
+          objectCount
+          payloadSize
+          uploadCount
+        }
+      }
+      rumPageloadEventsAdaptiveGroups(filter: {datetime_geq: $datetime}, limit: 9999) {
+        sum {
+          visits
+        }
+        dimensions {
+          countryName
+          date
+          deviceType
+          userAgentOS
+          userAgentBrowser
+          requestHost
+        }
+        count
+      }
+      rumPerformanceEventsAdaptiveGroups(
+        filter: {datetime_geq: $datetime}
+        limit: 9999
+      ) {
+        sum {
+          visits
+        }
+        dimensions {
+          countryName
+          date
+          deviceType
+          requestHost
+        }
+        count
+        avg {
+          connectionTime
+          dnsTime
+          firstContentfulPaint
+          firstPaint
+          loadEventTime
+          pageLoadTime
+          pageRenderTime
+          requestTime
+          responseTime
+          sampleInterval
+        }
+      }
+      rumWebVitalsEventsAdaptiveGroups(filter: {datetime_geq: $datetime}, limit: 9999) {
+        sum {
+          clsGood
+          clsNeedsImprovement
+          clsPoor
+          clsTotal
+          fidGood
+          fidNeedsImprovement
+          fidPoor
+          fidTotal
+          lcpGood
+          lcpNeedsImprovement
+          lcpPoor
+          lcpTotal
+          visits
+        }
+        dimensions {
+          countryName
+          date
+          userAgentBrowser
+          requestHost
+          largestContentfulPaintElement
+          largestContentfulPaintObjectPath
+          largestContentfulPaintObjectHost
+          largestContentfulPaintPath
+          firstInputDelayElement
+          firstInputDelayName
+          firstInputDelayPath
+          deviceType
+          userAgentOS
         }
       }
     }
   }
-`;
-const FetchAccountAnalyticsDocument = gql`
-  query fetchAccountAnalytics($accountTag: string = "", $datetime: Time = "") {
-    viewer {
-      accounts(filter: { accountTag: $accountTag }) {
-        workersInvocationsAdaptive(
-          filter: { datetime_geq: $datetime }
-          limit: 9999
-          orderBy: [datetime_ASC]
-        ) {
-          dimensions {
-            datetime
-            scriptName
-            status
-          }
-          sum {
-            duration
-            errors
-            requests
-          }
-        }
-        r2OperationsAdaptiveGroups(
-          filter: { datetime_geq: $datetime }
-          limit: 9999
-          orderBy: [datetime_ASC]
-        ) {
-          dimensions {
-            actionType
-            bucketName
-            datetime
-          }
-          sum {
-            requests
-            responseObjectSize
-          }
-        }
-        r2StorageAdaptiveGroups(filter: { datetime_geq: $datetime }, limit: 9999, orderBy: [datetime_ASC]) {
-          dimensions {
-            bucketName
-            datetime
-          }
-          max {
-            metadataSize
-            objectCount
-            payloadSize
-            uploadCount
-          }
-        }
-        rumPageloadEventsAdaptiveGroups(filter: { datetime_geq: $datetime }, limit: 9999) {
-          sum {
-            visits
-          }
-          dimensions {
-            countryName
-            date
-            deviceType
-            userAgentOS
-            userAgentBrowser
-            requestHost
-          }
-          count
-        }
-        rumPerformanceEventsAdaptiveGroups(filter: { datetime_geq: $datetime }, limit: 9999) {
-          sum {
-            visits
-          }
-          dimensions {
-            countryName
-            date
-            deviceType
-            requestHost
-          }
-          count
-          avg {
-            connectionTime
-            dnsTime
-            firstContentfulPaint
-            firstPaint
-            loadEventTime
-            pageLoadTime
-            pageRenderTime
-            requestTime
-            responseTime
-            sampleInterval
-          }
-        }
-        rumWebVitalsEventsAdaptiveGroups(filter: { datetime_geq: $datetime }, limit: 9999) {
-          sum {
-            clsGood
-            clsNeedsImprovement
-            clsPoor
-            clsTotal
-            fidGood
-            fidNeedsImprovement
-            fidPoor
-            fidTotal
-            lcpGood
-            lcpNeedsImprovement
-            lcpPoor
-            lcpTotal
-            visits
-          }
-          dimensions {
-            countryName
-            date
-            userAgentBrowser
-            requestHost
-            largestContentfulPaintElement
-            largestContentfulPaintObjectPath
-            largestContentfulPaintObjectHost
-            largestContentfulPaintPath
-            firstInputDelayElement
-            firstInputDelayName
-            firstInputDelayPath
-            deviceType
-            userAgentOS
-          }
-        }
-      }
-    }
-  }
-`;
+}
+    `;
 
-export type SdkFunctionWrapper = <T>(
-  action: (requestHeaders?: Record<string, string>) => Promise<T>,
-  operationName: string,
-  operationType?: string
-) => Promise<T>;
+export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
+
 
 const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType) => action();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
-    fetchZoneAnalytics(
-      variables?: FetchZoneAnalyticsQueryVariables,
-      requestHeaders?: Dom.RequestInit['headers']
-    ): Promise<FetchZoneAnalyticsQuery> {
-      return withWrapper(
-        wrappedRequestHeaders =>
-          client.request<FetchZoneAnalyticsQuery>(FetchZoneAnalyticsDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'fetchZoneAnalytics',
-        'query'
-      );
+    fetchZoneAnalytics(variables?: FetchZoneAnalyticsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<FetchZoneAnalyticsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<FetchZoneAnalyticsQuery>(FetchZoneAnalyticsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'fetchZoneAnalytics', 'query');
     },
-    fetchAccountAnalytics(
-      variables?: FetchAccountAnalyticsQueryVariables,
-      requestHeaders?: Dom.RequestInit['headers']
-    ): Promise<FetchAccountAnalyticsQuery> {
-      return withWrapper(
-        wrappedRequestHeaders =>
-          client.request<FetchAccountAnalyticsQuery>(FetchAccountAnalyticsDocument, variables, {
-            ...requestHeaders,
-            ...wrappedRequestHeaders,
-          }),
-        'fetchAccountAnalytics',
-        'query'
-      );
-    },
+    fetchAccountAnalytics(variables?: FetchAccountAnalyticsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<FetchAccountAnalyticsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<FetchAccountAnalyticsQuery>(FetchAccountAnalyticsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'fetchAccountAnalytics', 'query');
+    }
   };
 }
 export type Sdk = ReturnType<typeof getSdk>;
